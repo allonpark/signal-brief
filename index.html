@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="반도체 신뢰성, AI, 기술시장을 연결해 읽는 일일 브리핑" />
+  <title>Signal Brief — Daily intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Signal Brief home"><span class="brand-mark"><i></i><i></i><i></i></span><span>signal<span class="brand-dot">.</span>brief</span></a>
+      <nav aria-label="주요 메뉴"><a class="active" href="#today">Today</a><a href="#archive">Archive</a><a href="#about">Method</a></nav>
+      <div class="top-actions"><div class="language-switch" role="group" aria-label="언어 선택"><button class="language active" data-language="ko" aria-label="한국어">🇰🇷</button><button class="language" data-language="en" aria-label="English">🇺🇸</button></div><button class="subscribe" type="button" onclick="document.querySelector('#subscribe').scrollIntoView({behavior:'smooth'})">Brief me <span>↗</span></button></div>
+    </header>
+
+    <main id="top">
+      <section class="masthead" id="today">
+        <div class="eyebrow"><span class="live-dot"></span> Daily intelligence · 10 SEP 2026 · KST</div>
+        <div class="mast-grid">
+          <div><h1>What matters<br><em>today.</em></h1></div>
+          <div class="intro"><p>반도체의 물리, AI의 속도, 시장의 방향을 하나의 시선으로 읽습니다.</p><div class="rule"></div><span>5 stories · balanced signal · deep context</span></div>
+        </div>
+      </section>
+
+      <section class="signal-strip" aria-label="오늘의 브리핑 요약">
+        <div><span class="strip-label">THE SIGNAL</span><strong>공정·모델·자본이 같은 방향으로 움직일 때, 다음 변화는 먼저 보입니다.</strong></div>
+        <div class="strip-meta"><span>Updated 07:42 KST</span><span class="weather-dot"></span><span>5 min read</span></div>
+      </section>
+
+      <section class="briefing-head">
+        <div><span class="section-kicker">01 / THE MORNING EDIT</span><h2>오늘의 5개 신호</h2></div>
+        <div class="filters" role="group" aria-label="분야 필터"><button class="filter active" data-filter="all">All <b>05</b></button><button class="filter" data-filter="semi">Semi <b>02</b></button><button class="filter" data-filter="ai">AI <b>02</b></button><button class="filter" data-filter="market">Market <b>01</b></button></div>
+      </section>
+
+      <section class="feature-grid" aria-label="오늘의 주요 기사">
+        <article class="feature-card story" data-category="semi">
+          <div class="visual visual-chip"><span class="visual-tag">SEMI / 01</span><svg viewBox="0 0 520 280" aria-hidden="true"><path class="trace" d="M0 196h93l26-62h66l22 37h75l30-95h77l27 51h104"/><path class="trace dim" d="M0 221h129l22-38h69l28 35h81l25-63h72l24 31h90"/><rect x="179" y="103" width="164" height="98" rx="10" class="chip-body"/><rect x="201" y="124" width="120" height="57" rx="5" class="chip-core"/><path class="pins" d="M193 119h-24m24 19h-24m24 19h-24m24 19h-24m156-57h24m-24 19h24m-24 19h24m-24 19h24"/></svg><span class="visual-caption">FIELD / TIME / FAILURE</span></div>
+          <div class="story-body"><div class="story-meta"><span class="category semi">SEMICONDUCTOR</span><time>6 min</time></div><h3>스택이 높아질수록, 전압은 같은 속도로 움직이지 않는다</h3><p>VNAND의 channel boosting과 erase transient에서 “인가 전압”과 “실제 채널 전위” 사이의 간극이 다시 핵심 변수가 되고 있다.</p><div class="story-foot"><span>Mechanism · scaling · validation</span><a href="#article-1">Read signal <span>↗</span></a></div></div>
+        </article>
+
+        <article class="story compact story" data-category="ai"><div class="visual visual-ai"><span class="visual-tag">AI / 02</span><svg viewBox="0 0 520 280" aria-hidden="true"><circle cx="260" cy="140" r="83" class="orbit"/><circle cx="260" cy="140" r="35" class="core"/><circle cx="260" cy="57" r="6" class="node"/><circle cx="178" cy="140" r="6" class="node"/><circle cx="342" cy="140" r="6" class="node"/><circle cx="260" cy="223" r="6" class="node"/><path class="orbit-line" d="M260 57v83M178 140h82m82 0h-82m0 0v83"/><path class="signal-line" d="M73 235c41-52 91-74 150-66 37 5 65 27 96 22 41-7 66-62 128-78"/></svg><span class="visual-caption">MODEL / COMPUTE / MOAT</span></div><div class="story-body"><div class="story-meta"><span class="category ai">AI / OPENAI</span><time>5 min</time></div><h3>모델 경쟁의 다음 병목은 파라미터가 아니라 추론 비용</h3><p>더 큰 모델보다 실제 사용량·메모리 대역폭·서비스 단가가 경쟁력을 가르는 구조가 선명해진다.</p><div class="story-foot"><span>Systems view</span><a href="#article-2">Read signal <span>↗</span></a></div></div></article>
+
+        <article class="story compact story" data-category="market"><div class="visual visual-market"><span class="visual-tag">MARKET / 03</span><svg viewBox="0 0 520 280" aria-hidden="true"><path class="gridline" d="M60 60v165M60 225h400M60 115h400M60 170h400"/><path class="market-line" d="M60 198c50 2 62-45 102-32 41 12 45-35 83-28 33 6 43 39 77 15 34-24 45-62 73-42 29 20 35-14 65-34"/><circle cx="460" cy="77" r="6" class="market-node"/></svg><span class="visual-caption">CAPEX / DEMAND / RISK</span></div><div class="story-body"><div class="story-meta"><span class="category market">TECH MARKET</span><time>4 min</time></div><h3>AI 인프라 투자는 공급망의 숫자로 검증된다</h3><p>서버·HBM·전력·패키징의 병목을 함께 봐야 CAPEX 뉴스가 실제 수요인지 구분된다.</p><div class="story-foot"><span>Evidence first</span><a href="#article-3">Read signal <span>↗</span></a></div></div></article>
+
+        <article class="story horizontal story" data-category="semi"><div class="visual visual-oxide"><span class="visual-tag">RELIABILITY / 04</span><svg viewBox="0 0 300 200" aria-hidden="true"><path class="oxide-layer" d="M40 55h220v24H40zM40 87h220v34H40zM40 129h220v16H40z"/><path class="field-arrow" d="M150 22v26m0 124v-20"/><path class="field-arrow" d="M138 36l12-14 12 14m-24 123 12 13 12-13"/><circle cx="106" cy="104" r="5" class="charge"/><circle cx="187" cy="104" r="5" class="charge"/></svg></div><div class="story-body"><div class="story-meta"><span class="category semi">RELIABILITY</span><time>7 min</time></div><h3>AC stress에서 수명이 길어 보여도 β가 말해주는 것은 다를 수 있다</h3><p>평균 수명 이동과 분포 형상 변화는 분리해서 봐야 한다. TDDB 해석의 함정과 검증 포인트.</p><div class="story-foot"><span>Weibull / TDDB</span><a href="#article-4">Read signal <span>↗</span></a></div></div></article>
+
+        <article class="story horizontal story" data-category="ai"><div class="visual visual-agent"><span class="visual-tag">AI / 05</span><svg viewBox="0 0 300 200" aria-hidden="true"><rect x="84" y="54" width="132" height="91" rx="14" class="agent-box"/><circle cx="124" cy="93" r="9" class="agent-eye"/><circle cx="176" cy="93" r="9" class="agent-eye"/><path class="agent-mouth" d="M122 119q28 19 56 0"/><path class="agent-link" d="M84 77H42m174 0h42M84 124H42m174 0h42"/></svg></div><div class="story-body"><div class="story-meta"><span class="category ai">AI SYSTEMS</span><time>5 min</time></div><h3>에이전트의 성능은 모델보다 관측 가능성에서 무너진다</h3><p>도구 호출, 재시도, 비용, 실패 이유를 측정하지 않으면 데모와 운영 사이의 간극을 설명할 수 없다.</p><div class="story-foot"><span>Measure the loop</span><a href="#article-5">Read signal <span>↗</span></a></div></div></article>
+      </section>
+
+      <section class="method-row" id="about"><div><span class="section-kicker">HOW WE READ</span><h2>뉴스를 신호로 바꾸는 법</h2></div><div class="method-copy"><p>헤드라인을 모으는 대신, 무엇이 바뀌었고 그 변화가 어떤 메커니즘으로 확산되는지 추적합니다.</p><div class="method-points"><span><b>01</b> Primary sources</span><span><b>02</b> Mechanism</span><span><b>03</b> Decision impact</span></div></div></section>
+
+      <section class="archive-row" id="archive"><div><span class="section-kicker">RECENT EDITIONS</span><h2>지난 브리핑</h2></div><div class="archive-list"><a href="#"><span>09 SEP 2026</span><strong>속도보다 중요한 것들</strong><i>↗</i></a><a href="#"><span>08 SEP 2026</span><strong>전력·메모리·모델의 삼각형</strong><i>↗</i></a><a href="#"><span>07 SEP 2026</span><strong>신뢰성 데이터의 읽는 순서</strong><i>↗</i></a></div></section>
+    </main>
+
+    <footer id="subscribe"><div class="footer-brand"><span class="brand-mark"><i></i><i></i><i></i></span><span>signal<span class="brand-dot">.</span>brief</span></div><p>Five signals. One clear morning.</p><span class="footer-note">Updated daily · Built for curious engineers</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
