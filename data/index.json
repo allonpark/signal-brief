@@ -1,0 +1,61 @@
+{
+  "date": "2026-09-11",
+  "updated": "09:52 KST",
+  "signal": {
+    "ko": "메모리 이동 비용과 자본 회수 구조가 오늘의 다섯 신호를 관통합니다.",
+    "en": "Memory-movement cost and capital recovery run through today's five signals."
+  },
+  "stories": [
+    {
+      "category": "semi",
+      "title": {"ko": "d-Matrix Raptor, NVLink로 추론 랙의 데이터 이동을 줄인다", "en": "d-Matrix Raptor targets inference data movement with NVLink"},
+      "summary": {"ko": "3D DRAM·SRAM 내연산 가속기가 NVIDIA 랙 패브릭에 들어간다. 2026년 말 테이프아웃, 2027년 4분기 공급이 목표다.", "en": "A 3D-DRAM and in-SRAM compute accelerator is joining NVIDIA's rack fabric, targeting tape-out by year-end 2026 and availability in Q4 2027."},
+      "impact": {"ko": "Bandwidth · thermal · validation", "en": "Bandwidth · thermal · validation"},
+      "read_minutes": 7,
+      "source_url": "https://www.d-matrix.ai/announcements/d-matrix-rackscale-nvidia/",
+      "image_url": "assets/covers/2026-09-11-01.svg"
+    },
+    {
+      "category": "ai",
+      "title": {"ko": "SSD가 저장장치에서 KV 캐시 연산 계층으로 이동한다", "en": "SSDs are moving from storage to a KV-cache compute tier"},
+      "summary": {"ko": "NAND 컨트롤러가 CXL·압축·캐시 관리를 맡는다. 지연 개선과 함께 쓰기 증폭·내구성 검증이 새 병목이다.", "en": "NAND controllers are taking on CXL, compression, and cache management; write amplification and endurance become the new validation bottlenecks."},
+      "impact": {"ko": "KV cache · WAF · TBW", "en": "KV cache · WAF · TBW"},
+      "read_minutes": 6,
+      "source_url": "https://www.trendforce.com/research/download/RP260908ZA",
+      "image_url": "assets/covers/2026-09-11-02.svg"
+    },
+    {
+      "category": "ai",
+      "title": {"ko": "ChatGPT가 금융의 검색·권한·감사 체계를 제품 안으로 묶는다", "en": "ChatGPT brings retrieval, entitlements, and audit controls into finance"},
+      "summary": {"ko": "금융 데이터 구독, 역할 기반 접근, 감사 로그가 리서치·모델링 워크플로에 결합됐다.", "en": "Financial-data subscriptions, role-based access, and audit logs now join the research and modeling workflow."},
+      "impact": {"ko": "RAG · entitlements · audit", "en": "RAG · entitlements · audit"},
+      "read_minutes": 6,
+      "source_url": "https://www.reuters.com/business/openai-launches-chatgpt-financial-services-industry-2026-09-10/",
+      "image_url": "assets/covers/2026-09-11-03.svg"
+    },
+    {
+      "category": "ai",
+      "title": {"ko": "AI 악용은 조언에서 공격 실행·오케스트레이션으로 넘어갔다", "en": "AI misuse has moved from advice to execution and orchestration"},
+      "summary": {"ko": "에이전트가 정찰·피싱·유출·악성코드 재구축을 한 루프로 묶으며 정적 방어의 유효 시간을 줄인다.", "en": "Agents combine reconnaissance, phishing, exfiltration, and malware rebuilding into one loop, shortening the life of static defenses."},
+      "impact": {"ko": "Least privilege · behavior", "en": "Least privilege · behavior"},
+      "read_minutes": 7,
+      "source_url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "image_url": "assets/covers/2026-09-11-04.svg"
+    },
+    {
+      "category": "market",
+      "title": {"ko": "Oracle의 AI 수주 급증, 핵심은 선불·BYOH로 바뀐 자본 구조", "en": "Oracle's AI order surge hinges on prepaid and BYOH capital structure"},
+      "summary": {"ko": "6,640억 달러 수주잔고와 900억~950억 달러 CAPEX를 고객 선불·소유 하드웨어 구조가 일부 지탱한다.", "en": "A $664 billion backlog and $90–95 billion capex plan are partly supported by customer prepayments and customer-owned hardware."},
+      "impact": {"ko": "Backlog · prepay · cash flow", "en": "Backlog · prepay · cash flow"},
+      "read_minutes": 6,
+      "source_url": "https://www.reuters.com/technology/oracles-quarterly-revenue-beats-estimates-ai-boom-drives-cloud-demand-2026-09-10/",
+      "image_url": "assets/covers/2026-09-11-05.svg"
+    }
+  ],
+  "archive": [
+    {"date": "10 SEP 2026", "title": {"ko": "공정·모델·자본의 교차점", "en": "Where process, models, and capital meet"}, "path": "data/briefings/2026-09-10.json"},
+    {"date": "09 SEP 2026", "title": {"ko": "속도보다 중요한 것들", "en": "What matters more than speed"}, "path": "data/briefings/2026-09-09.json"},
+    {"date": "08 SEP 2026", "title": {"ko": "전력·메모리·모델의 삼각형", "en": "The triangle of power, memory, and models"}, "path": "data/briefings/2026-09-08.json"},
+    {"date": "07 SEP 2026", "title": {"ko": "신뢰성 데이터의 읽는 순서", "en": "How to read reliability data"}, "path": "data/briefings/2026-09-07.json"}
+  ]
+}

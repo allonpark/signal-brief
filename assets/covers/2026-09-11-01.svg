@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Raptor inference fabric</title><desc id="d">Abstract technical cover showing stacked memory and linked accelerators.</desc>
+  <rect width="1200" height="675" fill="#16232d"/>
+  <g fill="none" stroke="#d7ff55" stroke-width="7">
+    <rect x="150" y="215" width="250" height="250" rx="18"/><rect x="190" y="175" width="250" height="250" rx="18" opacity=".68"/><rect x="230" y="135" width="250" height="250" rx="18" opacity=".38"/>
+    <path d="M480 300h125c65 0 65-105 130-105h315M480 370h170c65 0 65 105 130 105h270"/>
+  </g>
+  <g fill="#7885ff"><circle cx="785" cy="195" r="25"/><circle cx="830" cy="475" r="25"/><circle cx="1050" cy="195" r="25"/><circle cx="1050" cy="475" r="25"/></g>
+  <text x="80" y="585" fill="#f4f5ef" font-family="ui-monospace, monospace" font-size="31" letter-spacing="5">NVLINK / 3D MEMORY / DECODE</text>
+</svg>

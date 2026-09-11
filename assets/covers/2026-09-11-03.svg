@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">AI for financial services</title><desc id="d">Abstract audited data pipeline flowing into a financial model.</desc>
+  <rect width="1200" height="675" fill="#f8dfc2"/>
+  <g fill="none" stroke="#bb6121" stroke-width="7"><path d="M110 460 300 355l145 50 160-190 160 75 175-150 150 35"/><path d="M110 520h980M110 120v400" opacity=".35"/></g>
+  <g fill="#16232d"><circle cx="300" cy="355" r="18"/><circle cx="605" cy="215" r="18"/><circle cx="940" cy="140" r="18"/></g>
+  <rect x="720" y="355" width="360" height="150" rx="18" fill="#fff" opacity=".78"/>
+  <path d="M765 398h265M765 433h210M765 468h245" stroke="#7885ff" stroke-width="11"/>
+  <text x="80" y="595" fill="#6f3515" font-family="ui-monospace, monospace" font-size="31" letter-spacing="5">RAG / ENTITLEMENTS / AUDIT</text>
+</svg>

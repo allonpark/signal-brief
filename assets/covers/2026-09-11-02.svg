@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Computational storage and KV cache</title><desc id="d">Abstract NAND stacks feeding an AI cache pipeline.</desc>
+  <rect width="1200" height="675" fill="#dbe6ff"/>
+  <g fill="#fff" stroke="#24324a" stroke-width="5">
+    <rect x="100" y="150" width="330" height="74"/><rect x="100" y="246" width="330" height="74"/><rect x="100" y="342" width="330" height="74"/><rect x="100" y="438" width="330" height="74"/>
+  </g>
+  <path d="M460 330h250" stroke="#7683ff" stroke-width="18"/><path d="m685 292 62 38-62 38" fill="#7683ff"/>
+  <rect x="760" y="175" width="300" height="310" rx="40" fill="#16232d"/>
+  <path d="M835 255h150M835 330h150M835 405h150" stroke="#d7ff55" stroke-width="18"/>
+  <text x="80" y="595" fill="#24324a" font-family="ui-monospace, monospace" font-size="31" letter-spacing="5">NAND / CONTROLLER / KV CACHE</text>
+</svg>

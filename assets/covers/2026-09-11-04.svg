@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Agentic cyber threat</title><desc id="d">Abstract network map with a constrained autonomous agent loop.</desc>
+  <rect width="1200" height="675" fill="#e7efc5"/>
+  <g stroke="#16232d" stroke-width="5" fill="none"><circle cx="600" cy="320" r="120"/><path d="M600 200V90M510 240 350 140M480 320H245M510 400 350 515M600 440v130M690 400l165 115M720 320h235M690 240l165-100"/></g>
+  <g fill="#ef7446" stroke="#16232d" stroke-width="4"><circle cx="600" cy="320" r="48"/><circle cx="600" cy="90" r="21"/><circle cx="350" cy="140" r="21"/><circle cx="245" cy="320" r="21"/><circle cx="350" cy="515" r="21"/><circle cx="600" cy="570" r="21"/><circle cx="855" cy="515" r="21"/><circle cx="955" cy="320" r="21"/><circle cx="855" cy="140" r="21"/></g>
+  <text x="80" y="635" fill="#16232d" font-family="ui-monospace, monospace" font-size="31" letter-spacing="5">AGENT / TOOL USE / BEHAVIOR</text>
+</svg>

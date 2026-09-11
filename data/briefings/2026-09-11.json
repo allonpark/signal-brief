@@ -1,0 +1,99 @@
+{
+  "date": "2026-09-11",
+  "updated": "09:52 KST",
+  "editorial_note": {
+    "ko": "오늘의 공통 신호는 메모리 이동 비용과 자본 회수 구조다. 성능 주장은 인터커넥트·캐시·전력·검증 데이터까지 연결해 읽어야 한다.",
+    "en": "Today's common signal is the cost of moving memory and recovering capital. Performance claims must be read through interconnect, cache, power, and validation evidence."
+  },
+  "stories": [
+    {
+      "id": "raptor-nvlink-fusion",
+      "category": "semi",
+      "title": {"ko": "d-Matrix Raptor, NVLink로 추론 랙의 데이터 이동을 줄인다", "en": "d-Matrix Raptor targets inference data movement with NVLink"},
+      "summary": {"ko": "d-Matrix는 3D DRAM과 SRAM 내연산 구조를 결합한 Raptor를 NVIDIA NVLink Fusion 랙에 연결한다. 2026년 말 테이프아웃, 2027년 4분기 초기 공급이 목표다.", "en": "d-Matrix will connect its Raptor accelerator—combining 3D DRAM and in-SRAM compute—to NVIDIA NVLink Fusion racks, targeting tape-out by year-end 2026 and initial availability in Q4 2027."},
+      "mechanism": {"ko": "LLM 디코드는 대개 메모리 대역폭 지배적이다. 근사적으로 토큰 처리량은 유효 메모리 대역폭을 토큰당 이동 바이트로 나눈 값에 비례한다. SRAM 근처 연산과 3D DRAM은 이동 거리와 에너지를 줄이고, NVLink는 가속기 사이 병목을 낮춘다.", "en": "LLM decode is commonly memory-bandwidth bound. As a first-order approximation, token throughput scales with effective memory bandwidth divided by bytes moved per token. Near-SRAM compute and 3D DRAM shorten data movement, while NVLink reduces accelerator-to-accelerator bottlenecks."},
+      "what_changed": {"ko": "독립형 추론 카드에서 NVIDIA의 랙 규모 패브릭에 들어가는 이기종 가속기로 범위가 커졌다. GPU는 프리필, Raptor는 지연 민감 디코드를 맡는 분업 구상이다.", "en": "The scope moves from a stand-alone inference card to a heterogeneous accelerator inside NVIDIA's rack-scale fabric, with GPUs handling prefill and Raptor aimed at latency-sensitive decode."},
+      "practical_impact": {"ko": "2027년 추론 인프라를 설계한다면 GPU 단일 선택이 아니라 프리필/디코드 분리, NVLink 호환성, 3D 적층 열밀도, 수율과 공급 일정을 함께 검토해야 한다.", "en": "For 2027 inference planning, evaluate prefill/decode disaggregation, NVLink compatibility, 3D-stack thermal density, yield, and supply timing—not just the GPU choice."},
+      "evidence": {"ko": "공식 일정과 아키텍처 발표는 확인됐다. 다만 실리콘 벤치마크, 전력 효율, 수율은 아직 공개되지 않아 성능 우위는 검증 대기다.", "en": "The architecture and schedule are officially announced, but silicon benchmarks, power efficiency, and yield are not yet public; performance superiority remains unverified."},
+      "inference": {"ko": "추론 랙이 범용 GPU 중심에서 역할별 가속기 조합으로 이동할 가능성이 커졌다는 해석이다.", "en": "Inference: racks are more likely to shift from GPU-only designs toward role-specific accelerator mixes."},
+      "equation": "tokens/s ∝ effective memory bandwidth ÷ bytes moved per token",
+      "read_minutes": 7,
+      "source_date": "2026-09-10",
+      "source_url": "https://www.d-matrix.ai/announcements/d-matrix-rackscale-nvidia/",
+      "sources": [
+        {"name": "d-Matrix", "url": "https://www.d-matrix.ai/announcements/d-matrix-rackscale-nvidia/"},
+        {"name": "NVIDIA", "url": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion/"},
+        {"name": "Reuters", "url": "https://www.reuters.com/business/media-telecom/chip-startup-d-matrix-use-nvidia-chip-linking-tech-ai-servers-2026-09-10/"}
+      ],
+      "image_url": "assets/covers/2026-09-11-01.svg"
+    },
+    {
+      "id": "nand-controller-cmx",
+      "category": "semi",
+      "title": {"ko": "SSD가 저장장치에서 KV 캐시 연산 계층으로 이동한다", "en": "SSDs are moving from storage to a KV-cache compute tier"},
+      "summary": {"ko": "TrendForce는 NAND 컨트롤러가 CXL 통신·압축·암호화·캐시 관리를 맡으며 AI 추론의 능동형 계층으로 진화하고 있다고 분석했다.", "en": "TrendForce says NAND controllers are evolving into an active AI-inference tier by taking on CXL communication, compression, encryption, and cache management."},
+      "mechanism": {"ko": "HBM/DRAM에 모두 담기 어려운 KV 캐시를 SSD로 내리고 컨트롤러가 관리하면 용량 비용과 호스트 트래픽을 줄일 수 있다. 대신 NAND 지연, 쓰기 증폭, ECC·웨어레벨링, 열 스로틀링이 병목이 된다.", "en": "Spilling KV cache that cannot fit in HBM/DRAM to SSDs can reduce capacity cost and host traffic when the controller manages it. The tradeoffs become NAND latency, write amplification, ECC and wear leveling, and thermal throttling."},
+      "what_changed": {"ko": "컨트롤러의 역할이 블록 주소 변환에서 AI 캐시 관리, 근메모리 연산, 장기적으로 NAND-연산칩 3D 이종집적으로 확장되는 3단계 로드맵이 구체화됐다.", "en": "A three-phase roadmap now extends controllers from block translation to AI cache management, near-memory compute, and eventually 3D heterogeneous NAND/compute integration."},
+      "practical_impact": {"ko": "시스템 검증에는 평균 지연뿐 아니라 p99 토큰 지연, 캐시 적중률, 호스트 쓰기량, WAF, 온도별 성능 저하와 실제 TBW 소모를 포함해야 한다.", "en": "System validation should include p99 token latency, cache hit rate, host writes, write amplification factor, thermal degradation, and actual TBW consumption—not only average latency."},
+      "evidence": {"ko": "2026년 9월 9일 시장 브리핑의 방향성과 단계는 확인됐다. 공개 페이지에는 비교 벤치마크가 없어 '추론 속도·에너지 효율 대폭 향상'은 정량 검증이 필요하다.", "en": "The direction and phases are documented in the September 9 bulletin. No comparative benchmark appears on the public page, so claims of major speed and efficiency gains need quantitative validation."},
+      "inference": {"ko": "스토리지 신뢰성 팀의 업무가 보존 수명 중심에서 실시간 추론 QoS와 내구성의 동시 최적화로 넓어질 가능성이 높다.", "en": "Inference: storage reliability work will likely expand from retention-centric testing to joint optimization of inference QoS and endurance."},
+      "equation": "service life ≈ TBW ÷ (host write rate × write amplification factor)",
+      "read_minutes": 6,
+      "source_date": "2026-09-09",
+      "source_url": "https://www.trendforce.com/research/download/RP260908ZA",
+      "sources": [{"name": "TrendForce", "url": "https://www.trendforce.com/research/download/RP260908ZA"}],
+      "image_url": "assets/covers/2026-09-11-02.svg"
+    },
+    {
+      "id": "openai-financial-services",
+      "category": "ai",
+      "title": {"ko": "ChatGPT가 금융의 검색·권한·감사 체계를 제품 안으로 묶는다", "en": "ChatGPT brings retrieval, entitlements, and audit controls into finance"},
+      "summary": {"ko": "OpenAI는 Morgan Stanley·Evercore와 설계한 금융서비스용 ChatGPT를 공개했다. LSEG News, PitchBook, Daloopa 등 데이터와 기존 금융 구독을 연결해 리서치·모델링·피치북 제작을 지원한다.", "en": "OpenAI introduced ChatGPT for Financial Services, designed with Morgan Stanley and Evercore, linking sources such as LSEG News, PitchBook, and Daloopa with existing financial-data subscriptions for research, modeling, and pitchbooks."},
+      "mechanism": {"ko": "도메인 검색(RAG), 데이터 사용권한, 기업 템플릿, 역할 기반 접근과 감사 로그를 하나의 워크플로로 결합한다. 모델 지식보다 최신 데이터 회수와 출처 추적이 규제 산업의 핵심 제어점이다.", "en": "The product combines domain retrieval, data entitlements, firm templates, role-based access, and audit logs in one workflow. In regulated work, current-data retrieval and provenance matter more than model memory alone."},
+      "what_changed": {"ko": "범용 대화형 도구가 금융기관의 유료 데이터 권한과 문서 제작 절차를 직접 반영하는 수직형 업무 제품으로 전환됐다.", "en": "A general conversational tool has become a vertical workflow product that directly reflects paid-data entitlements and document-production processes."},
+      "practical_impact": {"ko": "도입 평가는 답변 품질만이 아니라 숫자 셀 단위 출처, 시점 일치, 권한 상속, 엑셀 수식 재계산, 감사 로그 보존과 사람 승인 게이트로 해야 한다.", "en": "Evaluation should cover cell-level numerical provenance, as-of-date consistency, entitlement inheritance, spreadsheet recalculation, audit retention, and human approval gates—not answer quality alone."},
+      "evidence": {"ko": "설계 파트너, 데이터 공급자, 암호화·역할 기반 접근·감사 로그 기능은 보도로 확인됐다. 실제 오류율과 금융 모델 정확도에 대한 독립 벤치마크는 공개되지 않았다.", "en": "Design partners, data providers, encryption, role-based access, and audit export are reported. Independent benchmarks for error rates and financial-model accuracy are not public."},
+      "inference": {"ko": "금융 AI의 경쟁 우위는 모델 단독보다 라이선스 데이터, 권한 체계, 검증 가능한 산출물의 결합에서 형성될 가능성이 높다.", "en": "Inference: defensibility in financial AI will likely come from the combination of licensed data, entitlements, and auditable outputs more than the model alone."},
+      "read_minutes": 6,
+      "source_date": "2026-09-10",
+      "source_url": "https://www.reuters.com/business/openai-launches-chatgpt-financial-services-industry-2026-09-10/",
+      "sources": [{"name": "Reuters", "url": "https://www.reuters.com/business/openai-launches-chatgpt-financial-services-industry-2026-09-10/"}],
+      "image_url": "assets/covers/2026-09-11-03.svg"
+    },
+    {
+      "id": "anthropic-threat-intelligence",
+      "category": "ai",
+      "title": {"ko": "AI 악용은 조언에서 공격 실행·오케스트레이션으로 넘어갔다", "en": "AI misuse has moved from advice to execution and orchestration"},
+      "summary": {"ko": "Anthropic은 2025년 12월~2026년 8월 적발 사례를 분석해, 다수 작전에서 AI가 정찰·피싱·지속성·유출·악성코드 재구축을 직접 수행하거나 조율했다고 밝혔다.", "en": "Reviewing disrupted activity from December 2025 through August 2026, Anthropic says AI directly executed or orchestrated reconnaissance, phishing, persistence, exfiltration, and malware rebuilding in many operations."},
+      "mechanism": {"ko": "에이전트가 코드 생성, 셸·브라우저·네트워크 도구 호출, 실패 후 재시도를 한 루프로 묶으면 공격자의 노동·숙련 장벽이 낮아진다. 빠른 변형은 정적 시그니처 방어의 유효 시간을 줄인다.", "en": "When agents combine code generation, shell/browser/network tools, and retries in one loop, they lower labor and skill barriers. Rapid variation shortens the useful life of static signatures."},
+      "what_changed": {"ko": "위험의 중심이 유해 정보 제공 여부에서 실제 도구 실행권과 장기 자율성으로 이동했다. 한 러시아 연계 캠페인은 20개 이상 조직을 표적으로 삼은 것으로 보고됐다.", "en": "The center of risk has shifted from harmful information to real tool permissions and sustained autonomy. One Russia-linked campaign reportedly targeted more than 20 organizations."},
+      "practical_impact": {"ko": "기업 에이전트에는 최소권한 도구 허용목록, 외부 통신 제한, 비밀정보 격리, 행동 기반 탐지, 세션별 비용·속도 한도와 재현 가능한 감사 로그가 필요하다.", "en": "Enterprise agents need least-privilege tool allowlists, outbound-network restrictions, secret isolation, behavioral detection, per-session cost and rate limits, and reproducible audit logs."},
+      "evidence": {"ko": "보고서는 한 사례에서 국가 신원기록 30만 건과 기업기록 50만 건 이상 유출을 기술한다. 다만 공급자가 선별한 적발 사례이므로 전체 악용 빈도나 시장 유병률로 일반화할 수 없다.", "en": "The report describes one case involving exfiltration of 300,000 national identity records and more than 500,000 company records. Because these are vendor-selected disruptions, they cannot establish overall prevalence."},
+      "inference": {"ko": "모델 안전성만 점검하는 평가는 부족하며, 에이전트가 연결된 도구와 네트워크를 포함한 시스템 수준 레드팀이 표준이 되어야 한다.", "en": "Inference: model-only safety testing is insufficient; system-level red teaming must include connected tools and networks."},
+      "read_minutes": 7,
+      "source_date": "2026-09-10",
+      "source_url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "sources": [
+        {"name": "Anthropic", "url": "https://www.anthropic.com/threat-intelligence-report-september-2026"},
+        {"name": "Associated Press", "url": "https://apnews.com/article/00266dca90e4f8853f669648998d3bda"}
+      ],
+      "image_url": "assets/covers/2026-09-11-04.svg"
+    },
+    {
+      "id": "oracle-ai-cloud-economics",
+      "category": "market",
+      "title": {"ko": "Oracle의 AI 수주 급증, 핵심은 선불·BYOH로 바뀐 자본 구조", "en": "Oracle's AI order surge hinges on prepaid and BYOH capital structure"},
+      "summary": {"ko": "Oracle은 300억 달러가 넘는 신규 AI 클라우드 계약과 6,640억 달러 수주잔고를 공개했다. 연간 CAPEX 목표는 900억~950억 달러지만 선불과 고객 소유 하드웨어가 자금 부담을 일부 옮긴다.", "en": "Oracle disclosed more than $30 billion in new AI cloud contracts and a $664 billion backlog. Annual capex is targeted at $90–95 billion, while prepayments and customer-owned hardware shift part of the funding burden."},
+      "mechanism": {"ko": "선불 계약은 운전자본을 앞당기고 BYOH는 서버 자산 위험을 고객에게 분담시킨다. 그러나 전력·부지·상호연결·고객집중 위험은 남으며, 수주잔고는 매출이 아니라 미래 이행 의무다.", "en": "Prepayments pull working capital forward and bring-your-own-hardware shares server-asset risk with customers. Power, site, interconnect, and concentration risk remain, and backlog is a future obligation—not revenue."},
+      "what_changed": {"ko": "수주잔고가 시장 예상 6,398.9억 달러를 웃돌았고, 신규 주문 대부분이 선불 또는 BYOH 구조라는 점이 CAPEX 확대의 질을 바꿨다.", "en": "Backlog exceeded the $639.89 billion consensus, and the fact that most new orders are prepaid or BYOH changes the quality of the capex expansion."},
+      "practical_impact": {"ko": "투자 판단에서는 헤드라인 수주액보다 36개월 내 전환률, 고객 선불로 충당되는 CAPEX 비중, 데이터센터 전력 가동 시점, 고객집중과 잉여현금흐름을 추적해야 한다.", "en": "Investment decisions should track 36-month backlog conversion, the share of capex funded by customer prepayments, power-ready dates, customer concentration, and free cash flow—not headline orders alone."},
+      "evidence": {"ko": "회사 설명상 잔고의 약 절반이 36개월 내 매출로 전환될 전망이다. 1분기 CAPEX 285억 달러 중 113.6억 달러가 고객 선불로 충당됐고, 매출은 193억 달러로 전년 대비 30% 증가했다.", "en": "Oracle expects roughly half the backlog to convert within 36 months. Customer prepayments covered $11.36 billion of $28.50 billion in first-quarter capex, while revenue rose 30% to $19.3 billion."},
+      "inference": {"ko": "AI 클라우드 경쟁의 다음 평가지표는 CAPEX 규모 자체보다 계약이 현금·전력·매출로 전환되는 속도다.", "en": "Inference: the next key AI-cloud metric is the speed at which contracts convert into cash, power availability, and revenue—not capex size alone."},
+      "read_minutes": 6,
+      "source_date": "2026-09-10",
+      "source_url": "https://www.reuters.com/technology/oracles-quarterly-revenue-beats-estimates-ai-boom-drives-cloud-demand-2026-09-10/",
+      "sources": [{"name": "Reuters", "url": "https://www.reuters.com/technology/oracles-quarterly-revenue-beats-estimates-ai-boom-drives-cloud-demand-2026-09-10/"}],
+      "image_url": "assets/covers/2026-09-11-05.svg"
+    }
+  ]
+}
