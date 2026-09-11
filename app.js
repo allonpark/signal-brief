@@ -3,6 +3,7 @@ const state = {
   index: null,
   edition: null,
   selectedDate: null,
+  selectedStory: null,
   cards: [],
   activeFilter: 'all'
 };
@@ -18,7 +19,8 @@ const uiCopy = {
     updated: '업데이트', read: '분', readReport: '리포트 읽기 ↓', source: '원문',
     sections: {summary:'핵심 요약', mechanism:'작동 메커니즘', changed:'무엇이 달라졌나', impact:'실무 영향', evidence:'검증 근거', inference:'해석과 관찰 포인트'},
     empty: '이 날짜의 상세 리포트는 아직 준비되지 않았습니다.', error: '리포트를 불러오지 못했습니다.',
-    latest: '최신판', latestReport: '최신 리포트 보기', archiveEdition: '아카이브 판', newer: '더 새로운 글', older: '더 오래된 글', noNewer: '현재가 최신입니다', noOlder: '이전 기록 없음'
+    latest: '최신판', latestReport: '최신 리포트 보기', archiveEdition: '아카이브 판', newer: '더 새로운 글', older: '더 오래된 글', noNewer: '현재가 최신입니다', noOlder: '이전 기록 없음',
+    storyReport: '기사 심층 분석', allStories: '전체 5개 보기', previousStory: '이전 기사', nextStory: '다음 기사', firstStory: '첫 번째 기사입니다', lastStory: '마지막 기사입니다'
   },
   en: {
     nav: ['Today', 'Full report', 'Archive'], action: 'Full report <span>↓</span>',
@@ -30,7 +32,8 @@ const uiCopy = {
     updated: 'Updated', read: 'min', readReport: 'Read report ↓', source: 'Source',
     sections: {summary:'Signal summary', mechanism:'Underlying mechanism', changed:'What changed', impact:'Practical impact', evidence:'Validation evidence', inference:'Inference and watchpoints'},
     empty: 'A detailed report is not available for this edition yet.', error: 'The report could not be loaded.',
-    latest: 'LATEST', latestReport: 'Read latest report', archiveEdition: 'ARCHIVE EDITION', newer: 'Newer edition', older: 'Older edition', noNewer: 'This is the latest', noOlder: 'No older edition'
+    latest: 'LATEST', latestReport: 'Read latest report', archiveEdition: 'ARCHIVE EDITION', newer: 'Newer edition', older: 'Older edition', noNewer: 'This is the latest', noOlder: 'No older edition',
+    storyReport: 'Story deep dive', allStories: 'View all five', previousStory: 'Previous story', nextStory: 'Next story', firstStory: 'This is the first story', lastStory: 'This is the last story'
   }
 };
 
@@ -50,6 +53,13 @@ function setHtml(selector, value) { const el = document.querySelector(selector);
 function setText(selector, value) { const el = document.querySelector(selector); if (el) el.textContent = value; }
 function setCardText(card, selector, value) { const el = card.querySelector(selector); if (el) el.textContent = value || ''; }
 function isLatest() { return !state.index || state.selectedDate === state.index.date; }
+function editionUrl(storyId = null, hash = 'report') {
+  const params = new URLSearchParams();
+  if (!isLatest()) params.set('date', state.selectedDate);
+  if (storyId) params.set('story', storyId);
+  const query = params.toString();
+  return `${query ? `?${query}` : './'}${hash ? `#${hash}` : ''}`;
+}
 
 function editionEntries() {
   if (!state.index) return [];
@@ -63,14 +73,14 @@ function editionEntries() {
 function renderChrome() {
   const c = uiCopy[state.language]; document.documentElement.lang = state.language;
   const nav = document.querySelectorAll('nav a'); nav.forEach((el, i) => { if (c.nav[i]) el.textContent = c.nav[i]; el.classList.remove('active'); });
-  if (nav[0]) nav[0].href = './'; if (nav[1]) nav[1].href = '#report'; if (nav[2]) nav[2].href = '#archive';
+  if (nav[0]) nav[0].href = './'; if (nav[1]) nav[1].href = editionUrl(null); if (nav[2]) nav[2].href = '#archive';
   (isLatest() ? nav[0] : nav[2])?.classList.add('active');
   const action = document.querySelector('.subscribe');
   if (action) { action.innerHTML = isLatest() ? c.action : `${c.latestReport} <span>→</span>`; action.onclick = () => isLatest() ? document.querySelector('#report').scrollIntoView({behavior:'smooth'}) : location.assign('./'); }
   setHtml('h1', isLatest() ? c.hero : (state.language === 'ko' ? '지나간<br><em>신호 다시 읽기.</em>' : 'Revisit a<br><em>past signal.</em>'));
   setText('.intro p', c.intro); setText('.intro span', c.introMeta);
   setText('.briefing-head h2', isLatest() ? c.briefing : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '브리핑' : 'briefing'}`);
-  setText('.report-title', isLatest() ? c.reportTitle : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '심층 리포트' : 'deep report'}`); setText('.report-intro', c.reportIntro);
+  setText('.report-title', state.selectedStory ? c.storyReport : isLatest() ? c.reportTitle : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '심층 리포트' : 'deep report'}`); setText('.report-intro', c.reportIntro);
   setText('.method-row h2', c.methodTitle); setText('.method-copy p', c.methodCopy); setText('.archive-row h2', c.archiveTitle);
   setText('footer p', c.footer); setText('footer .footer-note', c.footerNote);
   languageButtons.forEach(button => button.classList.toggle('active', button.dataset.language === state.language));
@@ -96,8 +106,11 @@ function renderCards() {
     setCardText(card, '.story-meta time', `${story.read_minutes || 5} ${c.read}`);
     setCardText(card, '.category', categoryNames[story.category]?.[state.language] || story.category.toUpperCase());
     setCardText(card, '.story-foot > span', local(story.impact || story.practical_impact));
-    const link = card.querySelector('.story-foot a'); const id = story.id || `story-${index + 1}`;
-    link.href = `#report-${encodeURIComponent(id)}`; link.textContent = c.readReport;
+    const link = card.querySelector('.story-foot a'); const id = story.id || `story-${index + 1}`; const detailUrl = editionUrl(id);
+    card.dataset.storyId = id; card.dataset.detailUrl = detailUrl; card.tabIndex = 0; card.setAttribute('role', 'link');
+    card.setAttribute('aria-label', `${local(story.title)} — ${c.readReport.replace(' ↓', '')}`);
+    card.classList.toggle('selected', state.selectedStory === id);
+    link.href = detailUrl; link.textContent = c.readReport;
     const visual = card.querySelector('.visual'); let image = visual.querySelector('.story-image');
     if (story.image_url) {
       if (!image) { image = document.createElement('img'); image.className = 'story-image'; visual.appendChild(image); }
@@ -120,16 +133,24 @@ function editionNav(position = '') {
   const side = (entry, cls, label, empty) => entry ? `<a class="${cls}" href="?date=${entry.date}#report"><small>${label}</small>${escapeHtml(dateLabel(entry.date))}</a>` : `<span class="${cls} disabled"><small>${label}</small>${empty}</span>`;
   return `<nav class="edition-nav ${position}" aria-label="${state.language === 'ko' ? '브리핑 날짜 이동' : 'Edition navigation'}">${side(newer,'newer',c.newer,c.noNewer)}<a class="latest-link" href="./">${c.latestReport}</a>${side(older,'older',c.older,c.noOlder)}</nav>`;
 }
+function storyNav(stories, activeIndex, position = '') {
+  const c = uiCopy[state.language]; const previous = activeIndex > 0 ? stories[activeIndex - 1] : null; const next = activeIndex < stories.length - 1 ? stories[activeIndex + 1] : null;
+  const side = (story, cls, label, empty) => story ? `<a class="${cls}" href="${editionUrl(story.id)}"><small>${label}</small>${escapeHtml(local(story.title))}</a>` : `<span class="${cls} disabled"><small>${label}</small>${empty}</span>`;
+  return `<nav class="story-nav ${position}" aria-label="${state.language === 'ko' ? '기사 이동' : 'Story navigation'}">${side(previous,'previous',c.previousStory,c.firstStory)}<a class="all-stories" href="${editionUrl(null)}">← ${c.allStories}</a>${side(next,'next',c.nextStory,c.lastStory)}</nav>`;
+}
 function renderReport() {
   const container = document.querySelector('#report-content'); const c = uiCopy[state.language]; const stories = state.edition?.stories || [];
   if (!stories.length) { container.innerHTML = `${editionNav()}<div class="report-empty-wrap"><p class="report-empty">${escapeHtml(c.empty)}</p><a href="./">${c.latestReport} →</a></div>${editionNav('bottom')}`; return; }
-  const articles = stories.map((story, index) => {
+  const selectedIndex = state.selectedStory ? stories.findIndex(story => story.id === state.selectedStory) : -1;
+  if (state.selectedStory && selectedIndex < 0) state.selectedStory = null;
+  const visibleStories = selectedIndex >= 0 ? [{story: stories[selectedIndex], index:selectedIndex}] : stories.map((story, index) => ({story, index}));
+  const articles = visibleStories.map(({story, index}) => {
     const id = story.id || `story-${index + 1}`;
     const sources = (story.sources?.length ? story.sources : story.source_url ? [{name:c.source,url:story.source_url}] : []).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)} ↗</a>`).join('');
     const image = story.image_url ? `<img src="${escapeHtml(story.image_url)}" alt="" loading="lazy">` : '';
     return `<article class="report-article" id="report-${escapeHtml(id)}"><div class="report-number"><span>${String(index + 1).padStart(2,'0')}</span><b>${escapeHtml(categoryNames[story.category]?.[state.language] || story.category)}</b></div><div class="report-body"><div class="report-article-head"><div><p class="report-date">${escapeHtml(story.source_date || state.edition.date)}</p><h3>${escapeHtml(local(story.title))}</h3></div>${image}</div><div class="analysis-grid">${detailBlock(c.sections.summary, story.summary)}${detailBlock(c.sections.mechanism, story.mechanism)}${detailBlock(c.sections.changed, story.what_changed)}${detailBlock(c.sections.impact, story.practical_impact || story.impact)}${detailBlock(c.sections.evidence, story.evidence)}${detailBlock(c.sections.inference, story.inference)}</div>${story.equation ? `<div class="equation"><span>MODEL</span><code>${escapeHtml(story.equation)}</code></div>` : ''}<div class="report-sources">${sources}</div></div></article>`;
   }).join('');
-  container.innerHTML = `${editionNav()}${articles}${editionNav('bottom')}`;
+  container.innerHTML = selectedIndex >= 0 ? `${storyNav(stories, selectedIndex)}${articles}${storyNav(stories, selectedIndex, 'bottom')}` : `${editionNav()}${articles}${editionNav('bottom')}`;
 }
 
 function renderArchive() {
@@ -147,7 +168,7 @@ function renderAll() { renderChrome(); renderEditionHeader(); renderCards(); ren
 async function fetchJson(url) { const response = await fetch(url, {cache:'no-store'}); if (!response.ok) throw new Error(`${response.status} ${url}`); return response.json(); }
 async function loadSite() {
   try {
-    state.index = await fetchJson('data/index.json'); const requested = new URLSearchParams(location.search).get('date'); state.selectedDate = requested || state.index.date;
+    state.index = await fetchJson('data/index.json'); const params = new URLSearchParams(location.search); const requested = params.get('date'); state.selectedDate = requested || state.index.date; state.selectedStory = params.get('story');
     try { state.edition = await fetchJson(`data/briefings/${state.selectedDate}.json`); }
     catch (editionError) { console.warn(editionError); state.edition = {date:state.selectedDate, stories:[]}; }
     state.cards = state.edition.stories?.length ? state.edition.stories : state.selectedDate === state.index.date ? state.index.stories : [];
@@ -157,4 +178,8 @@ async function loadSite() {
 
 filters.forEach(button => button.addEventListener('click', () => { state.activeFilter = button.dataset.filter; filters.forEach(item => item.classList.toggle('active', item === button)); applyFilter(); }));
 languageButtons.forEach(button => button.addEventListener('click', () => { state.language = button.dataset.language; localStorage.setItem('signal-brief-language', state.language); renderAll(); }));
+cardElements.forEach(card => {
+  card.addEventListener('click', event => { if (!event.target.closest('a,button') && card.dataset.detailUrl) location.assign(card.dataset.detailUrl); });
+  card.addEventListener('keydown', event => { if ((event.key === 'Enter' || event.key === ' ') && card.dataset.detailUrl) { event.preventDefault(); location.assign(card.dataset.detailUrl); } });
+});
 renderChrome(); loadSite();
