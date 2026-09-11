@@ -9,3 +9,10 @@
 국기 버튼으로 한국어와 영어를 전환할 수 있으며, 메인 카드에서 각 기사의 기술 메커니즘, 변화점, 실무 영향과 검증 근거가 포함된 전체 리포트로 이동할 수 있습니다.
 
 Daily editions are stored in `data/briefings/YYYY-MM-DD.json`. The latest edition is selected through `data/index.json`, while previous editions remain available in the archive.
+
+## Archive routing
+
+- Latest edition: `./`
+- Dated edition: `?date=YYYY-MM-DD#report`
+- `data/index.json` is the canonical edition index. Daily updates prepend the previous latest edition to `archive` and preserve every older entry.
+- The site derives Latest/Newer/Older navigation and year groups automatically, so no HTML link editing is required as the archive grows.
