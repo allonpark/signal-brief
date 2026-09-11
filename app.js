@@ -134,8 +134,14 @@ function renderReport() {
 
 function renderArchive() {
   const archive = document.querySelector('.archive-list'); if (!archive || !state.index) return;
-  const c = uiCopy[state.language]; const groups = editionEntries().reduce((map, entry) => { const year = entry.date.slice(0,4); (map[year] ||= []).push(entry); return map; }, {});
-  archive.innerHTML = Object.entries(groups).sort(([a],[b]) => b.localeCompare(a)).map(([year, entries]) => `<section class="archive-year"><h3>${year}</h3><div class="archive-year-links">${entries.map(entry => `<a class="archive-entry ${entry.date === state.selectedDate ? 'current' : ''}" href="${entry.latest ? './' : `?date=${entry.date}#report`}"><span>${escapeHtml(dateLabel(entry.date))}</span><strong>${escapeHtml(local(entry.title))}</strong>${entry.latest ? `<b class="archive-mark latest">${c.latest}</b>` : '<b class="archive-mark">ARCHIVE</b>'}<i>↗</i></a>`).join('')}</div></section>`).join('');
+  const c = uiCopy[state.language]; const selectedYear = state.selectedDate?.slice(0,4); const selectedMonth = state.selectedDate?.slice(0,7);
+  const groups = editionEntries().reduce((map, entry) => { const year = entry.date.slice(0,4); const month = entry.date.slice(0,7); (((map[year] ||= {})[month] ||= [])).push(entry); return map; }, {});
+  const monthName = value => new Date(`${value}-01T00:00:00`).toLocaleDateString(state.language === 'ko' ? 'ko-KR' : 'en-US', {month:'long'});
+  archive.innerHTML = Object.entries(groups).sort(([a],[b]) => b.localeCompare(a)).map(([year, months]) => {
+    const count = Object.values(months).reduce((n, entries) => n + entries.length, 0);
+    const monthHtml = Object.entries(months).sort(([a],[b]) => b.localeCompare(a)).map(([month, entries]) => `<details class="archive-month" ${month === selectedMonth ? 'open' : ''}><summary><span>${escapeHtml(monthName(month))}</span><b>${entries.length}</b></summary><div class="archive-year-links">${entries.map(entry => `<a class="archive-entry ${entry.date === state.selectedDate ? 'current' : ''}" href="${entry.latest ? './' : `?date=${entry.date}#report`}"><span>${escapeHtml(dateLabel(entry.date))}</span><strong>${escapeHtml(local(entry.title))}</strong>${entry.latest ? `<b class="archive-mark latest">${c.latest}</b>` : '<b class="archive-mark">ARCHIVE</b>'}<i>↗</i></a>`).join('')}</div></details>`).join('');
+    return `<details class="archive-year" ${year === selectedYear ? 'open' : ''}><summary><span>${year}</span><b>${count} ${state.language === 'ko' ? '개 리포트' : 'editions'}</b></summary><div class="archive-months">${monthHtml}</div></details>`;
+  }).join('');
 }
 function renderAll() { renderChrome(); renderEditionHeader(); renderCards(); renderReport(); renderArchive(); document.title = `${dateLabel(state.selectedDate)} · Signal Brief`; }
 async function fetchJson(url) { const response = await fetch(url, {cache:'no-store'}); if (!response.ok) throw new Error(`${response.status} ${url}`); return response.json(); }
