@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">High-NA EUV and 12-inch photomask</title><desc id="d">Abstract lithography cover showing a large mask, converging light and dense DRAM lines.</desc>
+  <rect width="1200" height="675" fill="#dce8ff"/>
+  <rect x="90" y="95" width="460" height="250" fill="#18222c" rx="8"/><g fill="#d7f36a"><rect x="135" y="135" width="75" height="75"/><rect x="230" y="135" width="125" height="35"/><rect x="375" y="135" width="130" height="75"/><rect x="135" y="230" width="160" height="70"/><rect x="315" y="190" width="40" height="110"/><rect x="375" y="230" width="130" height="70"/></g>
+  <g stroke="#6f7cff" stroke-width="6" fill="none"><path d="M150 385L470 520M490 385L470 520M310 385L470 520"/><path d="M470 520h600"/></g>
+  <g fill="#18222c"><rect x="600" y="445" width="18" height="110"/><rect x="645" y="425" width="18" height="130"/><rect x="690" y="455" width="18" height="100"/><rect x="735" y="415" width="18" height="140"/><rect x="780" y="445" width="18" height="110"/><rect x="825" y="425" width="18" height="130"/><rect x="870" y="455" width="18" height="100"/><rect x="915" y="415" width="18" height="140"/></g>
+  <text x="690" y="170" fill="#18222c" font-family="ui-monospace,monospace" font-size="31" letter-spacing="5">NA = 0.55</text><text x="690" y="220" fill="#65729d" font-family="ui-monospace,monospace" font-size="23" letter-spacing="3">12-INCH MASK</text><text x="80" y="620" fill="#18222c" font-family="ui-monospace,monospace" font-size="28" letter-spacing="4">RESOLUTION / DOF / STITCHING</text>
+</svg>

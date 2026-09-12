@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">OpenAI Habitat storage at scale</title><desc id="d">Abstract systems cover showing distributed storage nodes, request flow and tail latency.</desc>
+  <rect width="1200" height="675" fill="#e8f0c8"/>
+  <g stroke="#18222c" stroke-width="5" fill="#fff"><rect x="105" y="120" width="220" height="120" rx="10"/><rect x="105" y="285" width="220" height="120" rx="10"/><rect x="105" y="450" width="220" height="120" rx="10"/><rect x="490" y="200" width="260" height="290" rx="18" fill="#18222c"/><rect x="920" y="120" width="170" height="120" rx="10"/><rect x="920" y="285" width="170" height="120" rx="10"/><rect x="920" y="450" width="170" height="120" rx="10"/></g>
+  <g stroke="#6f7cff" stroke-width="7" fill="none"><path d="M325 180h165M325 345h165M325 510h165M750 260h170M750 345h170M750 430h170"/></g>
+  <g fill="#d7f36a"><circle cx="620" cy="270" r="35"/><circle cx="620" cy="350" r="35"/><circle cx="620" cy="430" r="35"/></g>
+  <text x="545" y="165" fill="#f5f5ee" font-family="ui-monospace,monospace" font-size="26" letter-spacing="4">HABITAT</text><text x="410" y="595" fill="#18222c" font-family="ui-monospace,monospace" font-size="24" letter-spacing="4">70M RPS / 500 PB / p99</text>
+</svg>

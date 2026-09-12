@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Frontier AI pace control</title><desc id="d">Abstract governance cover showing capability and control trajectories approaching a safety boundary.</desc>
+  <rect width="1200" height="675" fill="#dfd6ff"/>
+  <g stroke="#18222c" stroke-width="4"><path d="M120 525H1090M150 560V90"/><path d="M180 475C340 445 450 360 600 290S860 180 1050 125" fill="none"/><path d="M180 505C390 490 560 445 700 365S900 245 1050 230" fill="none" stroke="#6f7cff" stroke-width="9"/></g>
+  <path d="M150 150H1080" stroke="#ff6b6b" stroke-width="5" stroke-dasharray="14 12"/><circle cx="890" cy="220" r="20" fill="#d7f36a" stroke="#18222c" stroke-width="4"/><path d="M890 200V150" stroke="#18222c" stroke-width="4"/>
+  <text x="180" y="450" fill="#18222c" font-family="ui-monospace,monospace" font-size="23">CONTROL K</text><text x="700" y="300" fill="#18222c" font-family="ui-monospace,monospace" font-size="23">CAPABILITY C</text><text x="720" y="125" fill="#b53c3c" font-family="ui-monospace,monospace" font-size="22">RELEASE GATE</text><text x="80" y="620" fill="#18222c" font-family="ui-monospace,monospace" font-size="28" letter-spacing="4">SAFETY MARGIN S = K − C</text>
+</svg>
