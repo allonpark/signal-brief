@@ -1,0 +1,67 @@
+version: 1
+policy: quality_first
+objective:
+  primary: physics_answer_quality
+  secondary: [evidence_integrity, reproducibility, latency, cost, token_efficiency]
+
+protected_evidence:
+  never_compress:
+    - numbers
+    - units
+    - equations
+    - voltage_bias
+    - temperature
+    - time_duration
+    - geometry_dimensions
+    - material_names
+    - process_conditions
+    - negation
+    - comparative_statements
+    - tables
+    - figure_captions
+    - measurement_conditions
+    - citations
+
+routing:
+  low_risk:
+    tasks: [formatting, translation, metadata_extraction, deduplication, basic_classification]
+    tier: economy
+  technical:
+    tasks: [single_mechanism_explanation, factual_paper_extraction, standard_engineering_summary]
+    tier: strong
+    reasoning_effort: high
+  complex_physics:
+    triggers:
+      - competing_mechanisms_gte_2
+      - coupled_physics
+      - novel_failure_hypothesis
+      - cross_paper_synthesis
+      - reliability_doe
+      - model_derivation
+      - high_consequence_engineering_decision
+    tier: frontier_reasoning
+    reasoning_effort: high_or_higher
+    require_critic: true
+    require_deterministic_math: true
+
+compression:
+  default: section_first
+  token_compression: optional
+  disable_when:
+    - high_information_density
+    - table_or_supplementary_data
+    - critical_numeric_conditions
+    - uncertainty_about_information_loss
+  target: maximize_context_snr
+
+quality_gates:
+  - input_integrity
+  - physics_consistency
+  - competing_mechanism_check
+  - numerical_and_unit_verification
+  - evidence_consistency
+  - boundary_and_sensitivity_check
+
+uncertainty:
+  allow_insufficient_evidence: true
+  require_discriminating_experiment_when_ambiguous: true

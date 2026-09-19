@@ -1,0 +1,36 @@
+version: 1
+promotion_policy:
+  auto_promote_new_models: false
+  require_shadow_evaluation: true
+  require_no_critical_regression: true
+  require_physics_golden_set: true
+
+capability_tiers:
+  economy:
+    allowed_for: [routing, classification, extraction, deduplication, formatting]
+    forbidden_for: [final_complex_physics_conclusion]
+  strong:
+    allowed_for: [technical_summary, single_mechanism_reasoning, standard_analysis]
+  frontier_reasoning:
+    allowed_for: [complex_physics, competing_mechanisms, research_synthesis, doe_design, novel_hypotheses, critical_decisions]
+
+new_model_admission:
+  evaluate:
+    - semiconductor_physics_accuracy
+    - numerical_correctness
+    - unit_and_condition_retention
+    - competing_mechanism_reasoning
+    - long_context_retrieval
+    - cross_document_synthesis
+    - uncertainty_calibration
+    - citation_faithfulness
+    - latency
+    - cost
+  hard_gates:
+    deterministic_math_errors: 0
+    critical_condition_retention: 1.0
+    no_material_regression_on_any_critical_domain: true
+  decision:
+    - shadow_only_until_pass
+    - promote_by_task_capability_not_global_rank
+    - rollback_on_regression
