@@ -1,0 +1,42 @@
+version: 1
+name: physics-golden-set
+status: scaffold
+domains:
+  - VNAND
+  - HV_device
+  - TDDB
+  - GIDL
+  - HCI
+  - NBTI
+  - BEOL_M2M
+  - Weibull_statistics
+  - materials_W_TiN_WN_Mo
+  - coupled_electrical_thermal_structural_physics
+
+case_schema:
+  id: string
+  question: string
+  source_context: optional
+  protected_facts:
+    - numbers
+    - units
+    - bias_conditions
+    - temperatures
+    - times
+    - geometries
+    - materials
+  expected:
+    causal_chain: required
+    equations: optional
+    competing_mechanisms: required_for_analysis
+    dominance_boundaries: required_for_analysis
+    observable_signatures: required
+    discriminating_doe: required_when_ambiguous
+    uncertainty: required
+  scoring:
+    physics_correctness: 0_to_5
+    evidence_fidelity: 0_to_5
+    numerical_correctness: pass_fail
+    competing_mechanism_coverage: 0_to_5
+    boundary_condition_quality: 0_to_5
+    experimental_verifiability: 0_to_5
