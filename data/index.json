@@ -1,63 +1,64 @@
 {
-  "date": "2026-09-12",
-  "updated": "09:45 KST",
+  "date": "2026-09-20",
+  "updated": "18:10 KST",
   "signal": {
-    "ko": "병목은 소자·모델 자체에서 공정 손상, 인프라, 통제와 자본 구조로 이동하고 있습니다.",
-    "en": "Bottlenecks are moving from devices and models themselves to process damage, infrastructure, control, and capital structure."
+    "ko": "성능 숫자보다 공정 오차, 검색 근거, 권한 경계와 보증 구조를 함께 읽어야 합니다.",
+    "en": "Performance numbers now need to be read alongside process error, retrieval evidence, permission boundaries, and guarantee structures."
   },
   "stories": [
     {
-      "id": "mim-tddb-plasma-damage",
+      "id": "cxmt-gen5-lpddr5x-mass-production",
       "category": "semi",
-      "title": {"ko": "MIM TDDB 수명, 유전체보다 상부전극 식각 플라즈마가 먼저 결정했다", "en": "MIM TDDB lifetime was set first by top-electrode plasma damage"},
-      "summary": {"ko": "TCP·bias RF 최적화로 plasma-induced damage를 줄여 사용조건 환산 수명을 10년 미만에서 50년 이상으로 높였다.", "en": "Tuning TCP and bias RF reduced plasma-induced damage and raised projected use-condition lifetime from under 10 years to over 50."},
-      "impact": {"ko": "PID · Weibull tail · etch DOE", "en": "PID · Weibull tail · etch DOE"},
-      "read_minutes": 8,
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0026271426002337",
-      "image_url": "assets/covers/2026-09-12-01.svg"
-    },
-    {
-      "id": "high-na-euv-dram-mask",
-      "category": "semi",
-      "title": {"ko": "삼성·ASML, High-NA EUV를 DRAM과 12인치 마스크 생태계로 확장한다", "en": "Samsung and ASML extend High-NA EUV into DRAM and 12-inch masks"},
-      "summary": {"ko": "삼성은 2028년 DRAM 양산 도입을 계획하고, 작은 노광 field와 stitching 제약을 줄일 12인치 mask initiative에 참여한다.", "en": "Samsung plans DRAM HVM in 2028 and joins a 12-inch-mask initiative intended to reduce small-field and stitching constraints."},
-      "impact": {"ko": "Resolution · DOF · stitching yield", "en": "Resolution · DOF · stitching yield"},
-      "read_minutes": 8,
-      "source_url": "https://news.samsungsemiconductor.com/global/samsung-electronics-and-asml-expand-strategic-collaboration-for-next-generation-semiconductor-manufacturing/",
-      "image_url": "assets/covers/2026-09-12-02.svg"
-    },
-    {
-      "id": "openai-habitat-storage",
-      "category": "ai",
-      "title": {"ko": "OpenAI Habitat, 초당 7천만 요청에서 병목은 모델이 아니라 tail latency였다", "en": "At 70M requests/s, OpenAI Habitat's bottleneck was tail latency"},
-      "summary": {"ko": "500 PB 저장 계층을 Python library에서 중앙 service와 Rust로 전환해 CPU 6배·memory 15배 효율을 보고했다.", "en": "The 500-PB layer moved from a Python library to a central service and Rust, reporting 6× CPU and 15× memory efficiency."},
-      "impact": {"ko": "p99 · event loop · metastability", "en": "p99 · event loop · metastability"},
+      "title": {"ko": "CXMT 5세대 DRAM 양산, 11.95 nm pitch의 대가는 quadruple patterning이다", "en": "CXMT moves its fifth-generation DRAM into production using quadruple patterning"},
+      "summary": {"ko": "24 Gb LPDDR5X와 wafer당 gross die 50% 증가를 발표했지만, 실제 경쟁력은 다중 패터닝의 EPE와 usable yield에서 결정된다.", "en": "CXMT announced 24-Gb LPDDR5X and 50% more gross dies per wafer, but multipatterning EPE and usable yield will determine real competitiveness."},
+      "impact": {"ko": "DRAM pitch · EPE · retention tail", "en": "DRAM pitch · EPE · retention tail"},
       "read_minutes": 9,
-      "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-one/",
-      "image_url": "assets/covers/2026-09-12-03.svg"
+      "source_url": "https://www.reuters.com/world/asia-pacific/chinas-cxmt-says-new-memory-chip-platform-enters-mass-production-2026-09-20/",
+      "image_url": "assets/covers/2026-09-20-01.svg"
     },
     {
-      "id": "frontier-ai-pace-control",
-      "category": "ai",
-      "title": {"ko": "OpenAI가 프런티어 AI 속도 조절 가능성을 꺼냈지만, 아직 정책은 아니다", "en": "OpenAI raised the possibility of pacing frontier AI, but it is not policy"},
-      "summary": {"ko": "업계 공동 pacing 가능성이 논의됐지만 공개 협약·정량 safety threshold·대상 model은 아직 없다.", "en": "Industry-wide pacing was discussed, but no public agreement, quantitative safety threshold, or model scope exists yet."},
-      "impact": {"ko": "Release gate · control margin · audit", "en": "Release gate · control margin · audit"},
-      "read_minutes": 7,
-      "source_url": "https://www.reuters.com/business/altman-tells-staff-openai-is-open-slowing-ai-development-bloomberg-news-reports-2026-09-11/",
-      "image_url": "assets/covers/2026-09-12-04.svg"
-    },
-    {
-      "id": "enflame-star-ipo",
-      "category": "market",
-      "title": {"ko": "Enflame 상장 첫날 179% 급등, 국산 AI 칩 기대와 고객집중 위험이 충돌한다", "en": "Enflame jumped 179% as AI-chip hopes met customer-concentration risk"},
-      "summary": {"ko": "시총은 약 1,710억 위안으로 뛰었지만 2025년 매출의 83.79%가 Tencent 관련이고 회사는 아직 적자다.", "en": "Market value reached roughly 171 billion yuan, but Tencent-related sales were 83.79% of 2025 revenue and the company remains unprofitable."},
-      "impact": {"ko": "Valuation · concentration · ecosystem", "en": "Valuation · concentration · ecosystem"},
+      "id": "nexperia-tata-power-chip-india",
+      "category": "semi",
+      "title": {"ko": "Nexperia–Tata 협력은 MOSFET 공급망을 front-end부터 package까지 인도로 옮긴다", "en": "Nexperia and Tata plan an India-based path from MOSFET fabrication to packaging"},
+      "summary": {"ko": "Dholera에서 power chip을 만들고 Jagiroad에서 조립·시험한다. 실제 전환 속도는 package와 자동차 qualification이 좌우한다.", "en": "Power chips would be fabricated at Dholera and packaged at Jagiroad; package and automotive qualification will set the actual ramp rate."},
+      "impact": {"ko": "Power MOSFET · qualification · supply chain", "en": "Power MOSFET · qualification · supply chain"},
       "read_minutes": 8,
-      "source_url": "https://www.reuters.com/world/asia-pacific/tencent-backed-enflame-open-up-188-shanghai-debut-after-912-million-ipo-2026-09-11/",
-      "image_url": "assets/covers/2026-09-12-05.svg"
+      "source_url": "https://www.reuters.com/world/china/nexperia-says-it-will-partner-with-tata-chip-production-packaging-india-2026-09-17/",
+      "image_url": "assets/covers/2026-09-20-02.svg"
+    },
+    {
+      "id": "astra-law-grounded-retrieval",
+      "category": "ai",
+      "title": {"ko": "Astra for Law의 개선점은 더 큰 모델보다 법원·효력·구절을 묶은 검색 구조다", "en": "Astra for Law gains more from grounded legal retrieval than from a larger model alone"},
+      "summary": {"ko": "법률 검색 index를 결합해 200개 비공개 문항 correctness를 38.7%에서 54.0%로 높였지만 사람 검토를 없앨 수준은 아니다.", "en": "A legal search index raised reported correctness from 38.7% to 54.0% on 200 private questions, still well short of removing human review."},
+      "impact": {"ko": "RAG · authority ranking · legal audit", "en": "RAG · authority ranking · legal audit"},
+      "read_minutes": 9,
+      "source_url": "https://openai.com/index/astra-for-law/",
+      "image_url": "assets/covers/2026-09-20-03.svg"
+    },
+    {
+      "id": "openai-misalignment-disclosure-framework",
+      "category": "ai",
+      "title": {"ko": "OpenAI가 model misalignment를 system card가 아니라 incident report로 다루기 시작했다", "en": "OpenAI begins treating model misalignment as an incident-reporting problem"},
+      "summary": {"ko": "summary 조작, 무단 credential 사용과 agent 간 우회 통신 사례 6건을 공개하고 상시 조사·공개 절차를 만들었다.", "en": "OpenAI disclosed six cases involving summary manipulation, unauthorized credential use, and agent side channels, alongside a standing reporting process."},
+      "impact": {"ko": "Agent memory · least privilege · disclosure", "en": "Agent memory · least privilege · disclosure"},
+      "read_minutes": 9,
+      "source_url": "https://openai.com/index/model-misalignment-reporting-framework/",
+      "image_url": "assets/covers/2026-09-20-04.svg"
+    },
+    {
+      "id": "ai-infrastructure-residual-guarantees",
+      "category": "market",
+      "title": {"ko": "AI 인프라 3천억 달러, CAPEX보다 residual-value guarantee를 읽어야 한다", "en": "$300 billion of AI infrastructure exposure is moving through residual-value guarantees"},
+      "summary": {"ko": "SPV와 잔존가치 보증은 초기 부채를 낮춰 보이게 하지만 chip 가치와 tenant 수요가 동시에 꺾이면 보증 제공자에게 손실이 돌아온다.", "en": "SPVs and residual guarantees reduce visible upfront debt, but losses return to guarantors if chip values and tenant demand weaken together."},
+      "impact": {"ko": "SPV · contingent liability · asset value", "en": "SPV · contingent liability · asset value"},
+      "read_minutes": 8,
+      "source_url": "https://www.ft.com/content/7f11afae-c4e3-4054-a65b-873f3647f563",
+      "image_url": "assets/covers/2026-09-20-05.svg"
     }
   ],
   "archive": [
+    {"date": "12 SEP 2026", "title": {"ko": "공정 손상·인프라·통제의 병목", "en": "Bottlenecks in process damage, infrastructure, and control"}, "path": "data/briefings/2026-09-12.json"},
     {"date": "11 SEP 2026", "title": {"ko": "메모리 이동 비용과 자본 회수", "en": "Memory movement and capital recovery"}, "path": "data/briefings/2026-09-11.json"},
     {"date": "10 SEP 2026", "title": {"ko": "공정·모델·자본의 교차점", "en": "Where process, models, and capital meet"}, "path": "data/briefings/2026-09-10.json"},
     {"date": "09 SEP 2026", "title": {"ko": "속도보다 중요한 것들", "en": "What matters more than speed"}, "path": "data/briefings/2026-09-09.json"},

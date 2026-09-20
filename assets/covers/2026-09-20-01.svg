@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">DRAM quadruple patterning</title><desc id="d">Abstract DRAM cell grid split into four aligned pattern layers</desc>
+<rect width="960" height="520" fill="#17232c"/><g fill="none" stroke="#d9ff5a" stroke-width="5">
+<path d="M90 110h780M90 190h780M90 270h780M90 350h780" opacity=".26"/>
+<path d="M210 70v360M350 70v360M490 70v360M630 70v360M770 70v360" opacity=".26"/>
+<rect x="244" y="126" width="212" height="188" rx="18"/><rect x="504" y="206" width="212" height="188" rx="18"/>
+<path d="M350 126v188M610 206v188"/><circle cx="456" cy="220" r="12" fill="#d9ff5a"/><circle cx="504" cy="300" r="12" fill="#d9ff5a"/>
+</g><text x="72" y="474" fill="#eaf1f3" font-family="monospace" font-size="25">11.95 nm / QUADRUPLE PATTERN / YIELD TAIL</text></svg>

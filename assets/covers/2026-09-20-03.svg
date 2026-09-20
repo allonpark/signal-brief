@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Grounded legal retrieval</title><desc id="d">Legal documents ranked and connected to a verified answer</desc>
+<rect width="960" height="520" fill="#d9e5ff"/><g stroke="#182841" stroke-width="5" fill="none">
+<rect x="92" y="96" width="210" height="270" rx="14"/><path d="M128 150h138M128 196h138M128 242h96M128 288h126"/>
+<rect x="376" y="126" width="210" height="210" rx="105"/><circle cx="481" cy="231" r="42" fill="#7581ff" stroke="none"/>
+<path d="M302 231h72M586 231h72"/><path d="M638 206l28 25-28 25"/>
+<rect x="676" y="96" width="202" height="270" rx="14"/><path d="M710 150h134M710 196h134M710 242h90M710 288h120"/>
+</g><text x="76" y="455" fill="#182841" font-family="monospace" font-size="24">AUTHORITY / PASSAGE / JURISDICTION / AUDIT</text></svg>

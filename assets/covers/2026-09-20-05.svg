@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">AI infrastructure guarantees</title><desc id="d">Data center assets supported by a residual-value floor</desc>
+<rect width="960" height="520" fill="#ffe0bd"/><g fill="none" stroke="#6e351b" stroke-width="6">
+<rect x="104" y="122" width="214" height="242" rx="10"/><path d="M142 166h138M142 214h138M142 262h138M142 310h138"/>
+<path d="M318 244h130"/><circle cx="500" cy="244" r="54"/><path d="M554 244h118"/>
+<path d="M672 132v232h184"/><path d="M696 326l58-48 42 18 60-96" stroke="#e56f2d"/><path d="M696 310h160" stroke-dasharray="16 12"/>
+</g><text x="64" y="462" fill="#6e351b" font-family="monospace" font-size="24">SPV / RESIDUAL FLOOR / CONTINGENT EXPOSURE</text></svg>

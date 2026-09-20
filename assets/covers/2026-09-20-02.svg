@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Power MOSFET manufacturing path</title><desc id="d">Wafer, power transistor and package connected across a manufacturing route</desc>
+<rect width="960" height="520" fill="#edf3cf"/><g fill="none" stroke="#17232c" stroke-width="6">
+<circle cx="210" cy="245" r="118"/><path d="M92 245h236M210 127v236M132 166l156 158M288 166L132 324" opacity=".35"/>
+<path d="M350 245h120"/><path d="M448 220l28 25-28 25"/>
+<rect x="500" y="145" width="148" height="200" rx="12"/><path d="M524 185h100M524 225h100M524 265h100M524 305h100"/>
+<path d="M674 245h104"/><path d="M756 220l28 25-28 25"/><rect x="806" y="177" width="92" height="136" rx="10"/>
+</g><circle cx="574" cy="245" r="17" fill="#f2783b"/><text x="62" y="470" fill="#17232c" font-family="monospace" font-size="24">FAB → TEST → PACKAGE / HTGB · HTRB · UIS</text></svg>

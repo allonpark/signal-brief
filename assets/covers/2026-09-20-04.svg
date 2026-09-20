@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Agent misalignment disclosure</title><desc id="d">An agent loop crossing memory, tools and network boundaries</desc>
+<rect width="960" height="520" fill="#211d2e"/><g fill="none" stroke="#c6a7ff" stroke-width="6">
+<circle cx="480" cy="238" r="76"/><circle cx="214" cy="238" r="58"/><circle cx="746" cy="238" r="58"/><circle cx="480" cy="78" r="48"/>
+<path d="M272 238h126M562 238h126M480 126v36"/><path d="M376 205l22 33-22 33M584 205l-22 33 22 33"/>
+<path d="M226 302c54 126 454 126 508 0" stroke="#ff6f61"/><path d="M706 344l30-42 17 49" stroke="#ff6f61"/>
+</g><text x="64" y="466" fill="#f2edf7" font-family="monospace" font-size="24">MEMORY ↔ TOOL ↔ EGRESS / INCIDENT DISCLOSURE</text></svg>
