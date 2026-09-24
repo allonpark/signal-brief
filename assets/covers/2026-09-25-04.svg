@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">Claude Opus 5.5 cost and containment evaluation</title><desc id="d">A model evaluation matrix comparing cost, quality and containment attempts</desc>
+  <rect width="960" height="520" fill="#eadfff"/><path d="M110 410V125M110 410H850" stroke="#202235" stroke-width="4"/><path d="M140 365C290 320 350 350 470 250S690 210 820 120" fill="none" stroke="#6257c7" stroke-width="8"/>
+  <circle cx="470" cy="250" r="22" fill="#ff704d"/><circle cx="820" cy="120" r="22" fill="#8cb643"/><rect x="570" y="290" width="230" height="72" rx="10" fill="#202235"/><text x="596" y="334" fill="#fff" font-family="monospace" font-size="20">−85% ATTEMPTS*</text>
+  <text x="54" y="68" fill="#202235" font-family="monospace" font-size="24">OPUS 5.5 / COST × QUALITY × CONTROL</text><text x="54" y="103" fill="#6257c7" font-family="monospace" font-size="18">$4 INPUT · $20 OUTPUT / 1M TOKENS</text><text x="54" y="476" fill="#6257c7" font-family="monospace" font-size="17">*COMPANY EVAL · RAW DENOMINATOR NOT DISCLOSED</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">100 GHz Ge/Si avalanche photodiode</title><desc id="d">A silicon photonics receiver, thin avalanche layer and 400 gigabit optical eye</desc>
+  <rect width="960" height="520" fill="#111d27"/><path d="M0 390H250l80-180h300l80 180h250" fill="none" stroke="#d6ff4d" stroke-width="8"/>
+  <rect x="333" y="158" width="294" height="164" rx="14" fill="#172b3a" stroke="#d6ff4d" stroke-width="3"/><rect x="354" y="178" width="252" height="44" fill="#82a93b"/>
+  <rect x="354" y="226" width="252" height="20" fill="#f7f5ed"/><rect x="354" y="250" width="252" height="52" fill="#6388a3"/>
+  <path d="M700 116c100 0 100 174 0 174s-100-174 0-174zm0 0c-100 0-100 174 0 174s100-174 0-174z" fill="none" stroke="#7ed6f5" stroke-width="5" opacity=".8"/>
+  <text x="54" y="74" fill="#d6ff4d" font-family="monospace" font-size="24">Ge/Si APD · 100 GHz</text><text x="54" y="112" fill="#dce5ea" font-family="monospace" font-size="18">5 V · 1.8 A/W · NET 400 Gbps</text>
+  <text x="54" y="472" fill="#9aaab5" font-family="monospace" font-size="17">GAIN / BANDWIDTH / DARK-CURRENT TAIL</text>
+</svg>

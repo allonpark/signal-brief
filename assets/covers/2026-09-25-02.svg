@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">Project Suncatcher TPU orbital reliability test</title><desc id="d">A satellite carrying an AI chip through radiation with a radiator panel</desc>
+  <rect width="960" height="520" fill="#dce8ff"/><circle cx="760" cy="85" r="44" fill="#ffbd4a"/><path d="M-40 460Q330 120 1000 300" fill="none" stroke="#526a9b" stroke-width="4"/>
+  <g transform="translate(430 245) rotate(-12)"><rect x="-90" y="-72" width="180" height="144" rx="12" fill="#18243a"/><rect x="-55" y="-40" width="110" height="80" rx="8" fill="#7888ff" stroke="#f8f6ee" stroke-width="4"/><path d="M-260-55h155V55h-155zm365 0h155V55H105z" fill="#6889bc" stroke="#18243a" stroke-width="4"/><path d="M0-145v73M0 72v115" stroke="#18243a" stroke-width="8"/></g>
+  <g fill="#e45d4f"><circle cx="320" cy="110" r="7"/><circle cx="376" cy="155" r="5"/><circle cx="650" cy="170" r="6"/><circle cx="710" cy="260" r="5"/></g>
+  <text x="48" y="68" fill="#18243a" font-family="monospace" font-size="24">PROJECT SUNCATCHER</text><text x="48" y="104" fill="#526a9b" font-family="monospace" font-size="18">RADIATION · VACUUM THERMAL · SILENT ERROR</text><text x="48" y="476" fill="#526a9b" font-family="monospace" font-size="17">IN-ORBIT FAILURE MAP / NOT A DATA CENTER</text>
+</svg>
