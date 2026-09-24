@@ -1,0 +1,225 @@
+{
+  "date": "2026-09-22",
+  "updated": "14:32 KST",
+  "editorial_note": {
+    "ko": "오늘 발표들은 큰 숫자를 앞세우지만 검증의 밀도는 서로 다르다. 100 GHz APD는 link 실증까지 공개됐고, 1200 V SiC와 10조 parameter model은 아직 qualification과 독립 benchmark가 비어 있다. 숫자의 크기보다 측정 조건과 남은 검증 항목을 먼저 읽었다.",
+    "en": "Today's announcements lead with large numbers, but not with equal evidence. The 100-GHz APD includes a link demonstration, while the 1,200-V SiC platform and ten-trillion-parameter model still lack qualification data or independent benchmarks. This edition reads the test conditions before the headline scale."
+  },
+  "stories": [
+    {
+      "id": "imec-100ghz-gesi-apd-400g",
+      "category": "semi",
+      "title": {
+        "ko": "100 GHz Ge/Si APD가 5 V에서 400 Gbps를 받았다—다음 관문은 온도와 광입력 신뢰성이다",
+        "en": "A 100-GHz Ge/Si APD receives 400 Gbps at 5 V; temperature and optical-stress reliability come next"
+      },
+      "summary": {
+        "ko": "imec은 300 mm silicon photonics 공정에서 만든 Ge/Si avalanche photodiode가 5 V에서 100 GHz bandwidth와 1.8 A/W responsivity를 동시에 냈다고 발표했다. 이 소자를 110 GHz급 electro-absorption modulator와 연결해 net 400 Gbps link를 구성했으며, 일반 photodiode receiver보다 sensitivity가 3 dB 좋아졌다. APD의 gain을 얻으면서 고전압과 bandwidth 손실을 함께 줄였다는 점이 이번 결과의 핵심이다.",
+        "en": "Imec reports a Ge/Si avalanche photodiode fabricated on its 300-mm silicon-photonics platform that combines 100-GHz bandwidth, 1.8-A/W responsivity, and 5-V operation. Paired with a beyond-110-GHz electro-absorption modulator, it demonstrated a net 400-Gbps link and a 3-dB receiver-sensitivity gain over a conventional photodiode. The result targets the usual APD trade-off among gain, voltage, and bandwidth."
+      },
+      "mechanism": {
+        "ko": "Ge가 광자를 흡수해 만든 carrier는 Si multiplication region의 높은 전계에서 impact ionization을 일으킨다. 내부 gain은 receiver의 작은 신호를 키우지만, multiplication layer가 두꺼우면 avalanche build-up time이 길어져 bandwidth가 줄고 높은 bias가 필요하다. imec은 이 층을 100 nm 미만으로 줄이고 별도 charge layer를 없애 transit time과 전압강하를 낮췄다. 반대로 얇고 강한 전계는 band-to-band tunneling, trap-assisted dark current와 국부 조기 breakdown에 더 민감할 수 있다.",
+        "en": "Photocarriers generated in germanium trigger impact ionization in a high-field silicon multiplication region. Internal gain improves weak-signal detection, but a thick multiplication layer increases avalanche build-up time, cuts bandwidth, and needs more bias. Imec shrank that layer below 100 nm and removed the charge layer, reducing transit time and voltage drop. The counter-risk is greater sensitivity to tunneling, trap-assisted dark current, and local premature breakdown under a thin high-field region."
+      },
+      "what_changed": {
+        "ko": "기존 APD가 sensitivity를 얻는 대신 bandwidth 또는 구동전압을 희생하던 구도에서, 한 소자가 100 GHz·5 V·약 2배 internal gain을 함께 보였다. device 수치만 제시한 것이 아니라 O/C band 동작과 400 Gbps link까지 연결한 점도 이전 단계와 다르다.",
+        "en": "Instead of trading receiver sensitivity for bandwidth or voltage, one device now combines 100 GHz, 5 V, and roughly twofold internal gain. The evidence also advances from device metrics to O- and C-band operation and a complete 400-Gbps link."
+      },
+      "practical_impact": {
+        "ko": "3 dB margin은 같은 BER에서 laser power를 낮추거나 connector·waveguide loss budget을 늘리는 데 쓸 수 있다. 다만 설계 채택 전에는 −40~125°C, optical input, bias와 aging time을 교차한 DOE가 필요하다. dark current, gain, responsivity, breakdown voltage, excess-noise factor, BER와 eye closure를 초기값 대비 추적하고, edge breakdown과 bulk multiplication 열화를 분리해야 한다. 고온·고광입력에서 dark current가 먼저 증가하면 trap/thermal mechanism, 특정 perimeter에서 breakdown tail이 벌어지면 edge-field 문제가 우세하다는 signature다.",
+        "en": "A 3-dB margin can reduce laser power at the same BER or absorb more connector and waveguide loss. Adoption still needs a temperature-by-optical-power-by-bias aging DOE, ideally from −40 to 125°C. Dark current, gain, responsivity, breakdown voltage, excess-noise factor, BER, and eye closure should be tracked against time zero. Rising dark current at high temperature and optical power points toward trap or thermal degradation; a widening low-breakdown tail tied to perimeter indicates edge-field control."
+      },
+      "evidence": {
+        "ko": "확인된 값은 100 GHz bandwidth, 5 V, 1.8 A/W, 약 2배 internal gain, 3 dB sensitivity 개선과 net 400 Gbps link다. imec은 다음 연구 항목으로 넓은 온도·광입력 범위의 reliability와 receiver electronics 통합을 직접 명시했다. 따라서 장기 FIT, lifetime distribution, sample 수와 wafer-level 산포는 아직 공개 검증 범위 밖이다.",
+        "en": "Verified reported values are 100-GHz bandwidth, 5-V operation, 1.8-A/W responsivity, roughly 2× internal gain, a 3-dB sensitivity improvement, and a net 400-Gbps link. Imec explicitly identifies reliability across temperature and optical-input ranges, plus receiver-electronics integration, as future work. Long-term FIT, lifetime distributions, sample count, and wafer-level variation remain undisclosed."
+      },
+      "inference": {
+        "ko": "공학적 추론: 현재 데이터만 보면 short-reach AI interconnect의 laser-power 절감 가능성은 타당하지만, APD가 일반 photodiode보다 system energy를 실제로 줄인다는 결론은 이르다. bias generation, TIA noise, temperature control과 aging guard-band를 포함한 pJ/bit 비교가 반대 결론을 낼 수 있다.",
+        "en": "Engineering inference: the data support possible laser-power savings in short-reach AI links, but do not yet prove lower total energy than a conventional photodiode. Bias generation, TIA noise, temperature control, and aging guard bands could reverse the system-level pJ/bit comparison."
+      },
+      "equation": "M = I_APD / I_primary;  f_3dB is limited by carrier transit and avalanche build-up, so APD gain-bandwidth product ≈ M × f_3dB",
+      "read_minutes": 10,
+      "source_date": "2026-09-21",
+      "source_url": "https://www.imec-int.com/en/press/imec-debuts-100-ghz-gesi-avalanche-photodiode-apd-enabling-net-400-gbps-data-reception-just-5",
+      "sources": [
+        {
+          "name": "imec",
+          "url": "https://www.imec-int.com/en/press/imec-debuts-100-ghz-gesi-avalanche-photodiode-apd-enabling-net-400-gbps-data-reception-just-5"
+        }
+      ],
+      "image_url": "assets/covers/2026-09-22-01.svg"
+    },
+    {
+      "id": "ltsct-1200v-sic-mosfet-platform",
+      "category": "semi",
+      "title": {
+        "ko": "L&T가 1200 V SiC MOSFET을 공개했지만, 제품 경쟁력은 oxide와 avalanche 분포에서 판가름 난다",
+        "en": "L&T unveils a 1,200-V SiC MOSFET platform, with oxide and avalanche distributions still to prove"
+      },
+      "summary": {
+        "ko": "L&T Semiconductor Technologies는 SEMICON India에서 자사 첫 1200 V SiC MOSFET platform을 공개했다. 목표 응용은 EV fast charger, traction inverter, microgrid와 solid-state transformer다. 1200 V 등급과 응용 범위는 확인됐지만 RDS(on), gate charge, short-circuit withstand time, package와 qualification 결과는 제시되지 않았다. 현재로서는 양산 성능이 입증된 제품보다 platform 발표로 보는 편이 정확하다.",
+        "en": "L&T Semiconductor Technologies has introduced its first 1,200-V SiC MOSFET platform for EV fast chargers, traction inverters, microgrids, and solid-state transformers. The voltage class and target applications are public, but RDS(on), gate charge, short-circuit withstand time, packaging, and qualification results are not. It is best treated as a platform announcement rather than a validated production-performance claim."
+      },
+      "mechanism": {
+        "ko": "SiC의 높은 critical electric field는 같은 breakdown voltage에서 Si보다 drift region을 얇고 높게 도핑할 수 있게 해 conduction loss를 줄인다. 그러나 channel은 SiO2/SiC 계면 trap의 영향을 크게 받아 mobility와 Vth 안정성이 제한될 수 있다. 높은 dv/dt와 avalanche 조건에서는 gate oxide field, body-diode bipolar degradation, parasitic inductance와 die-attach 열저항이 서로 결합한다. 따라서 낮은 nominal RDS(on) 하나로 switching과 수명을 동시에 대표할 수 없다.",
+        "en": "SiC's high critical electric field permits a thinner, more heavily doped drift region at the same breakdown voltage, reducing conduction loss relative to silicon. Its channel, however, is strongly affected by SiO2/SiC interface traps that limit mobility and threshold stability. Under high dv/dt and avalanche stress, gate-oxide field, body-diode bipolar degradation, parasitic inductance, and die-attach thermal resistance interact. Nominal RDS(on) alone cannot represent switching performance and lifetime."
+      },
+      "what_changed": {
+        "ko": "L&T의 portfolio가 controller와 silicon discrete 중심에서 고전압 SiC power device로 넓어졌다. 인도 내 설계·제조 생태계 구축이라는 의미는 있지만, 공개 내용은 engineering sample의 전기적 성능이나 AEC-Q101 통과 여부까지 나아가지는 않았다.",
+        "en": "L&T's portfolio now extends beyond controllers and silicon discretes into high-voltage SiC power devices. That matters for an India-based design and manufacturing stack, but the disclosure does not establish engineering-sample performance or AEC-Q101 qualification."
+      },
+      "practical_impact": {
+        "ko": "평가 DOE는 VGS·Tj·duty를 조합한 HTGB/PBTI, VDS·Tj 기반 HTRB, repetitive UIS, body-diode forward stress, power cycling과 short circuit을 분리해 구성해야 한다. Vth shift와 gate leakage가 먼저 움직이면 interface/oxide trap, BV 또는 leakage tail만 악화되면 edge termination, RDS(on)과 thermal impedance가 함께 증가하면 package·die attach를 우선 의심한다. 실제 inverter에서는 double-pulse Eon/Eoff와 overshoot를 package inductance별로 비교해야 한다.",
+        "en": "A useful DOE separates VGS–Tj–duty HTGB/PBTI, VDS–Tj HTRB, repetitive UIS, body-diode forward stress, power cycling, and short-circuit tests. Early Vth and gate-leakage drift indicate interface or oxide trapping; a degraded BV or leakage tail points to edge termination; joint RDS(on) and thermal-impedance growth points toward package or die attach. Inverter validation also needs double-pulse Eon/Eoff and overshoot by package inductance."
+      },
+      "evidence": {
+        "ko": "회사의 규제 공시를 인용한 보도에서 1200 V platform과 목표 응용은 확인된다. 그러나 datasheet, wafer size, foundry, trench/planar 구조, sample 수, HTGB·HTRB·UIS 결과와 production ramp는 공개되지 않았다. 'high performance'라는 회사 표현은 비교 조건이 없으므로 정량 근거로 사용하지 않았다.",
+        "en": "Reporting based on the company's regulatory filing confirms the 1,200-V platform and target applications. No datasheet, wafer size, foundry, trench or planar architecture, sample count, HTGB/HTRB/UIS data, or production ramp is public. The company's 'high-performance' description lacks a comparison condition and is not treated as quantitative evidence."
+      },
+      "inference": {
+        "ko": "공학적 추론: 초기 상용화의 critical boundary는 1200 V blocking 자체보다 gate-oxide stability와 package thermal cycling일 가능성이 높다. 다만 외부 SiC die를 사용한 module 중심 사업이라면 이 가설은 틀릴 수 있으며, 이 경우 die traceability와 supplier qualification이 지배 항목이 된다.",
+        "en": "Engineering inference: the first commercialization boundary is more likely to be gate-oxide stability and package thermal cycling than 1,200-V blocking itself. That inference could be wrong if the business starts with externally sourced SiC dies in modules; die traceability and supplier qualification would then dominate."
+      },
+      "equation": "R_on,sp ∝ BV^2.3–2.6 for conventional Si unipolar devices; SiC lowers the drift penalty through a much higher critical field, while P_cond = I_rms²RDS(on) and P_sw ≈ f_sw(Eon + Eoff)",
+      "read_minutes": 9,
+      "source_date": "2026-09-18",
+      "source_url": "https://www.financialexpress.com/business/industry-lt-semiconductor-unveils-40-products-at-semicon-india-2026-eyes-digital-sovereignty-4342252/",
+      "sources": [
+        {
+          "name": "Financial Express — based on L&T regulatory filing",
+          "url": "https://www.financialexpress.com/business/industry-lt-semiconductor-unveils-40-products-at-semicon-india-2026-eyes-digital-sovereignty-4342252/"
+        }
+      ],
+      "image_url": "assets/covers/2026-09-22-02.svg"
+    },
+    {
+      "id": "openai-global-frontier-standards",
+      "category": "ai",
+      "title": {
+        "ko": "OpenAI가 frontier AI의 공통 측정·사고보고 표준을 제안했다",
+        "en": "OpenAI calls for common measurements and incident reporting for frontier AI"
+      },
+      "summary": {
+        "ko": "OpenAI는 frontier AI와 recursive self-improvement를 대상으로 국가 규제를 연결할 국제 기술표준, 공통 측정법과 incident reporting protocol이 필요하다고 밝혔다. 발표는 alignment 연구와 그 배포가 capability 증가보다 뒤처지지 않아야 한다는 'pacing' 원칙도 포함한다. 다만 어떤 측정값에서 training이나 deployment를 제한할지 정량 threshold는 공개되지 않았다.",
+        "en": "OpenAI is calling for international technical standards, shared measurements, and incident-reporting protocols for frontier AI, including recursive self-improvement. It frames pacing as keeping alignment research and deployment ahead of capability growth. The proposal does not yet publish quantitative thresholds that would restrict training or deployment."
+      },
+      "mechanism": {
+        "ko": "공통 표준의 기술적 역할은 서로 다른 lab이 capability와 control margin을 같은 단위로 측정하게 만드는 것이다. 평가 task, tool access, sampling budget과 pass criterion이 다르면 같은 model도 안전도가 다르게 보인다. incident schema에 model version, 권한, 노출횟수와 near-miss를 고정하면 공급자별 사례를 비교할 수 있다. 하지만 voluntary standard만으로는 위험을 낮추지 못하며 release gate와 외부 audit에 연결돼야 한다.",
+        "en": "A common standard makes laboratories measure capability and control margin under comparable conditions. Different tasks, tool permissions, sampling budgets, or pass criteria can make the same model appear safer or riskier. A fixed incident schema covering model version, permissions, exposure count, and near misses would improve cross-provider comparison. Voluntary measurement alone does not reduce risk unless it connects to release gates and external audit."
+      },
+      "what_changed": {
+        "ko": "개별 회사의 system card와 자체 eval을 넘어 국가·국제 표준을 보완 관계로 묶자는 공개 제안이 나왔다. 지난주 incident disclosure framework가 사건 공개 절차를 다뤘다면, 이번 제안은 lab 간 측정의 호환성과 정책 연결을 넓게 다룬다.",
+        "en": "The proposal moves beyond company-specific system cards and internal evaluations toward complementary national and international standards. Where last week's disclosure framework addressed reporting individual incidents, this proposal targets interoperability of measurements across laboratories and policy regimes."
+      },
+      "practical_impact": {
+        "ko": "기업 구매자는 model card의 점수만 보지 말고 eval harness, tool permission, 반복수, confidence interval과 사고 분모를 요구해야 한다. 내부 release gate는 capability C와 control K의 차이뿐 아니라 rollback time, monitoring coverage와 human override 성공률을 포함하는 편이 낫다. 표준이 생겨도 benchmark gaming과 test-set contamination은 competing failure mode로 남는다.",
+        "en": "Enterprise buyers should request the evaluation harness, tool permissions, repetition count, confidence intervals, and incident denominator—not just model-card scores. Internal release gates should include rollback time, monitoring coverage, and human-override success alongside the gap between capability and control. Benchmark gaming and test-set contamination remain competing failure modes even under a standard."
+      },
+      "evidence": {
+        "ko": "Reuters가 확인한 제안에는 국제·국가 표준을 연결할 mechanism, common measurements와 incident reporting이 포함된다. OpenAI의 CEO는 유엔 안전보장이사회 브리핑을 앞두고 있지만, 표준 채택국·독립 인증기관·의무 범위는 아직 정해지지 않았다. 현재 확인된 것은 정책 제안이지 시행 규칙이 아니다.",
+        "en": "Reuters confirms that the proposal covers a mechanism linking national and international standards, common measurements, and incident reporting. No adopting countries, independent certification bodies, or mandatory scope have been established. What exists today is a policy proposal, not an operating rule."
+      },
+      "inference": {
+        "ko": "편집자 판단: 실효성의 critical boundary는 'recursive self-improvement' 같은 용어 정의보다 측정 실패가 실제 deployment 제한으로 이어지는지에 있다. 강제력이 없으면 표준은 비교 가능성은 높여도 경쟁 속도 문제를 해결하지 못할 수 있다.",
+        "en": "Editorial inference: the critical boundary is not merely defining recursive self-improvement, but whether a failed measurement actually constrains deployment. Without enforcement, standards may improve comparability while leaving the competitive-speed problem intact."
+      },
+      "equation": "safety margin S = K_control − C_capability; a standard becomes operational only when S below a defined threshold triggers a release restriction",
+      "read_minutes": 8,
+      "source_date": "2026-09-21",
+      "source_url": "https://www.reuters.com/legal/government/openai-calls-us-take-lead-global-efforts-develop-technical-standards-2026-09-21/",
+      "sources": [
+        {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/legal/government/openai-calls-us-take-lead-global-efforts-develop-technical-standards-2026-09-21/"
+        }
+      ],
+      "image_url": "assets/covers/2026-09-22-03.svg"
+    },
+    {
+      "id": "alibaba-qwen-10t-zhenwu-v900",
+      "category": "ai",
+      "title": {
+        "ko": "Alibaba의 10조 parameter 계획은 model 크기보다 memory·network 활성비가 관건이다",
+        "en": "Alibaba's ten-trillion-parameter plan will hinge on active memory and network load, not model size alone"
+      },
+      "summary": {
+        "ko": "Alibaba는 Qwen 4를 training 중이며 Qwen 4.5와 5를 5조~10조 parameter까지 확장할 계획이라고 밝혔다. 동시에 이전 M890보다 성능이 3배라는 Zhenwu V900 chip과 최대 50만 card cluster 구상을 공개했고, 2027년 1분기 양산을 예고했다. model·chip·data center를 함께 설계한다는 전략은 분명하지만, parameter 구성과 benchmark·전력·interconnect 수치는 회사 주장 단계다.",
+        "en": "Alibaba says Qwen 4 is in training and that Qwen 4.5 and 5 may scale to five to ten trillion parameters. It also unveiled the Zhenwu V900 chip, claimed at three times the M890's performance, and a cluster architecture supporting up to 500,000 cards, with production targeted for Q1 2027. The model-chip-data-center co-design strategy is clear, but architecture, benchmarks, power, and interconnect data remain company claims."
+      },
+      "mechanism": {
+        "ko": "5조 parameter를 BF16으로 모두 저장하면 weight만 약 10 TB이고 10조면 약 20 TB다. MoE라면 token마다 일부 expert만 활성화해 FLOP은 낮출 수 있지만, 전체 weight placement와 expert routing 때문에 HBM capacity, all-to-all network와 load imbalance가 남는다. 긴 task의 성능은 parameter 수보다 active parameter, memory bandwidth, interconnect latency와 training data quality의 곱에 가깝다. 50만 accelerator에서는 작은 node failure rate도 job interruption 확률을 크게 키운다.",
+        "en": "Five trillion BF16 parameters require roughly 10 TB for weights alone; ten trillion require about 20 TB. A mixture-of-experts design can activate only a subset per token, reducing compute, but full weight placement, expert routing, all-to-all traffic, and load imbalance remain. Long-horizon performance depends more on active parameters, memory bandwidth, interconnect latency, and data quality than headline parameter count. At 500,000 accelerators, even a small node failure rate materially increases job-interruption probability."
+      },
+      "what_changed": {
+        "ko": "Alibaba의 현재 2.4조 parameter Qwen 3.8 Max에서 목표치가 2~4배 커졌고, 자체 chip은 M890에서 V900으로 한 세대 이동했다. 또한 global data-center capacity를 2032년 20 GW 이상으로 늘리겠다는 목표가 model roadmap과 함께 제시됐다.",
+        "en": "The target is two to four times larger than Alibaba's current 2.4-trillion-parameter Qwen 3.8 Max, while its in-house accelerator advances from M890 to V900. A goal of more than 20 GW of global data-center capacity by 2032 now accompanies the model roadmap."
+      },
+      "practical_impact": {
+        "ko": "평가는 total parameter보다 tokens/s per rack, active-parameter ratio, HBM utilization, all-reduce/all-to-all overhead, checkpoint recovery time와 MW당 useful token을 봐야 한다. reliability 측면에서는 50만 card를 모두 쓰는 workload에서 MTBF와 fault containment가 핵심이다. V900의 '3배'가 training, inference, precision 또는 system throughput 중 무엇인지 정의되기 전에는 경쟁제품 비교에 사용할 수 없다.",
+        "en": "Evaluation should prioritize tokens per second per rack, active-parameter ratio, HBM utilization, collective-communication overhead, checkpoint recovery, and useful tokens per megawatt. Reliability at a claimed 500,000-card scale depends on fleet MTBF and fault containment. The '3×' V900 claim cannot support competitive comparison until Alibaba defines whether it refers to training, inference, precision, chip throughput, or system throughput."
+      },
+      "evidence": {
+        "ko": "Reuters는 5조~10조 parameter 계획, V900의 회사 주장 3배 성능, 50만 card 지원, 2027년 1분기 양산 목표와 2032년 20 GW 목표를 확인했다. 공개되지 않은 항목은 dense/MoE 구조, active parameter, process node, memory·network 사양, benchmark 조건과 실제 silicon yield다.",
+        "en": "Reuters confirms the five-to-ten-trillion-parameter plan, Alibaba's 3× V900 claim, support for up to 500,000 cards, a Q1 2027 production target, and a 20-GW goal for 2032. Dense-versus-MoE architecture, active parameters, process node, memory and network specifications, benchmark conditions, and silicon yield are not disclosed."
+      },
+      "inference": {
+        "ko": "공학적 추론: 이 계획의 첫 병목은 arithmetic throughput보다 HBM 공급과 cluster fabric일 가능성이 크다. 다만 aggressive MoE sparsity와 locality-aware routing이 적용된다면 network 부담이 예상보다 작을 수 있으므로 model architecture 공개 전에는 확정할 수 없다.",
+        "en": "Engineering inference: HBM supply and cluster fabric are more likely to become the first bottlenecks than arithmetic throughput. Aggressive MoE sparsity and locality-aware routing could reduce network pressure, so that conclusion remains provisional until the architecture is disclosed."
+      },
+      "equation": "weight memory ≈ N_parameters × bytes/parameter; 10T parameters × 2 bytes ≈ 20 TB before optimizer state and KV cache; cluster job survival ≈ exp(−N·t/MTBF_node)",
+      "read_minutes": 9,
+      "source_date": "2026-09-22",
+      "source_url": "https://www.reuters.com/business/retail-consumer/alibaba-plans-ai-model-with-5-trillion-10-trillion-parameters-unveils-new-chip-2026-09-22/",
+      "sources": [
+        {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/retail-consumer/alibaba-plans-ai-model-with-5-trillion-10-trillion-parameters-unveils-new-chip-2026-09-22/"
+        }
+      ],
+      "image_url": "assets/covers/2026-09-22-04.svg"
+    },
+    {
+      "id": "amd-one-trillion-valuation",
+      "category": "market",
+      "title": {
+        "ko": "AMD 시가총액 1조 달러—시장은 chip보다 full-system 전환에 값을 붙였다",
+        "en": "AMD reaches a $1 trillion valuation as investors price its shift from chips to systems"
+      },
+      "summary": {
+        "ko": "AMD 주가는 9.6% 오른 613.31달러를 기록하며 처음으로 시가총액 1조 달러를 넘었다. 2026년 상승률은 185%로 Nasdaq의 15.8%를 크게 앞섰다. 시장이 평가한 변화는 GPU 한 종류보다 CPU·accelerator·networking을 묶은 system 공급과 server inference에서의 점유율 확대다. 다만 최근 분기 매출 전망은 시장의 높은 기대에는 미치지 못했다.",
+        "en": "AMD shares rose 9.6% to $613.31, taking the company above $1 trillion in market value for the first time. The stock is up 185% in 2026 versus 15.8% for the Nasdaq. Investors are rewarding a move from individual GPUs toward integrated CPU, accelerator, and networking systems, plus server-inference share gains. The latest revenue outlook still fell short of elevated investor expectations."
+      },
+      "mechanism": {
+        "ko": "AI system 판매는 accelerator ASP뿐 아니라 CPU attach, networking, rack integration과 software lock-in을 함께 가져온다. 이 경우 revenue per deployment와 switching cost는 올라가지만, 공급망·working capital과 execution risk도 커진다. valuation은 미래 cash flow를 할인한 값이므로 성장 기대가 같아도 금리와 margin 가정이 바뀌면 크게 움직인다. 하루 9.6% 상승은 기술 성능의 직접 측정치가 아니라 기대치 재가격이다.",
+        "en": "Selling AI systems adds CPU attach, networking, rack integration, and software switching costs to accelerator ASP. Revenue per deployment can rise, but so do supply-chain, working-capital, and execution risks. Valuation discounts future cash flow, so changes in rates or margin assumptions can move the price even without a change in product performance. A 9.6% one-day gain is a repricing of expectations, not a hardware benchmark."
+      },
+      "what_changed": {
+        "ko": "AMD는 Nvidia·Broadcom·Micron에 이어 시가총액 1조 달러를 넘은 네 번째 미국 chipmaker가 됐다. 동시에 개별 chip 공급자라는 인식에서 rack-scale system 경쟁자로 평가 축이 이동했다.",
+        "en": "AMD becomes the fourth U.S. chipmaker after Nvidia, Broadcom, and Micron to cross $1 trillion. The valuation narrative is shifting from component supplier toward rack-scale system competitor."
+      },
+      "practical_impact": {
+        "ko": "투자 판단에서는 시가총액보다 AI system revenue, accelerator backlog의 매출 전환, gross margin, inventory와 free cash flow를 함께 봐야 한다. 고객 집중도와 cloud 자체 silicon이 AMD의 성장률을 제한할 수 있고, software migration cost가 반대로 방어막이 될 수 있다. engineer와 구매자는 benchmark peak보다 workload별 tokens/s/W, rack availability, interconnect scaling과 공급 lead time을 비교해야 한다.",
+        "en": "Investment decisions should track AI-system revenue, backlog conversion, gross margin, inventory, and free cash flow rather than market capitalization alone. Customer concentration and cloud in-house silicon can cap growth, while software migration costs may provide a moat. Engineering procurement should compare workload-level tokens/s/W, rack availability, interconnect scaling, and lead time instead of peak benchmark numbers."
+      },
+      "evidence": {
+        "ko": "Reuters가 확인한 수치는 613.31달러, 당일 9.6%, 연초 이후 185%, forward P/E 약 41배다. 같은 기사 기준 Nvidia의 forward P/E는 16.3배였지만 회사별 성장률·회계·cycle 위치가 달라 단순 배수 비교에는 한계가 있다. 1조 달러는 시장 가격으로 확인된 사실이며 미래 점유율은 아직 가정이다.",
+        "en": "Reuters reports $613.31 per share, a 9.6% daily gain, a 185% rise in 2026, and roughly 41× forward earnings. Nvidia's cited 16.3× multiple is not directly comparable because growth, accounting, and cycle position differ. The $1-trillion market value is observed; future market share remains an assumption."
+      },
+      "inference": {
+        "ko": "편집자 판단: 현재 valuation의 critical boundary는 제품 발표가 아니라 system 매출이 margin을 훼손하지 않고 실제 cash flow로 전환되는지다. hyperscaler CAPEX가 유지돼도 AMD의 share와 software adoption이 따라오지 않으면 상승 논리는 약해질 수 있다.",
+        "en": "Editorial inference: the critical boundary is whether system revenue converts into cash flow without eroding margins, not the next product launch. Even sustained hyperscaler capex may not support the valuation if AMD's share and software adoption lag."
+      },
+      "equation": "market value ≈ Σ FCF_t/(1+r)^t; higher expected growth raises value, while a higher discount rate r or lower system margin can offset it",
+      "read_minutes": 8,
+      "source_date": "2026-09-21",
+      "source_url": "https://www.reuters.com/business/amd-becomes-latest-chipmaker-reach-1-trillion-valuation-ai-demand-2026-09-21/",
+      "sources": [
+        {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/amd-becomes-latest-chipmaker-reach-1-trillion-valuation-ai-demand-2026-09-21/"
+        }
+      ],
+      "image_url": "assets/covers/2026-09-22-05.svg"
+    }
+  ]
+}

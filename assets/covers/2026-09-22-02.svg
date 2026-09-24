@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">1200 volt silicon carbide MOSFET</title><desc id="d">A power MOSFET cross section between a high voltage rail and a thermal reliability graph</desc>
+<rect width="960" height="520" fill="#e9f2c8"/><g fill="none" stroke="#18221d" stroke-width="5">
+<path d="M90 112h210M90 406h210"/><path d="M195 112v75M195 333v73"/><rect x="116" y="187" width="158" height="146" rx="15"/>
+<path d="M145 225h100M145 260h100M145 295h100" opacity=".5"/><path d="M330 260h190"/>
+<path d="M570 370V145h300M590 340c70-20 92-82 144-96 52-14 72 20 128-92"/>
+<path d="M590 320c82 2 110-35 166-31 44 3 68 22 106 9" stroke="#d36d2a"/>
+</g><circle cx="195" cy="260" r="19" fill="#d36d2a"/><text x="62" y="474" fill="#18221d" font-family="monospace" font-size="25">1200 V SiC / OXIDE / UIS / POWER CYCLING</text></svg>

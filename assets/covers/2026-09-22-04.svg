@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Ten trillion parameter mixture of experts system</title><desc id="d">Sparse expert blocks connect through a memory and network fabric</desc>
+<rect width="960" height="520" fill="#202038"/><g fill="none" stroke="#8d83ff" stroke-width="4">
+<path d="M95 260h150M715 260h150M245 260c70-160 130-160 200-70M245 260c70-55 130-55 200-20M245 260c70 55 130 55 200 20M245 260c70 160 130 160 200 70"/>
+<path d="M515 190c65-90 115-90 200 70M515 240c65-25 115-25 200 20M515 280c65 25 115 25 200-20M515 330c65 90 115 90 200-70"/>
+</g><g fill="#d9ff5a"><rect x="445" y="148" width="70" height="70" rx="12"/><rect x="445" y="225" width="70" height="70" rx="12"/><rect x="445" y="302" width="70" height="70" rx="12"/><circle cx="245" cy="260" r="17"/><circle cx="715" cy="260" r="17"/></g>
+<text x="62" y="474" fill="#f0f1ff" font-family="monospace" font-size="25">10T PARAM / HBM / ALL-TO-ALL / FLEET MTBF</text></svg>

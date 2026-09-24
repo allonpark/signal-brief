@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">AI agent human handoff</title><desc id="d">An automated call path splits into AI-only and human-assisted branches with a privacy boundary</desc>
+<rect width="960" height="520" fill="#202038"/><g fill="none" stroke="#8d83ff" stroke-width="5">
+<circle cx="150" cy="245" r="62"/><path d="M135 220c22-19 52 14 30 33-11 9-20 16-25 32M140 310v8"/>
+<path d="M212 245h135M347 245c80 0 68-115 150-115M347 245c80 0 68 115 150 115"/>
+<rect x="497" y="72" width="175" height="116" rx="20"/><rect x="497" y="302" width="175" height="116" rx="20"/>
+<path d="M672 130h125M672 360h125M797 130v230"/>
+<rect x="797" y="205" width="88" height="80" rx="14" stroke="#d9ff5a"/>
+</g><path d="M435 70v350" stroke="#d9ff5a" stroke-width="4" stroke-dasharray="12 12"/><circle cx="585" cy="130" r="20" fill="#d9ff5a"/><circle cx="585" cy="360" r="20" fill="#d9ff5a"/>
+<text x="62" y="474" fill="#f1f1ff" font-family="monospace" font-size="25">AI-ONLY / HUMAN HANDOFF / CONSENT BOUNDARY</text></svg>

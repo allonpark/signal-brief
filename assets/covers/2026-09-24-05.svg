@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">SoftBank bond maturity ladder</title><desc id="d">A bridge loan becomes several longer maturity bonds while an illiquid investment remains on the other side</desc>
+<rect width="960" height="520" fill="#fee1c1"/><g fill="none" stroke="#9b4d18" stroke-width="5">
+<rect x="75" y="173" width="190" height="145" rx="18"/><path d="M112 220h116M112 267h116"/><path d="M265 245h96M335 215l30 30-30 30"/>
+<path d="M390 350V120h405M460 350v-85h72v85M570 350V210h72v140M680 350V155h72v195"/>
+<path d="M795 235h90M860 205l30 30-30 30"/>
+</g><circle cx="425" cy="350" r="13" fill="#d36d2a"/><circle cx="532" cy="265" r="13" fill="#d36d2a"/><circle cx="642" cy="210" r="13" fill="#d36d2a"/><circle cx="752" cy="155" r="13" fill="#d36d2a"/>
+<text x="62" y="474" fill="#4a2b1a" font-family="monospace" font-size="25">$10B + €1B / MATURITY LADDER / STRESSED LTV</text></svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Mental health benchmark dimensions</title><desc id="d">Ten evaluation dimensions surround a conversation while acuity rises along a vertical axis</desc>
+<rect width="960" height="520" fill="#dbe5ff"/><g fill="none" stroke="#1b2943" stroke-width="4">
+<circle cx="420" cy="245" r="92"/><circle cx="420" cy="245" r="145" opacity=".45"/><path d="M420 100v290M275 245h290" opacity=".35"/>
+<path d="M690 350V120h160M690 350l48-54 42-65 70-94" stroke="#7667e8"/>
+</g><g fill="#7667e8">
+<circle cx="420" cy="100" r="12"/><circle cx="505" cy="128" r="12"/><circle cx="558" cy="200" r="12"/><circle cx="558" cy="290" r="12"/><circle cx="505" cy="362" r="12"/><circle cx="420" cy="390" r="12"/><circle cx="335" cy="362" r="12"/><circle cx="282" cy="290" r="12"/><circle cx="282" cy="200" r="12"/><circle cx="335" cy="128" r="12"/>
+</g><rect x="375" y="202" width="90" height="86" rx="18" fill="#fff"/><path d="M398 230h44M398 255h30" stroke="#1b2943" stroke-width="5"/>
+<text x="62" y="474" fill="#1b2943" font-family="monospace" font-size="25">10 DIMENSIONS / ACUITY / WORST-CELL RISK</text></svg>

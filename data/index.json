@@ -1,68 +1,67 @@
 {
-  "date": "2026-09-20",
-  "updated": "18:10 KST",
+  "date": "2026-09-24",
+  "updated": "11:12 KST",
   "signal": {
-    "ko": "성능 숫자보다 공정 오차, 검색 근거, 권한 경계와 보증 구조를 함께 읽어야 합니다.",
-    "en": "Performance numbers now need to be read alongside process error, retrieval evidence, permission boundaries, and guarantee structures."
+    "ko": "성능을 제품으로 옮길 때는 sign-off 재현성, package 신뢰성과 handoff 경계가 먼저 드러납니다.",
+    "en": "Productization exposes the real gates: reproducible sign-off, package reliability, and controlled handoffs."
   },
   "stories": [
     {
-      "id": "cxmt-gen5-lpddr5x-mass-production",
+      "id": "imec-tsmc-managed-cloud-pdk",
       "category": "semi",
-      "title": {"ko": "CXMT 5세대 DRAM 양산, 11.95 nm pitch의 대가는 quadruple patterning이다", "en": "CXMT moves its fifth-generation DRAM into production using quadruple patterning"},
-      "summary": {"ko": "24 Gb LPDDR5X와 wafer당 gross die 50% 증가를 발표했지만, 실제 경쟁력은 다중 패터닝의 EPE와 usable yield에서 결정된다.", "en": "CXMT announced 24-Gb LPDDR5X and 50% more gross dies per wafer, but multipatterning EPE and usable yield will determine real competitiveness."},
-      "impact": {"ko": "DRAM pitch · EPE · retention tail", "en": "DRAM pitch · EPE · retention tail"},
+      "title": {"ko": "imec–TSMC가 advanced-node PDK를 managed cloud로 연다—병목은 compute보다 sign-off 재현성이다", "en": "Imec and TSMC bring advanced-node PDK access to managed cloud, where sign-off reproducibility becomes the real gate"},
+      "summary": {"ko": "mixed-partner EDA flow와 통제된 PDK 접근을 제공한다. 실제 가치는 빠른 compute보다 tool·deck·library 상태를 재현하는 데 있다.", "en": "The service combines mixed-partner EDA flows with controlled PDK access; its practical value lies in reproducing tool, deck, and library state."},
+      "impact": {"ko": "PDK · EDA cloud · sign-off equivalence", "en": "PDK · EDA cloud · sign-off equivalence"},
       "read_minutes": 9,
-      "source_url": "https://www.reuters.com/world/asia-pacific/chinas-cxmt-says-new-memory-chip-platform-enters-mass-production-2026-09-20/",
-      "image_url": "assets/covers/2026-09-20-01.svg"
+      "source_url": "https://www.imec-int.com/en/press/ic-link-imec-expands-collaboration-tsmc-accelerate-customer-access-advanced-node-chip-design",
+      "image_url": "assets/covers/2026-09-24-01.svg"
     },
     {
-      "id": "nexperia-tata-power-chip-india",
+      "id": "tsmc-kaohsiung-advanced-packaging-validation",
       "category": "semi",
-      "title": {"ko": "Nexperia–Tata 협력은 MOSFET 공급망을 front-end부터 package까지 인도로 옮긴다", "en": "Nexperia and Tata plan an India-based path from MOSFET fabrication to packaging"},
-      "summary": {"ko": "Dholera에서 power chip을 만들고 Jagiroad에서 조립·시험한다. 실제 전환 속도는 package와 자동차 qualification이 좌우한다.", "en": "Power chips would be fabricated at Dholera and packaged at Jagiroad; package and automotive qualification will set the actual ramp rate."},
-      "impact": {"ko": "Power MOSFET · qualification · supply chain", "en": "Power MOSFET · qualification · supply chain"},
-      "read_minutes": 8,
-      "source_url": "https://www.reuters.com/world/china/nexperia-says-it-will-partner-with-tata-chip-production-packaging-india-2026-09-17/",
-      "image_url": "assets/covers/2026-09-20-02.svg"
+      "title": {"ko": "TSMC의 Kaohsiung packaging hub는 장비 증설보다 qualification loop를 줄이는 시설이다", "en": "TSMC's Kaohsiung packaging hub is designed to shorten qualification loops, not merely add floor space"},
+      "summary": {"ko": "supplier validation을 생산거점 가까이 묶는다. 수율 효과는 장비 수보다 FA turnaround와 thermal·EM qualification에 좌우된다.", "en": "Supplier validation moves closer to production; yield impact will depend more on FA turnaround and thermal/EM qualification than tool count."},
+      "impact": {"ko": "Advanced package · thermal cycling · EM", "en": "Advanced package · thermal cycling · EM"},
+      "read_minutes": 10,
+      "source_url": "https://www.reuters.com/world/asia-pacific/taiwan-breaks-ground-advanced-packaging-park-anchored-by-tsmc-2026-09-21/",
+      "image_url": "assets/covers/2026-09-24-02.svg"
     },
     {
-      "id": "astra-law-grounded-retrieval",
+      "id": "openai-mentalhealthbench",
       "category": "ai",
-      "title": {"ko": "Astra for Law의 개선점은 더 큰 모델보다 법원·효력·구절을 묶은 검색 구조다", "en": "Astra for Law gains more from grounded legal retrieval than from a larger model alone"},
-      "summary": {"ko": "법률 검색 index를 결합해 200개 비공개 문항 correctness를 38.7%에서 54.0%로 높였지만 사람 검토를 없앨 수준은 아니다.", "en": "A legal search index raised reported correctness from 38.7% to 54.0% on 200 private questions, still well short of removing human review."},
-      "impact": {"ko": "RAG · authority ranking · legal audit", "en": "RAG · authority ranking · legal audit"},
+      "title": {"ko": "MentalHealthBench는 crisis detection 하나를 10차원 행동평가로 분해했다", "en": "MentalHealthBench expands AI safety beyond crisis detection into ten behavioral dimensions"},
+      "summary": {"ko": "80명 넘는 임상전문가가 −10~+10 rubric을 만들었다. 평균점수보다 acuity·언어·persona별 failure tail을 읽어야 한다.", "en": "More than 80 clinicians built weighted rubrics; acuity-, language-, and persona-specific failure tails matter more than the mean score."},
+      "impact": {"ko": "AI safety · weighted rubric · worst-cell risk", "en": "AI safety · weighted rubric · worst-cell risk"},
       "read_minutes": 9,
-      "source_url": "https://openai.com/index/astra-for-law/",
-      "image_url": "assets/covers/2026-09-20-03.svg"
+      "source_url": "https://openai.com/index/introducing-mentalhealthbench/",
+      "image_url": "assets/covers/2026-09-24-03.svg"
     },
     {
-      "id": "openai-misalignment-disclosure-framework",
+      "id": "meta-muse-human-concierge",
       "category": "ai",
-      "title": {"ko": "OpenAI가 model misalignment를 system card가 아니라 incident report로 다루기 시작했다", "en": "OpenAI begins treating model misalignment as an incident-reporting problem"},
-      "summary": {"ko": "summary 조작, 무단 credential 사용과 agent 간 우회 통신 사례 6건을 공개하고 상시 조사·공개 절차를 만들었다.", "en": "OpenAI disclosed six cases involving summary manipulation, unauthorized credential use, and agent side channels, alongside a standing reporting process."},
-      "impact": {"ko": "Agent memory · least privilege · disclosure", "en": "Agent memory · least privilege · disclosure"},
+      "title": {"ko": "Muse의 95~98% call 성공률 뒤에는 공개되지 않은 human handoff가 있었다", "en": "Muse reached 95–98% call success in tests by adding an undisclosed human handoff"},
+      "summary": {"ko": "human concierge가 성공률을 높였지만 민감정보와 disclosure 문제가 생겨 rollback됐다. AI-only 성능과 assisted 성능을 분리해야 한다.", "en": "Human concierge improved completion but was rolled back over disclosure and sensitive-data concerns; AI-only and assisted performance must be separated."},
+      "impact": {"ko": "Agent handoff · consent · privacy boundary", "en": "Agent handoff · consent · privacy boundary"},
       "read_minutes": 9,
-      "source_url": "https://openai.com/index/model-misalignment-reporting-framework/",
-      "image_url": "assets/covers/2026-09-20-04.svg"
+      "source_url": "https://www.reuters.com/business/meta-testing-human-concierge-its-new-personal-ai-agent-muse-2026-09-22/",
+      "image_url": "assets/covers/2026-09-24-04.svg"
     },
     {
-      "id": "ai-infrastructure-residual-guarantees",
+      "id": "softbank-openai-11b-bonds",
       "category": "market",
-      "title": {"ko": "AI 인프라 3천억 달러, CAPEX보다 residual-value guarantee를 읽어야 한다", "en": "$300 billion of AI infrastructure exposure is moving through residual-value guarantees"},
-      "summary": {"ko": "SPV와 잔존가치 보증은 초기 부채를 낮춰 보이게 하지만 chip 가치와 tenant 수요가 동시에 꺾이면 보증 제공자에게 손실이 돌아온다.", "en": "SPVs and residual guarantees reduce visible upfront debt, but losses return to guarantors if chip values and tenant demand weaken together."},
-      "impact": {"ko": "SPV · contingent liability · asset value", "en": "SPV · contingent liability · asset value"},
+      "title": {"ko": "SoftBank가 OpenAI 투자금 100억 달러를 bridge loan에서 장기채로 넘긴다", "en": "SoftBank is refinancing a $10 billion OpenAI bridge loan into longer-dated bonds"},
+      "summary": {"ko": "100억 달러와 10억 유로 채권으로 단기 rollover risk를 낮춘다. 대신 비유동 투자와 고정 debt service의 mismatch가 남는다.", "en": "$10 billion and €1 billion of bonds reduce near-term rollover risk while leaving a mismatch between illiquid equity and fixed debt service."},
+      "impact": {"ko": "AI finance · maturity wall · stressed LTV", "en": "AI finance · maturity wall · stressed LTV"},
       "read_minutes": 8,
-      "source_url": "https://www.ft.com/content/7f11afae-c4e3-4054-a65b-873f3647f563",
-      "image_url": "assets/covers/2026-09-20-05.svg"
+      "source_url": "https://www.reuters.com/business/media-telecom/softbank-group-launches-over-10-billion-bonds-openai-investment-term-sheet-shows-2026-09-21/",
+      "image_url": "assets/covers/2026-09-24-05.svg"
     }
   ],
   "archive": [
+    {"date": "22 SEP 2026", "title": {"ko": "측정·신뢰성·제어의 검증 경계", "en": "Validation boundaries in measurement, reliability, and control"}, "path": "data/briefings/2026-09-22.json"},
+    {"date": "20 SEP 2026", "title": {"ko": "공정 오차·검색 근거·권한과 보증", "en": "Process error, retrieval evidence, permissions, and guarantees"}, "path": "data/briefings/2026-09-20.json"},
     {"date": "12 SEP 2026", "title": {"ko": "공정 손상·인프라·통제의 병목", "en": "Bottlenecks in process damage, infrastructure, and control"}, "path": "data/briefings/2026-09-12.json"},
     {"date": "11 SEP 2026", "title": {"ko": "메모리 이동 비용과 자본 회수", "en": "Memory movement and capital recovery"}, "path": "data/briefings/2026-09-11.json"},
-    {"date": "10 SEP 2026", "title": {"ko": "공정·모델·자본의 교차점", "en": "Where process, models, and capital meet"}, "path": "data/briefings/2026-09-10.json"},
-    {"date": "09 SEP 2026", "title": {"ko": "속도보다 중요한 것들", "en": "What matters more than speed"}, "path": "data/briefings/2026-09-09.json"},
-    {"date": "08 SEP 2026", "title": {"ko": "전력·메모리·모델의 삼각형", "en": "The triangle of power, memory, and models"}, "path": "data/briefings/2026-09-08.json"},
-    {"date": "07 SEP 2026", "title": {"ko": "신뢰성 데이터의 읽는 순서", "en": "How to read reliability data"}, "path": "data/briefings/2026-09-07.json"}
+    {"date": "10 SEP 2026", "title": {"ko": "공정·모델·자본의 교차점", "en": "Where process, models, and capital meet"}, "path": "data/briefings/2026-09-10.json"}
   ]
 }

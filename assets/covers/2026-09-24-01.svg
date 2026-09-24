@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Managed cloud semiconductor sign-off</title><desc id="d">A chip layout, cloud environment and sign-off checks connected in one controlled design flow</desc>
+<rect width="960" height="520" fill="#17232c"/><g fill="none" stroke="#d9ff5a" stroke-width="5">
+<rect x="72" y="115" width="245" height="245" rx="20"/><path d="M112 155h165v165H112zM145 155v165M210 155v165M112 205h165M112 270h165" opacity=".52"/>
+<path d="M317 238h120"/><path d="M438 238c10-70 118-81 145-22 71-8 105 93 34 127H455c-75-10-81-91-17-105z"/>
+<path d="M645 245h72"/><rect x="717" y="126" width="170" height="224" rx="20"/><path d="M756 184l25 25 58-58M756 252l25 25 58-58M756 320h83"/>
+</g><text x="62" y="474" fill="#eef4f6" font-family="monospace" font-size="25">PDK / MIXED EDA / REPRODUCIBLE SIGN-OFF</text></svg>

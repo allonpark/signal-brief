@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Advanced packaging reliability loop</title><desc id="d">Chiplets and high bandwidth memory sit on an interposer with thermal and current stress paths</desc>
+<rect width="960" height="520" fill="#e9f2c8"/><g fill="none" stroke="#18221d" stroke-width="5">
+<rect x="92" y="280" width="776" height="70" rx="14"/><rect x="180" y="155" width="210" height="125" rx="16"/><rect x="430" y="125" width="150" height="155" rx="16"/><rect x="620" y="155" width="150" height="125" rx="16"/>
+<path d="M200 185h170M200 220h170M200 255h170M640 185h110M640 220h110M640 255h110" opacity=".45"/>
+<path d="M220 350v45M330 350v45M470 350v45M560 350v45M670 350v45M760 350v45"/>
+<path d="M145 95c80 65 185-22 270 38 84 59 160-28 288 20 62 23 89-17 130-58" stroke="#d36d2a"/>
+</g><g fill="#d36d2a"><circle cx="220" cy="315" r="9"/><circle cx="330" cy="315" r="9"/><circle cx="470" cy="315" r="9"/><circle cx="560" cy="315" r="9"/><circle cx="670" cy="315" r="9"/><circle cx="760" cy="315" r="9"/></g>
+<text x="62" y="474" fill="#18221d" font-family="monospace" font-size="25">CHIPLET / CTE / EM / QUALIFICATION LOOP</text></svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+<title id="t">Ge/Si avalanche photodiode link</title><desc id="d">An optical pulse enters a thin multiplication region and leaves as a stronger electrical signal</desc>
+<rect width="960" height="520" fill="#17232c"/><g fill="none" stroke="#d9ff5a" stroke-width="5">
+<path d="M70 260h190"/><path d="M70 230l45 30-45 30M140 230l45 30-45 30" opacity=".55"/>
+<rect x="278" y="92" width="120" height="336" rx="20"/><rect x="420" y="92" width="62" height="336" rx="18" opacity=".7"/>
+<path d="M338 140v240M451 140v240" opacity=".35"/><path d="M500 260h390"/>
+<path d="M510 260l42-65 46 130 52-190 56 250 54-160 48 76 52-41 70 0"/>
+</g><g fill="#d9ff5a"><circle cx="320" cy="210" r="11"/><circle cx="360" cy="270" r="11"/><circle cx="440" cy="182" r="9"/><circle cx="462" cy="310" r="9"/></g>
+<text x="62" y="474" fill="#eaf1f3" font-family="monospace" font-size="25">100 GHz / 5 V / 400 Gb/s / APD RELIABILITY</text></svg>
