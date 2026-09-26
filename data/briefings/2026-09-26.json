@@ -17,6 +17,11 @@
         "ko": "Qualcomm은 Snapdragon 8 Elite Extreme Gen 6의 memory package를 application processor 바로 위가 아니라 옆으로 이동한 offset PoP 구조를 공개했다. 기존 PoP의 적층 이점은 유지하면서 SoC에서 heat spreader로 이어지는 직접 열경로를 만들려는 설계다. 발표는 방향을 확인해 주지만 junction-temperature 저감값, package 면적과 board-level reliability 결과는 아직 공개되지 않았다.",
         "en": "Qualcomm has disclosed an offset package-on-package design for Snapdragon 8 Elite Extreme Gen 6, shifting the memory package away from directly above the application processor. The layout preserves PoP integration while opening a more direct path from the SoC to a heat spreader. The design intent is clear, but junction-temperature reduction, package area, and board-level reliability data remain undisclosed."
       },
+      "investment_lens": {
+        "ko": "열관리 부품의 탑재가치는 커질 수 있지만 package 면적·수율 비용이 상쇄하는지 확인해야 한다.",
+        "en": "Thermal-component content may rise, but package-area and yield costs could offset the gain."
+      },
+      "time_horizon": {"ko": "6~18개월", "en": "6–18 months"},
       "mechanism": {
         "ko": "conventional PoP에서는 AP 위의 DRAM package와 interface가 vertical thermal resistance를 더해 sustained power에서 hotspot을 키운다. memory를 lateral offset하면 AP 상부에 copper spreader나 vapor-chamber 접촉면을 확보할 수 있어 θJC를 낮출 여지가 생긴다. 대가는 footprint 확대와 비대칭 stack이다. LPDDR route가 길어지면 insertion loss·crosstalk·PDN inductance가 늘 수 있고, mass와 CTE가 한쪽으로 치우치면 reflow warpage와 solder-joint strain도 달라진다.",
         "en": "In conventional PoP, the DRAM package and interfaces above the application processor add vertical thermal resistance and intensify hotspots under sustained load. Lateral offset can expose the AP to a copper spreader or vapor chamber, potentially reducing junction-to-case thermal resistance. The tradeoff is a larger, asymmetric stack: longer LPDDR routes can increase insertion loss, crosstalk, and PDN inductance, while uneven mass and CTE distribution can alter reflow warpage and solder-joint strain."
@@ -24,6 +29,22 @@
       "what_changed": {
         "ko": "이전 세대의 thermal 개선이 주로 silicon efficiency, clock control과 handset cooling에 의존했다면 이번에는 package topology 자체를 바꿨다. Qualcomm mobile 총괄 Chris Patrick은 이 구조가 여전히 PoP라고 설명했지만 memory가 die 바로 위에 있지 않다고 확인했다. 단, 2 nm process나 benchmark 수치를 offset PoP의 효과로 단정할 근거는 공개되지 않았다.",
         "en": "Earlier thermal gains relied largely on silicon efficiency, clock control, and handset cooling; this change modifies the package topology itself. Qualcomm mobile chief Chris Patrick confirmed that it remains PoP even though memory no longer sits directly over the die. Public evidence does not isolate how much of any 2 nm or benchmark gain comes from the package change."
+      },
+      "value_chain": {
+        "ko": "변화는 mobile SoC 설계사에서 substrate·interposer, LPDDR, thermal interface material, heat spreader·vapor chamber와 handset assembly로 전달된다. offset package가 표준화되면 단순 silicon 성능보다 package·열관리 BOM의 비중이 높아질 수 있다. 다만 실제 공급사와 content 증가는 공개 BOM이나 design win 없이는 확정할 수 없다.",
+        "en": "The change runs from the mobile SoC vendor through substrates, LPDDR, thermal-interface materials, heat spreaders or vapor chambers, and handset assembly. Wider adoption could shift more bill-of-material value toward packaging and thermal management, but supplier exposure and content growth require a disclosed BOM or design win."
+      },
+      "investment_view": {
+        "ko": "투자 가설은 flagship의 sustained-performance 경쟁이 열관리와 advanced packaging의 단가를 높인다는 것이다. 그러나 offset PoP가 Extreme tier에만 머물거나 larger footprint·재qualification 비용이 premium을 소진하면 시장 규모는 제한된다. 특정 부품사를 수혜자로 보기 전에 채택 handset 수와 package당 content 변화를 확인해야 한다.",
+        "en": "The investment thesis is that sustained-performance competition raises thermal-management and advanced-packaging content in flagship phones. The opportunity narrows if offset PoP remains confined to an Extreme tier or larger footprint and requalification consume the premium. Handset adoption and content per package must precede any supplier call."
+      },
+      "watch_metrics": {
+        "ko": "확인할 지표는 offset package를 채택한 handset 수, 동일 두께에서의 sustained benchmark와 throttling time, package 면적, LPDDR speed, substrate layer count, thermal-part content와 assembly yield다. supplier 실적에서는 mobile package ASP와 thermal component mix가 unit shipment보다 먼저 움직이는지 본다.",
+        "en": "Watch the number of handset designs, sustained performance and throttling time at equal thickness, package area, LPDDR speed, substrate layer count, thermal-component content, and assembly yield. In supplier results, test whether mobile-package ASP and thermal mix improve before unit volumes do."
+      },
+      "risk_factors": {
+        "ko": "반대 시나리오는 process efficiency와 software scheduling만으로 thermal target을 충족해 offset 구조가 확산되지 않는 경우다. 비대칭 warpage, LPDDR margin 저하, drop failure와 낮은 package yield가 확인되면 추가 BOM보다 warranty·수율 비용이 더 커질 수 있다.",
+        "en": "The bear case is that process efficiency and software scheduling meet thermal targets without broad offset-PoP adoption. Asymmetric warpage, weaker LPDDR margin, drop failures, or low package yield could make warranty and yield costs exceed added component value."
       },
       "practical_impact": {
         "ko": "평가는 동일 chassis·ambient·workload에서 centered PoP와 offset PoP의 Tj, skin temperature, sustained clock와 battery power를 비교해야 한다. LPDDR eye margin, BER와 simultaneous-switching noise를 temperature corner까지 측정하고, shadow moiré warpage와 daisy-chain resistance를 reflow·thermal cycle·drop·bend 전후에 확인할 필요가 있다. 평균 온도만 낮고 package corner strain이나 memory error tail이 늘면 제품 수율과 현장 신뢰성의 교환조건이 나빠질 수 있다.",
@@ -60,6 +81,11 @@
         "ko": "OIF는 amplified DWDM link에서 파장당 1.6 Tbps를 최대 120 km까지 운용하는 1600ZR Implementation Agreement를 공개했다. 이번 주 ECOC 2026의 다중 vendor 시연은 coherent optics가 단일 업체의 point solution에서 조합 가능한 pluggable ecosystem으로 이동하는지 확인하는 단계다. 규격 공개와 현장 demo는 interoperability 증거지만 장시간 BER·열화·field failure data를 대신하지 않는다.",
         "en": "OIF has published the 1600ZR Implementation Agreement for interoperable 1.6 Tbps coherent links over amplified DWDM spans up to 120 km. Multi-vendor demonstrations at ECOC 2026 test whether coherent optics can move from vendor-specific point solutions to a composable pluggable ecosystem. A published interface and live demo establish interoperability direction, not long-duration BER, aging, or field-failure performance."
       },
+      "investment_lens": {
+        "ko": "DSP·광소자·test 장비의 content 증가가 핵심이며, module power와 양산수율이 수익성을 가른다.",
+        "en": "Higher DSP, optics, and test content is the opportunity; module power and production yield decide the economics."
+      },
+      "time_horizon": {"ko": "12~36개월", "en": "12–36 months"},
       "mechanism": {
         "ko": "coherent receiver는 optical field의 amplitude와 phase를 복원해 한 wavelength에 더 많은 bit를 싣고, DSP가 chromatic dispersion과 일부 impairment를 보상한다. capacity를 800G에서 1.6T로 두 배 올리면 symbol rate·modulation order·FEC overhead와 lane mapping의 균형이 더 빡빡해진다. Shannon 관점에서 C=B·log2(1+SNR)이므로 bandwidth를 늘리지 못하면 더 높은 SNR이 필요하고, laser linewidth·OSNR·nonlinearity와 DSP power margin이 동시에 줄어든다.",
         "en": "A coherent receiver reconstructs optical amplitude and phase, while DSP compensates chromatic dispersion and part of the link impairment. Doubling capacity from 800G to 1.6T tightens the balance among symbol rate, modulation order, FEC overhead, and lane mapping. From C=B·log2(1+SNR), capacity growth without proportional bandwidth requires more SNR, reducing margin against laser linewidth, OSNR, fiber nonlinearity, and DSP power."
@@ -67,6 +93,22 @@
       "what_changed": {
         "ko": "400ZR와 800ZR이 만든 interoperable DCI path가 1.6T wavelength로 확장됐다. OIF는 specification만 배포한 것이 아니라 9월 21~23일 ECOC에서 39개 회원사가 optical systems, CEI-224G/448G, CMIS와 co-packaging을 함께 시연했다. 다만 같은 booth의 link-up은 metro span의 연중 환경변동과 module population 분포보다 좁은 test다.",
         "en": "The interoperable DCI path established by 400ZR and 800ZR now extends to a 1.6T wavelength. OIF paired the specification with a September 21–23 ECOC demonstration involving 39 members across optical systems, CEI-224G/448G, CMIS, and co-packaging. A booth-level link-up is still narrower than year-round metro-span variation or module-population distributions."
+      },
+      "value_chain": {
+        "ko": "1.6T 전환은 coherent DSP, high-speed SerDes, laser·modulator·driver·TIA, optical packaging, pluggable module, connector와 test equipment를 거쳐 cloud·DCI operator의 port CAPEX로 이어진다. 파장당 capacity는 늘지만 module power와 cooling, 생산 test 시간이 함께 증가하면 장비·부품별 수혜 강도는 달라진다.",
+        "en": "The 1.6T transition reaches cloud and DCI port capex through coherent DSPs, high-speed SerDes, lasers, modulators, drivers, TIAs, optical packaging, pluggable modules, connectors, and test equipment. Capacity per wavelength rises, but higher module power, cooling, and test time distribute value unevenly across the chain."
+      },
+      "investment_view": {
+        "ko": "투자 가설은 AI cluster 간 traffic 증가가 fiber 증설보다 파장당 capacity와 port density를 먼저 밀어 올린다는 것이다. 이 경우 DSP·광부품뿐 아니라 multi-vendor qualification을 수행하는 test 장비의 content도 늘 수 있다. 다만 800ZR 재고와 기존 network utilization이 높지 않다면 1.6T ramp는 specification 발표보다 늦다.",
+        "en": "The thesis is that inter-cluster AI traffic pushes capacity per wavelength and port density before operators add fiber. That can increase content for DSP, optical components, and multi-vendor qualification equipment. The ramp will lag the specification if 800ZR inventories remain high or existing networks are underutilized."
+      },
+      "watch_metrics": {
+        "ko": "module sampling과 volume shipment 시점, power/W, DSP node, laser yield, test time, qualified vendor pair 수와 1.6T port 매출을 본다. operator 측에서는 DCI traffic growth, 800G→1.6T 교체율과 port당 CAPEX가 bit당 비용 하락으로 연결되는지가 핵심이다.",
+        "en": "Track module sampling and volume shipment dates, watts per module, DSP node, laser yield, test time, qualified vendor pairs, and 1.6T port revenue. For operators, watch DCI traffic growth, 800G-to-1.6T replacement, and whether capex per port actually lowers cost per bit."
+      },
+      "risk_factors": {
+        "ko": "반대 시나리오는 module power와 OSNR 요구가 높아 rack cooling과 link engineering 비용이 capacity 이득을 잠식하는 경우다. vendor pair별 error tail이나 field return이 커지면 표준은 존재해도 단일 공급사 선호가 유지돼 개방형 ecosystem의 경제성이 약해질 수 있다.",
+        "en": "The bear case is that module power and OSNR requirements let cooling and link-engineering costs consume the capacity gain. Broad error tails or field returns across vendor pairs could preserve single-vendor preference despite a formal standard, weakening open-ecosystem economics."
       },
       "practical_impact": {
         "ko": "구매자는 logo interoperability가 아니라 vendor pair matrix별 pre-FEC BER, Q-margin, FEC correction distribution과 link acquisition time을 확인해야 한다. 120 km reach는 fiber loss만이 아니라 ROADM count, connector contamination, channel loading과 adjacent-channel power에 따라 달라진다. thermal soak, power cycle과 aging 뒤에도 CMIS telemetry와 alarm semantics가 일치하는지 보지 않으면 운영상 vendor 교체가 막힐 수 있다.",
@@ -103,6 +145,11 @@
         "ko": "Anthropic은 개발자가 Claude directory에 plugin을 제출하고 review 상태, safety scan과 공개 후 사용량을 확인하는 portal을 열었다. 단일 remote MCP server뿐 아니라 MCP server와 Agent Skills를 묶은 GitHub repository도 제출할 수 있다. 연결 기능의 유통 경로가 생긴 것은 분명하지만 자동 scan과 directory approval이 plugin이 접근하는 외부 data까지 보증하는 것은 아니다.",
         "en": "Anthropic has opened a portal for submitting plugins to the Claude directory, tracking review and safety scans, and monitoring usage after publication. Developers can submit either a remote MCP server or a GitHub-hosted bundle combining MCP servers and Agent Skills. This creates a distribution path for integrations, but automated scanning and directory approval do not certify the external data a plugin can later access."
       },
+      "investment_lens": {
+        "ko": "얇은 wrapper보다 인증·권한관리·업무 data를 보유한 plugin이 지속적인 가치를 만들 가능성이 높다.",
+        "en": "Plugins with trusted identity, permissions, and workflow data are likelier to retain value than thin wrappers."
+      },
+      "time_horizon": {"ko": "3~12개월", "en": "3–12 months"},
       "mechanism": {
         "ko": "plugin bundle은 model context를 공급하는 connector와 repeatable instruction을 담은 skill을 하나의 versioned artifact로 묶는다. directory는 submission→scan→review→publish→analytics의 control plane을 제공하고, runtime에서는 model이 connector를 통해 외부 state를 읽거나 action을 실행한다. 따라서 artifact integrity와 runtime authority는 다른 문제다. clean repository가 승인돼도 remote server response, OAuth scope와 downstream content는 배포 후 바뀔 수 있다.",
         "en": "A plugin bundle packages connectors that supply model context with skills that encode repeatable instructions as one versioned artifact. The directory provides a submission, scan, review, publish, and analytics control plane; at runtime the model reads external state or executes actions through the connector. Artifact integrity and runtime authority are separate: an approved repository does not freeze remote-server responses, OAuth scopes, or downstream content."
@@ -110,6 +157,22 @@
       "what_changed": {
         "ko": "기존의 개별 MCP connector·skill 설치에서 승인된 directory listing과 usage feedback을 갖춘 배포 모델로 이동했다. 유료 Claude plan 개발자는 install을 product surface와 version별로 보고 listing view와 search query도 확인할 수 있다. 최신 MCP spec의 stateless core, chat 내부 UI를 위한 MCP Apps와 enterprise managed auth도 지원하지만 세부 rollout은 이어지는 중이다.",
         "en": "The ecosystem is moving from ad hoc connector and skill installation to reviewed directory listings with usage feedback. Developers on paid Claude plans can see installs by product surface and version, plus listing views and search queries. Support includes the stateless core of the latest MCP specification, MCP Apps for in-chat interfaces, and enterprise-managed authentication, with further rollout still pending."
+      },
+      "value_chain": {
+        "ko": "가치사슬은 model platform→directory·billing→plugin developer→identity·authorization→enterprise data system→end user로 이어진다. plugin 자체의 code보다 ERP·CRM·code repository 같은 system of record에 안전하게 연결되는 권한과 domain workflow가 switching cost를 만든다.",
+        "en": "The chain runs from the model platform through directory and billing, plugin developers, identity and authorization, enterprise systems of record, and end users. Durable switching cost is more likely to come from safe access and domain workflows around ERP, CRM, or code repositories than from plugin code alone."
+      },
+      "investment_view": {
+        "ko": "투자 관점에서는 app-store형 discovery가 ecosystem 확장과 유료 전환을 높일 수 있지만 distribution 권한은 platform에 집중된다. 독립 plugin 사업자는 proprietary data, deep workflow integration이나 규제 대응 능력이 없으면 기능이 빠르게 복제될 수 있다. identity·audit·policy layer는 plugin 수가 늘수록 필요한 공통 infrastructure다.",
+        "en": "App-store-style discovery can expand the ecosystem and paid conversion while concentrating distribution power in the platform. Independent plugins without proprietary data, deep workflow integration, or regulatory capability remain easy to copy. Identity, audit, and policy layers become common infrastructure as plugin counts grow."
+      },
+      "watch_metrics": {
+        "ko": "listing 수보다 install→30일 유지율, weekly active use, paid conversion, enterprise seat penetration과 plugin당 task completion을 본다. 공급 측에서는 review 기간, rejection rate, permission scope 변화와 security incident를 추적해야 한다. marketplace fee나 revenue share가 공개되면 developer economics를 다시 계산할 수 있다.",
+        "en": "Prioritize install-to-30-day retention, weekly active use, paid conversion, enterprise-seat penetration, and task completion per plugin over listing count. Track review time, rejection, permission changes, and security incidents. Marketplace fees or revenue share will be needed to model developer economics."
+      },
+      "risk_factors": {
+        "ko": "platform이 인기 기능을 native product로 흡수하거나 ranking·review rule을 바꾸면 독립 개발자의 유통력이 약해진다. prompt injection, over-broad OAuth와 remote backend compromise가 반복되면 기업 allowlist가 좁아져 marketplace 성장 자체가 느려질 수 있다.",
+        "en": "Independent distribution weakens if the platform absorbs popular functions or changes ranking and review rules. Repeated prompt injection, overbroad OAuth, or backend compromise could shrink enterprise allowlists and slow the marketplace itself."
       },
       "practical_impact": {
         "ko": "기업 도입 시 directory approval을 allowlist의 한 신호로만 쓰고 connector별 read/write scope, data residency, secret storage와 revocation path를 별도 심사해야 한다. version pinning과 signed release, permission diff, sandbox test와 rollback SLA를 요구하면 update가 권한을 넓히는 일을 줄일 수 있다. analytics는 adoption을 보여주지만 task success, unauthorized-action rate나 business value는 자체 telemetry로 측정해야 한다.",
@@ -146,6 +209,11 @@
         "ko": "Palo Alto Networks는 OpenAI GPT-5.6-Cyber, Anthropic Claude Mythos 5와 open-weight model을 task별로 routing하는 Continuous Frontier AI Defense를 출시했다. web app, API, cloud, source repository와 network의 attack path를 계속 탐색하고 exploitability를 확인한 뒤 remediation까지 연결한다. 회사가 공개한 100여 고객 결과는 coverage 가능성을 보여주지만 독립 비교시험이나 false-positive 분모는 아니다.",
         "en": "Palo Alto Networks has launched Continuous Frontier AI Defense, routing tasks across OpenAI GPT-5.6-Cyber, Anthropic Claude Mythos 5, and open-weight models. The service continuously examines attack paths across applications, APIs, cloud, source repositories, and networks, validates exploitability, and links findings to remediation. Results from more than 100 customer engagements show coverage potential, but are not an independent comparison or a false-positive denominator."
       },
+      "investment_lens": {
+        "ko": "보안 subscription 확대 가능성은 attach rate와 갱신률, model 비용을 뺀 gross margin으로 검증해야 한다.",
+        "en": "Subscription upside must be tested through attach rate, renewal, and gross margin after model and analyst costs."
+      },
+      "time_horizon": {"ko": "6~24개월", "en": "6–24 months"},
       "mechanism": {
         "ko": "multi-model harness는 code review, recon, exploit generation과 remediation처럼 성격이 다른 task를 적합한 model에 보낸다. 핵심 loop는 find→validate→prioritize→fix→retest다. scanner hit를 실제 end-to-end attack path로 재현하면 CVSS만으로 생기는 우선순위 noise를 줄일 수 있지만, 같은 agent가 discovery와 validation을 모두 담당하면 correlated error가 남는다. 사람의 승인과 격리된 execution environment가 독립 control 역할을 해야 한다.",
         "en": "A multi-model harness routes code review, reconnaissance, exploit generation, and remediation to models suited to each task. The operational loop is find, validate, prioritize, fix, and retest. Reproducing an end-to-end attack path can reduce CVSS-only prioritization noise, but correlated error remains when the same agent family performs discovery and validation. Human approval and isolated execution environments must provide independent controls."
@@ -153,6 +221,22 @@
       "what_changed": {
         "ko": "4월의 point-in-time exposure analysis가 full-estate baseline 뒤 환경 변화에 따라 계속 재검사하는 annual subscription으로 확장됐다. service는 code-level guidance와 virtual patch recommendation까지 제공한다. 이것은 더 잦은 검증을 가능하게 하지만 'continuous'가 모든 asset과 모든 commit을 실시간으로 검사한다는 의미인지는 공개 자료만으로 확인할 수 없다.",
         "en": "A point-in-time exposure analysis launched in April has expanded into an annual subscription that establishes a full-estate baseline and retests as environments change. The service also provides code-level guidance and virtual-patch recommendations. This enables more frequent validation, but public material does not define whether “continuous” means real-time coverage of every asset and commit."
+      },
+      "value_chain": {
+        "ko": "frontier model provider의 token·tool capability가 security vendor의 harness, threat intelligence와 analyst review를 거쳐 enterprise subscription으로 판매된다. 고객 가치가 확인되면 model API 지출과 human service cost보다 annual contract value가 더 빠르게 증가해야 한다. remediation이 firewall·cloud·SOC product와 연결되면 cross-sell 경로도 생긴다.",
+        "en": "Frontier-model capability is packaged with a security vendor's harness, threat intelligence, and analyst review into an enterprise subscription. For value to accrue, annual contract value must outgrow model API and human-service costs. Linking remediation to firewall, cloud, and SOC products also creates a cross-sell path."
+      },
+      "investment_view": {
+        "ko": "투자 가설은 AI가 신규 security category를 만드는 것보다 기존 platform의 attach rate와 wallet share를 높인다는 쪽에 가깝다. high/critical exposure를 실제 fix까지 줄이면 premium service의 가격근거가 생긴다. 발견 건수만 늘고 analyst 검증 시간이 같이 증가하면 revenue는 늘어도 margin은 개선되지 않는다.",
+        "en": "The thesis is less about a new security category than higher attach rate and wallet share on an existing platform. Demonstrated reduction of high or critical exposures can support premium pricing. If findings and analyst-validation time rise together, revenue may grow without margin improvement."
+      },
+      "watch_metrics": {
+        "ko": "서비스 고객 수, 기존 고객 attach rate, ACV, renewal, gross margin, analyst hour와 model inference cost를 본다. 제품 성능은 validated exploit 비율, false positives, mean time to fix, 재시험 통과율과 virtual patch의 production incident로 확인한다.",
+        "en": "Track customer count, installed-base attach rate, ACV, renewal, gross margin, analyst hours, and model-inference cost. Product quality requires exploit-validation rate, false positives, mean time to fix, retest pass rate, and production incidents from virtual patches."
+      },
+      "risk_factors": {
+        "ko": "model provider 가격·접근정책 변화와 false positive liability가 margin을 압박할 수 있다. 공격 재현 과정에서 고객 system을 손상하거나 민감 data를 외부 model에 노출하면 성장보다 계약·규제 비용이 먼저 커진다. 고객이 같은 기능을 internal agent로 구축하는 경우 premium도 낮아진다.",
+        "en": "Model pricing and access changes, plus false-positive liability, can pressure margin. Damage during exploit reproduction or sensitive-data exposure to external models would raise contractual and regulatory costs before growth. Premium pricing also falls if customers reproduce the service with internal agents."
       },
       "practical_impact": {
         "ko": "pilot에서는 known-vulnerable corpus와 clean control을 섞어 recall, false positives, exploit reproduction rate와 mean time to validated fix를 측정해야 한다. production scan은 synthetic credential, egress allowlist, rate limit와 customer-approved target scope 안에서 실행하고, generated exploit은 별도 sandbox에서 재현한다. remediation suggestion을 자동 merge하기보다 owner·test result·rollback을 묶은 change gate를 두는 편이 안전하다.",
@@ -193,6 +277,11 @@
         "ko": "Anthropic은 7년에 걸쳐 Akamai cloud service 116억 달러를 구매하기로 약정했고, 추가 구매가 이뤄지면 총액은 약 200억 달러까지 늘 수 있다. Akamai는 이 계약을 위해 약 55억 달러 CAPEX를 예상하며 2026년에 memory 등 핵심 부품 선구매로 17억 달러를 먼저 집행할 계획이다. 장기 수요가 확보됐다는 사실과 capacity가 제때 가동돼 목표 수익률을 낸다는 전망은 분리해서 봐야 한다.",
         "en": "Anthropic has committed to purchase $11.6 billion of Akamai cloud services over seven years, with expansion potentially lifting the total to about $20 billion. Akamai estimates roughly $5.5 billion of related capital expenditure and plans $1.7 billion of 2026 pre-purchases for memory and other constrained components. Contracted demand is verified; on-time capacity delivery and target returns are still forecasts."
       },
+      "investment_lens": {
+        "ko": "backlog보다 capacity 가동률·FCF·고객집중과 warrant 희석을 함께 봐야 계약의 질이 드러난다.",
+        "en": "Capacity utilization, free cash flow, concentration, and warrant dilution reveal more than backlog alone."
+      },
+      "time_horizon": {"ko": "12~36개월", "en": "12–36 months"},
       "mechanism": {
         "ko": "장기 purchase commitment는 capacity를 짓기 전 demand risk를 줄이지만 supplier가 hardware·memory와 data-center capacity를 먼저 확보해야 하므로 cash timing gap이 생긴다. Akamai가 발행한 warrant는 Anthropic의 추가 구매와 equity upside를 묶는다. 현재 116억 달러 약정에 약 2% 지분 상당이 vest되고, 이후 cloud service를 30억 달러씩 추가 구매할 때마다 약 1%씩 vest돼 최대 약 5%에 이른다. 이는 고객 lock-in과 성장 incentive를 강화하는 대신 기존 주주의 dilution cost를 만든다.",
         "en": "A long-term purchase commitment reduces demand risk before capacity is built, but the supplier still funds hardware, memory, and data-center capacity ahead of revenue, creating a cash-timing gap. Akamai's warrant ties additional Anthropic purchases to equity upside: about 2% is expected to vest with the initial commitment, and roughly 1% more for each additional $3 billion purchase, up to about 5%. That strengthens customer alignment and lock-in while creating dilution cost for existing shareholders."
@@ -200,6 +289,22 @@
       "what_changed": {
         "ko": "Akamai의 edge·delivery footprint가 Anthropic의 대규모 CPU workload를 받는 cloud infrastructure 계약으로 확장됐다. 116억 달러 약정은 올해 공개한 다른 multi-year CIS commitment 28억 달러를 크게 웃돌고, 추가 90억 달러 option은 한 고객의 비중을 더 높일 수 있다. 회사는 이번 계약이 2026 revenue guidance에는 영향을 주지 않는다고 밝혔으므로 headline 계약액이 당장 매출로 잡히는 구조는 아니다.",
         "en": "Akamai's edge and delivery footprint is expanding into a large cloud-infrastructure agreement for Anthropic's CPU workloads. The $11.6 billion commitment is far larger than the $2.8 billion of other multi-year CIS commitments announced this year, and the optional $9 billion expansion could increase customer concentration further. Akamai says the agreement does not change 2026 revenue guidance, so the headline value is not near-term revenue."
+      },
+      "value_chain": {
+        "ko": "Anthropic의 CPU workload 수요가 memory·server·data-center capacity 구매를 거쳐 Akamai cloud 매출과 감가상각으로 변환된다. upstream에서는 memory와 server component 선구매가 먼저 나타나고, Akamai에는 utilization이 올라간 뒤 revenue와 gross profit가 들어온다. warrant는 추가 구매와 equity dilution을 같은 계약에 묶는다.",
+        "en": "Anthropic's CPU workload demand moves through memory, server, and data-center capacity purchases before becoming Akamai cloud revenue and depreciation. Upstream component pre-purchases arrive first; revenue and gross profit follow only as utilization ramps. The warrant places incremental purchases and equity dilution in the same contract."
+      },
+      "investment_view": {
+        "ko": "계약은 Akamai가 CDN·security 중심 사업에서 AI cloud 공급자로 확장할 수 있다는 수요 근거다. 그러나 55억 달러 CAPEX, 17억 달러 선구매와 최대 약 5% warrant를 고려하면 매출 성장만으로는 충분하지 않다. 기존 cloud보다 낮은 margin, 고객집중이나 늦은 capacity ramp가 발생하면 backlog가 커도 valuation 개선은 제한될 수 있다.",
+        "en": "The contract supplies demand evidence for Akamai's expansion from CDN and security into AI cloud. Yet $5.5 billion of capex, $1.7 billion of pre-purchases, and a warrant for up to roughly 5% mean revenue growth alone is insufficient. Lower-than-core margins, customer concentration, or a slow capacity ramp could limit valuation upside despite a large backlog."
+      },
+      "watch_metrics": {
+        "ko": "분기별 cloud revenue growth, 계약 매출 전환, capacity utilization, gross margin, depreciation, CAPEX와 free cash flow를 묶어서 본다. memory inventory, delivery milestone, customer concentration과 vest된 warrant 비율도 확인해야 한다. optional 90억 달러는 실제 purchase와 capacity 조건이 확정될 때까지 base case에 넣지 않는 편이 보수적이다.",
+        "en": "Track quarterly cloud growth, contract conversion, capacity utilization, gross margin, depreciation, capex, and free cash flow together. Memory inventory, delivery milestones, customer concentration, and vested warrant percentage also matter. The optional $9 billion should stay outside the base case until purchases and capacity terms are firm."
+      },
+      "risk_factors": {
+        "ko": "수요 ramp 지연, component 가격 하락에 따른 선구매 inventory 손실, construction·전력 지연과 한 고객 의존이 주요 위험이다. Anthropic의 architecture가 CPU workload를 줄이거나 다른 cloud로 이동하면 전용 capacity의 재배치 비용이 커질 수 있다. warrant dilution은 계약이 성장할수록 함께 늘어난다.",
+        "en": "Key risks are a delayed demand ramp, inventory losses if component prices fall after pre-purchase, construction or power delays, and dependence on one customer. If Anthropic reduces CPU workloads or shifts clouds, dedicated capacity may be costly to redeploy. Warrant dilution also rises with contract expansion."
       },
       "practical_impact": {
         "ko": "투자자는 계약 총액보다 annual revenue ramp, committed minimum, gross margin, utilization과 incremental depreciation을 추적해야 한다. 55억 달러 CAPEX와 warrant dilution을 포함한 after-tax ROIC를 계산하고, 17억 달러 선구매가 delivery lead time을 줄이는지 inventory risk만 앞당기는지 확인해야 한다. 고객 측에서는 CPU workload의 종류, data locality, egress와 failover를 검증해야 GPU 계약과 혼동하지 않는다. 약정 확대는 긍정적이지만 concentration limit과 termination protection이 공개되지 않은 상태다.",

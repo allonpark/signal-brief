@@ -11,26 +11,32 @@ const state = {
 const uiCopy = {
   ko: {
     nav: ['오늘', '전체 리포트', '아카이브'], action: '전체 리포트 <span>↓</span>',
-    hero: '오늘의<br><em>핵심 신호.</em>', intro: '반도체의 물리, AI의 속도, 시장의 방향을 하나의 시선으로 읽습니다.',
-    introMeta: '5 stories · 균형 잡힌 신호 · 깊은 맥락', briefing: '오늘의 5개 신호', reportTitle: '오늘의 심층 리포트',
-    reportIntro: '각 신호의 사실, 작동 메커니즘, 이전 상태와의 차이, 실무 영향과 검증 근거를 순서대로 읽습니다.',
-    methodTitle: '뉴스를 신호로 바꾸는 법', methodCopy: '헤드라인을 모으는 대신, 무엇이 바뀌었고 그 변화가 어떤 메커니즘으로 확산되는지 추적합니다.',
-    archiveTitle: '지난 브리핑', footer: '다섯 개의 신호. 더 선명한 아침.', footerNote: '매일 업데이트 · 호기심 많은 엔지니어를 위해',
+    hero: '기술에서<br><em>투자 신호까지.</em>', intro: '핵심 기술의 작동 원리를 읽고, 공급망·원가·매출과 투자 지표까지 연결합니다.',
+    introMeta: '5 stories · technology first · investment connected', briefing: '오늘의 기술·투자 신호 5개', reportTitle: '기술에서 투자까지, 오늘의 심층 리포트',
+    reportIntro: '새 기술이 어떤 경제적 경로로 기업 실적에 전달되는지, 확인된 사실과 투자 가설을 분리해 읽습니다.',
+    frameworkTitle: '기술 뉴스가 투자 신호가 되는 경로', frameworkCopy: '성능 발표에서 멈추지 않고 경제적 전달 경로와 반증 조건까지 확인합니다.',
+    frameworkSteps: ['기술 변화', '경제적 메커니즘', '가치사슬', '투자 확인 지표'],
+    methodTitle: '연결해서 읽되, 건너뛰지 않는 법', methodCopy: '기술 우위가 곧바로 기업 이익을 뜻하지 않습니다. 채택률·수율·가격·CAPEX와 시간차를 통과하는지 확인합니다.',
+    archiveTitle: '지난 브리핑', footer: '기술을 이해하고, 자본의 방향을 검증합니다.', footerNote: '매일 업데이트 · 엔지니어와 투자자를 위해',
     updated: '업데이트', read: '분', readReport: '리포트 읽기 ↓', source: '원문',
-    sections: {summary:'핵심 요약', mechanism:'작동 메커니즘', changed:'무엇이 달라졌나', impact:'실무 영향', evidence:'검증 근거', inference:'해석과 관찰 포인트'},
+    investmentLens: 'INVESTMENT LENS', horizon: '관찰 시간축',
+    sections: {summary:'핵심 요약', mechanism:'기술 메커니즘', changed:'무엇이 달라졌나', valueChain:'가치사슬 전달 경로', investment:'투자 관점의 연결 해석', watch:'확인할 지표', impact:'실무 영향', risks:'반대 시나리오와 위험', evidence:'검증 근거', inference:'편집자 해석과 경계'},
     empty: '이 날짜의 상세 리포트는 아직 준비되지 않았습니다.', error: '리포트를 불러오지 못했습니다.',
     latest: '최신판', latestReport: '최신 리포트 보기', archiveEdition: '아카이브 판', newer: '더 새로운 글', older: '더 오래된 글', noNewer: '현재가 최신입니다', noOlder: '이전 기록 없음',
     storyReport: '기사 심층 분석', allStories: '전체 5개 보기', previousStory: '이전 기사', nextStory: '다음 기사', firstStory: '첫 번째 기사입니다', lastStory: '마지막 기사입니다'
   },
   en: {
     nav: ['Today', 'Full report', 'Archive'], action: 'Full report <span>↓</span>',
-    hero: 'What matters<br><em>today.</em>', intro: 'The physics of semiconductors, the pace of AI, and the direction of markets — read as one signal.',
-    introMeta: '5 stories · balanced signal · deep context', briefing: 'Five signals today', reportTitle: "Today's deep report",
-    reportIntro: 'Read each signal through verified facts, its mechanism, what changed, practical impact, and supporting evidence.',
-    methodTitle: 'How we turn news into signal', methodCopy: 'We do not just collect headlines. We trace what changed and the mechanism through which that change spreads.',
-    archiveTitle: 'Recent editions', footer: 'Five signals. One clear morning.', footerNote: 'Updated daily · Built for curious engineers',
+    hero: 'From technology<br><em>to investment signal.</em>', intro: 'We connect how critical technologies work to supply chains, cost structures, revenue, and investable metrics.',
+    introMeta: '5 stories · technology first · investment connected', briefing: 'Five technology-to-investment signals', reportTitle: "Today's technology and investment report",
+    reportIntro: 'Trace how a technical change reaches company economics while keeping verified facts separate from investment hypotheses.',
+    frameworkTitle: 'How technology becomes an investment signal', frameworkCopy: 'We follow the transmission path and define what would disprove the thesis.',
+    frameworkSteps: ['Technology change', 'Economic mechanism', 'Value chain', 'Investment checks'],
+    methodTitle: 'Connect the chain without skipping a link', methodCopy: 'Technical advantage is not automatically profit. Adoption, yield, pricing, capex, and timing must carry it into company results.',
+    archiveTitle: 'Recent editions', footer: 'Understand the technology. Verify the capital path.', footerNote: 'Updated daily · Built for engineers and investors',
     updated: 'Updated', read: 'min', readReport: 'Read report ↓', source: 'Source',
-    sections: {summary:'Signal summary', mechanism:'Underlying mechanism', changed:'What changed', impact:'Practical impact', evidence:'Validation evidence', inference:'Inference and watchpoints'},
+    investmentLens: 'INVESTMENT LENS', horizon: 'Watch horizon',
+    sections: {summary:'Signal summary', mechanism:'Technical mechanism', changed:'What changed', valueChain:'Value-chain transmission', investment:'Investment interpretation', watch:'Metrics to verify', impact:'Practical impact', risks:'Bear case and risks', evidence:'Validation evidence', inference:'Editorial inference and boundary'},
     empty: 'A detailed report is not available for this edition yet.', error: 'The report could not be loaded.',
     latest: 'LATEST', latestReport: 'Read latest report', archiveEdition: 'ARCHIVE EDITION', newer: 'Newer edition', older: 'Older edition', noNewer: 'This is the latest', noOlder: 'No older edition',
     storyReport: 'Story deep dive', allStories: 'View all five', previousStory: 'Previous story', nextStory: 'Next story', firstStory: 'This is the first story', lastStory: 'This is the last story'
@@ -81,6 +87,8 @@ function renderChrome() {
   setText('.intro p', c.intro); setText('.intro span', c.introMeta);
   setText('.briefing-head h2', isLatest() ? c.briefing : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '브리핑' : 'briefing'}`);
   setText('.report-title', state.selectedStory ? c.storyReport : isLatest() ? c.reportTitle : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '심층 리포트' : 'deep report'}`); setText('.report-intro', c.reportIntro);
+  setText('.thesis-row h2', c.frameworkTitle); setText('.thesis-copy', c.frameworkCopy);
+  document.querySelectorAll('.thesis-step strong').forEach((el, i) => { el.textContent = c.frameworkSteps[i] || ''; });
   setText('.method-row h2', c.methodTitle); setText('.method-copy p', c.methodCopy); setText('.archive-row h2', c.archiveTitle);
   setText('footer p', c.footer); setText('footer .footer-note', c.footerNote);
   languageButtons.forEach(button => button.classList.toggle('active', button.dataset.language === state.language));
@@ -103,6 +111,11 @@ function renderCards() {
     const story = state.cards[index]; if (!story) { card.hidden = true; return; }
     card.hidden = false; card.dataset.category = story.category;
     setCardText(card, 'h3', local(story.title)); setCardText(card, 'p', local(story.summary));
+    let lens = card.querySelector('.investment-lens');
+    if (story.investment_lens) {
+      if (!lens) { lens = document.createElement('div'); lens.className = 'investment-lens'; card.querySelector('.story-foot')?.before(lens); }
+      lens.innerHTML = `<span>${escapeHtml(c.investmentLens)}</span><strong>${escapeHtml(local(story.investment_lens))}</strong>`;
+    } else if (lens) lens.remove();
     setCardText(card, '.story-meta time', `${story.read_minutes || 5} ${c.read}`);
     setCardText(card, '.category', categoryNames[story.category]?.[state.language] || story.category.toUpperCase());
     setCardText(card, '.story-foot > span', local(story.impact || story.practical_impact));
@@ -148,7 +161,8 @@ function renderReport() {
     const id = story.id || `story-${index + 1}`;
     const sources = (story.sources?.length ? story.sources : story.source_url ? [{name:c.source,url:story.source_url}] : []).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)} ↗</a>`).join('');
     const image = story.image_url ? `<img src="${escapeHtml(story.image_url)}" alt="" loading="lazy">` : '';
-    return `<article class="report-article" id="report-${escapeHtml(id)}"><div class="report-number"><span>${String(index + 1).padStart(2,'0')}</span><b>${escapeHtml(categoryNames[story.category]?.[state.language] || story.category)}</b></div><div class="report-body"><div class="report-article-head"><div><p class="report-date">${escapeHtml(story.source_date || state.edition.date)}</p><h3>${escapeHtml(local(story.title))}</h3></div>${image}</div><div class="analysis-grid">${detailBlock(c.sections.summary, story.summary)}${detailBlock(c.sections.mechanism, story.mechanism)}${detailBlock(c.sections.changed, story.what_changed)}${detailBlock(c.sections.impact, story.practical_impact || story.impact)}${detailBlock(c.sections.evidence, story.evidence)}${detailBlock(c.sections.inference, story.inference)}</div>${story.equation ? `<div class="equation"><span>MODEL</span><code>${escapeHtml(story.equation)}</code></div>` : ''}<div class="report-sources">${sources}</div></div></article>`;
+    const investmentLead = story.investment_lens ? `<aside class="investment-lead"><div><span>${escapeHtml(c.investmentLens)}</span><strong>${escapeHtml(local(story.investment_lens))}</strong></div>${story.time_horizon ? `<p><b>${escapeHtml(c.horizon)}</b>${escapeHtml(local(story.time_horizon))}</p>` : ''}</aside>` : '';
+    return `<article class="report-article" id="report-${escapeHtml(id)}"><div class="report-number"><span>${String(index + 1).padStart(2,'0')}</span><b>${escapeHtml(categoryNames[story.category]?.[state.language] || story.category)}</b></div><div class="report-body"><div class="report-article-head"><div><p class="report-date">${escapeHtml(story.source_date || state.edition.date)}</p><h3>${escapeHtml(local(story.title))}</h3></div>${image}</div>${investmentLead}<div class="analysis-grid">${detailBlock(c.sections.summary, story.summary)}${detailBlock(c.sections.mechanism, story.mechanism)}${detailBlock(c.sections.changed, story.what_changed)}${detailBlock(c.sections.valueChain, story.value_chain)}${detailBlock(c.sections.investment, story.investment_view)}${detailBlock(c.sections.watch, story.watch_metrics)}${detailBlock(c.sections.impact, story.practical_impact || story.impact)}${detailBlock(c.sections.risks, story.risk_factors)}${detailBlock(c.sections.evidence, story.evidence)}${detailBlock(c.sections.inference, story.inference)}</div>${story.equation ? `<div class="equation"><span>MODEL</span><code>${escapeHtml(story.equation)}</code></div>` : ''}<div class="report-sources">${sources}</div></div></article>`;
   }).join('');
   container.innerHTML = selectedIndex >= 0 ? `${storyNav(stories, selectedIndex)}${articles}${storyNav(stories, selectedIndex, 'bottom')}` : `${editionNav()}${articles}${editionNav('bottom')}`;
 }
