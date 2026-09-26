@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">Claude plugin distribution portal</title><desc id="d">Plugin components pass through scanning and review into a directory while permissions remain external</desc>
+  <rect width="960" height="520" fill="#f2eadc"/><g fill="#24313a"><rect x="86" y="204" width="180" height="150" rx="12"/><rect x="390" y="204" width="180" height="150" rx="12"/><rect x="694" y="204" width="180" height="150" rx="12"/></g>
+  <g fill="#d6ff4d"><path d="M266 270h90v-25l48 34-48 34v-25h-90z"/><path d="M570 270h90v-25l48 34-48 34v-25h-90z"/></g>
+  <g fill="#f7f5ed" font-family="monospace" text-anchor="middle"><text x="176" y="260" font-size="22">MCP + SKILL</text><text x="176" y="300" font-size="17">VERSIONED BUNDLE</text><text x="480" y="260" font-size="22">SCAN / REVIEW</text><text x="480" y="300" font-size="17">SUBMISSION GATE</text><text x="784" y="260" font-size="22">DIRECTORY</text><text x="784" y="300" font-size="17">INSTALL / METRICS</text></g>
+  <path d="M694 385h180" stroke="#d35e2d" stroke-width="6"/><circle cx="782" cy="385" r="13" fill="#d35e2d"/><text x="52" y="68" fill="#24313a" font-family="monospace" font-size="24">PLUGIN SUPPLY CHAIN</text><text x="52" y="104" fill="#9a6339" font-family="monospace" font-size="18">APPROVAL ≠ RUNTIME AUTHORITY</text><text x="52" y="474" fill="#7b6e5f" font-family="monospace" font-size="17">VERSION / OAUTH SCOPE / BACKEND / ROLLBACK</text>
+</svg>

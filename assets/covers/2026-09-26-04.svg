@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">Continuous multi-model security validation</title><desc id="d">Multiple AI models feed a find validate fix and retest security loop</desc>
+  <rect width="960" height="520" fill="#17202a"/><g fill="none" stroke="#7d8cff" stroke-width="5"><circle cx="480" cy="278" r="120"/><path d="M480 158l28 18-30 16"/><path d="M600 278l-18 28-16-30"/><path d="M480 398l-28-18 30-16"/><path d="M360 278l18-28 16 30"/></g>
+  <g fill="#f7f5ed" font-family="monospace" font-size="19" text-anchor="middle"><text x="480" y="140">FIND</text><text x="636" y="285">VALIDATE</text><text x="480" y="438">FIX</text><text x="316" y="285">RETEST</text></g>
+  <g fill="#d6ff4d"><circle cx="170" cy="250" r="42"/><circle cx="170" cy="350" r="42"/></g><g fill="#17202a" font-family="monospace" font-size="18" text-anchor="middle"><text x="170" y="257">GPT</text><text x="170" y="357">CLAUDE</text></g><path d="M216 300h106" stroke="#d6ff4d" stroke-width="7"/>
+  <path d="M638 278h145l40-42 54 84" fill="none" stroke="#d35e2d" stroke-width="7"/><text x="52" y="68" fill="#d6ff4d" font-family="monospace" font-size="24">CONTINUOUS FRONTIER AI DEFENSE</text><text x="52" y="104" fill="#dce5ea" font-family="monospace" font-size="18">MULTI-MODEL HARNESS · ISOLATED EXECUTION</text><text x="52" y="474" fill="#98a7b3" font-family="monospace" font-size="17">PRECISION / EXPLOIT REPRODUCTION / FIX LATENCY</text>
+</svg>

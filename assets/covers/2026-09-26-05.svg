@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">Akamai Anthropic cloud commitment and capital recovery</title><desc id="d">A seven year contract flows through capacity investment to utilization and cash return</desc>
+  <rect width="960" height="520" fill="#ffe2be"/><path d="M90 350h760" stroke="#28323b" stroke-width="4"/><g fill="#28323b"><rect x="118" y="260" width="168" height="90"/><rect x="396" y="190" width="168" height="160"/><rect x="674" y="118" width="168" height="232"/></g>
+  <g fill="#ffe2be" font-family="monospace" text-anchor="middle"><text x="202" y="305" font-size="22">$11.6B</text><text x="480" y="270" font-size="22">$5.5B</text><text x="758" y="226" font-size="22">UTILIZATION</text></g><g fill="#9a4c2b" font-family="monospace" text-anchor="middle" font-size="16"><text x="202" y="385">7-YEAR COMMITMENT</text><text x="480" y="385">EST. CAPEX</text><text x="758" y="385">CASH RETURN</text></g>
+  <path d="M286 304h90" stroke="#d35e2d" stroke-width="8"/><path d="M564 270h90" stroke="#d35e2d" stroke-width="8"/><path d="M376 304l-26-18v36zM654 270l-26-18v36z" fill="#d35e2d"/>
+  <text x="52" y="66" fill="#28323b" font-family="monospace" font-size="24">DEMAND LOCKED · RETURNS UNPROVEN</text><text x="52" y="102" fill="#9a4c2b" font-family="monospace" font-size="18">PREPURCHASE / WARRANT / CUSTOMER CONCENTRATION</text><text x="52" y="474" fill="#7b634f" font-family="monospace" font-size="17">REVENUE RAMP / MARGIN / ROIC / FREE CASH FLOW</text>
+</svg>

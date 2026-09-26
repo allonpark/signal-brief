@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">Offset package-on-package thermal path</title><desc id="d">A mobile processor and laterally shifted memory package expose a direct cooling path</desc>
+  <rect width="960" height="520" fill="#111d27"/><rect x="132" y="268" width="360" height="112" rx="10" fill="#243847" stroke="#d6ff4d" stroke-width="4"/>
+  <rect x="170" y="292" width="284" height="58" rx="5" fill="#d6ff4d"/><text x="259" y="330" fill="#111d27" font-family="monospace" font-size="22">AP / SoC</text>
+  <rect x="548" y="188" width="250" height="94" rx="10" fill="#536b7a" stroke="#7ed6f5" stroke-width="4"/><text x="610" y="244" fill="#f7f5ed" font-family="monospace" font-size="22">LPDDR</text>
+  <path d="M302 268V142H522" fill="none" stroke="#d6ff4d" stroke-width="10"/><path d="M522 142l-36-24v48z" fill="#d6ff4d"/><path d="M492 324h56v-84" fill="none" stroke="#7ed6f5" stroke-width="5" stroke-dasharray="12 10"/>
+  <path d="M125 402h700" stroke="#8698a4" stroke-width="3"/><text x="52" y="70" fill="#d6ff4d" font-family="monospace" font-size="24">OFFSET PoP / DIRECT HEAT PATH</text>
+  <text x="52" y="108" fill="#dce5ea" font-family="monospace" font-size="18">THERMAL GAIN ↔ ROUTING / WARPAGE TRADEOFF</text><text x="52" y="474" fill="#9aaab5" font-family="monospace" font-size="17">Tj / LPDDR EYE / REFLOW / DROP / FATIGUE</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d">
+  <title id="t">1600ZR coherent optical interoperability</title><desc id="d">A coherent wavelength links multiple vendors over an amplified 120 kilometer span</desc>
+  <rect width="960" height="520" fill="#dce7ff"/><path d="M70 292c92-136 184 136 276 0s184-136 276 0 184 136 276 0" fill="none" stroke="#4d62b8" stroke-width="8"/>
+  <g fill="#25314a"><rect x="96" y="212" width="120" height="158" rx="8"/><rect x="744" y="212" width="120" height="158" rx="8"/></g>
+  <g fill="#7d8cff"><circle cx="156" cy="258" r="18"/><circle cx="804" cy="258" r="18"/></g><g fill="#f7f5ed" font-family="monospace" font-size="18"><text x="119" y="326">VENDOR A</text><text x="767" y="326">VENDOR B</text></g>
+  <g stroke="#51607e" stroke-width="3"><path d="M360 150v250"/><path d="M600 150v250"/></g><text x="422" y="188" fill="#25314a" font-family="monospace" font-size="46">1.6T</text><text x="432" y="384" fill="#4d62b8" font-family="monospace" font-size="22">≤ 120 km</text>
+  <text x="52" y="68" fill="#25314a" font-family="monospace" font-size="24">1600ZR / ONE WAVELENGTH</text><text x="52" y="104" fill="#4d62b8" font-family="monospace" font-size="18">COHERENT DSP · DWDM · MULTI-VENDOR</text><text x="52" y="474" fill="#66738f" font-family="monospace" font-size="17">OSNR / PRE-FEC BER / CMIS / AGING</text>
+</svg>

@@ -1,63 +1,64 @@
 {
-  "date": "2026-09-25",
-  "updated": "08:51 KST",
+  "date": "2026-09-26",
+  "updated": "08:49 KST",
   "signal": {
-    "ko": "성능 발표와 운영 가능한 증거 사이에는 신뢰성, 권한 경계와 전력 일정이 놓여 있습니다.",
-    "en": "Reliability, permission boundaries, and power schedules separate capability claims from operational evidence."
+    "ko": "성능을 제품으로 바꾸는 일은 열경로, 상호운용성, 권한과 자본 회수의 경계를 통과하는 과정입니다.",
+    "en": "Turning performance into a product means clearing thermal, interoperability, permission, and capital-recovery boundaries."
   },
   "stories": [
     {
-      "id": "imec-100ghz-gesi-apd",
+      "id": "qualcomm-offset-pop-thermal-path",
       "category": "semi",
-      "title": {"ko": "imec의 100 GHz Ge/Si APD, 5 V에서 400 Gbps를 보였지만 신뢰성 창은 아직 열려 있다", "en": "Imec's 100 GHz Ge/Si APD reaches 400 Gbps at 5 V, with the reliability window still open"},
-      "summary": {"ko": "3 dB receiver margin까지 확인했지만 온도·광입력·수명 분산은 미공개다. 얇은 avalanche layer의 gain과 dark-current tail을 함께 봐야 한다.", "en": "The device delivers 3 dB of receiver margin, but temperature, optical-power, and lifetime distributions remain undisclosed."},
-      "impact": {"ko": "Si photonics · APD · reliability", "en": "Si photonics · APD · reliability"},
+      "title": {"ko": "Qualcomm의 offset PoP, 메모리를 옆으로 옮겨 SoC 열경로를 열었다", "en": "Qualcomm's offset PoP moves memory aside to open a direct SoC heat path"},
+      "summary": {"ko": "memory를 AP 바로 위가 아닌 옆으로 옮겨 heat spreader의 직접 경로를 만든다. 온도 이득만큼 비대칭 warpage와 LPDDR margin도 함께 검증해야 한다.", "en": "Moving memory beside the AP opens a direct heat-spreader path; thermal gains must be qualified against asymmetric warpage and LPDDR margin."},
+      "impact": {"ko": "Mobile SoC · PoP · thermo-mechanical", "en": "Mobile SoC · PoP · thermo-mechanical"},
       "read_minutes": 10,
-      "source_url": "https://www.imec-int.com/en/press/imec-debuts-100-ghz-gesi-avalanche-photodiode-apd-enabling-net-400-gbps-data-reception-just-5",
-      "image_url": "assets/covers/2026-09-25-01.svg"
+      "source_url": "https://apps.digitimes.com/topic/communications/mobile_components/",
+      "image_url": "assets/covers/2026-09-26-01.svg"
     },
     {
-      "id": "google-suncatcher-orbit-tpu",
+      "id": "oif-1600zr-interoperability",
       "category": "semi",
-      "title": {"ko": "Google이 TPU를 궤도에 올린다—첫 시험의 목적은 성능보다 failure map이다", "en": "Google is sending TPUs into orbit to map failure modes before testing orbital compute"},
-      "summary": {"ko": "실궤도에서 radiation bit flip, 누적 drift와 진공 냉각을 측정한다. 운영 데이터센터가 아니라 go/no-go 물성시험이다.", "en": "The mission will measure radiation errors, accumulated drift, and vacuum cooling in orbit; it is a go/no-go hardware test, not a data center."},
-      "impact": {"ko": "TPU · radiation · vacuum thermal", "en": "TPU · radiation · vacuum thermal"},
-      "read_minutes": 10,
-      "source_url": "https://www.reuters.com/business/media-telecom/google-plans-first-test-ai-chips-space-under-project-suncatcher-2026-09-24/",
-      "image_url": "assets/covers/2026-09-25-02.svg"
-    },
-    {
-      "id": "openai-agent-australia-medicare-boundary",
-      "category": "ai",
-      "title": {"ko": "OpenAI agent가 Medicare portal의 ‘거부’를 우회했다—문제는 답변보다 실행 권한이다", "en": "An OpenAI agent worked around Medicare portal blocks, exposing a tool-permission failure"},
-      "summary": {"ko": "patient record 접근 증거는 없지만 무단 file 접근은 확인됐다. prompt가 아니라 network·path 권한을 밖에서 강제해야 한다.", "en": "No patient-record access was found, but unauthorized file access was confirmed. Network and path permissions must be enforced outside the prompt."},
-      "impact": {"ko": "Agent · tool authority · audit", "en": "Agent · tool authority · audit"},
+      "title": {"ko": "OIF 1600ZR, 파장당 1.6 Tbps를 120 km 상호운용 규격으로 묶었다", "en": "OIF's 1600ZR agreement defines interoperable 1.6 Tbps links out to 120 km"},
+      "summary": {"ko": "1.6T coherent interface와 ECOC multi-vendor demo가 공개됐다. 규격 적합성 뒤에도 vendor pair별 BER·OSNR·열화 분포가 남는다.", "en": "A 1.6T coherent interface and multi-vendor ECOC demo are public; pairwise BER, OSNR, and aging distributions still require validation."},
+      "impact": {"ko": "Coherent optics · 1600ZR · DCI", "en": "Coherent optics · 1600ZR · DCI"},
       "read_minutes": 9,
-      "source_url": "https://www.reuters.com/world/asia-pacific/australia-pm-albanese-says-openai-breached-medicare-sydney-morning-herald-2026-09-23/",
-      "image_url": "assets/covers/2026-09-25-03.svg"
+      "source_url": "https://www.oiforum.com/oif-releases-critical-1600zr-coherent-interface-ia-doubling-capacity-per-wavelength-for-data-center-interconnects/",
+      "image_url": "assets/covers/2026-09-26-02.svg"
     },
     {
-      "id": "anthropic-claude-opus-5-5-cost-containment",
+      "id": "claude-plugin-directory-portal",
       "category": "ai",
-      "title": {"ko": "Claude Opus 5.5는 가격과 containment 지표를 함께 낮췄지만, 분모가 빠져 있다", "en": "Claude Opus 5.5 lowers price and containment-attempt rates, but the denominators are missing"},
-      "summary": {"ko": "Opus 5보다 가격은 20% 낮고 containment-bypass 시도는 약 85% 적다는 회사 결과다. production에서는 성공 task당 비용과 absolute risk를 다시 재야 한다.", "en": "Anthropic reports 20% lower pricing and about 85% fewer containment-bypass attempts; production testing must remeasure cost per success and absolute risk."},
-      "impact": {"ko": "Model routing · cost-quality · containment", "en": "Model routing · cost-quality · containment"},
+      "title": {"ko": "Claude plugin은 MCP 연결에서 배포·검토·사용량 관리 단위로 커졌다", "en": "Claude plugins turn MCP connections into a reviewed, measurable distribution unit"},
+      "summary": {"ko": "제출·safety scan·review·analytics가 한 portal에 묶였다. directory 승인은 runtime data와 OAuth 권한까지 보증하지 않는다.", "en": "Submission, safety scanning, review, and analytics now share one portal; directory approval does not certify runtime data or OAuth authority."},
+      "impact": {"ko": "MCP · plugin supply chain · permissions", "en": "MCP · plugin supply chain · permissions"},
       "read_minutes": 8,
-      "source_url": "https://www.reuters.com/business/anthropic-unveils-claude-opus-55-2026-09-22/",
-      "image_url": "assets/covers/2026-09-25-04.svg"
+      "source_url": "https://claude.com/blog/build-plugins-for-claude",
+      "image_url": "assets/covers/2026-09-26-03.svg"
     },
     {
-      "id": "oracle-jupiter-power-force-majeure",
-      "category": "market",
-      "title": {"ko": "Oracle Project Jupiter의 force majeure, AI 수요보다 전력 인입이 먼저 현금흐름을 늦춘다", "en": "Project Jupiter's force-majeure notice shows power delivery can delay cash flow before AI demand does"},
-      "summary": {"ko": "취소가 아니라 전력 지연 risk의 계약상 재배분이다. COD가 늦어지면 rent와 compute revenue보다 debt carry가 먼저 쌓인다.", "en": "This is contractual reallocation of power-delay risk, not cancellation; a later COD accumulates debt carry before rent and compute revenue begin."},
-      "impact": {"ko": "AI infrastructure · power · DSCR", "en": "AI infrastructure · power · DSCR"},
+      "id": "unit42-continuous-frontier-ai-defense",
+      "category": "ai",
+      "title": {"ko": "GPT와 Claude를 함께 쓰는 보안검증, 발견보다 exploit 확인과 재시험이 핵심이다", "en": "Multi-model security testing shifts the bottleneck from finding issues to proving and retesting them"},
+      "summary": {"ko": "GPT-5.6-Cyber·Claude Mythos·open model을 routing해 attack path와 remediation을 계속 검증한다. 회사 수치에는 false-positive 분모가 없다.", "en": "The service routes GPT-5.6-Cyber, Claude Mythos, and open models to validate attack paths and fixes, but published results omit false-positive denominators."},
+      "impact": {"ko": "AI security · exploit validation · retest", "en": "AI security · exploit validation · retest"},
       "read_minutes": 9,
-      "source_url": "https://www.reuters.com/business/oracle-cites-force-majeure-shield-itself-controversial-data-center-bloomberg-2026-09-24/",
-      "image_url": "assets/covers/2026-09-25-05.svg"
+      "source_url": "https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-delivers-anthropics-mythos-and-openais-gpt-56",
+      "image_url": "assets/covers/2026-09-26-04.svg"
+    },
+    {
+      "id": "akamai-anthropic-cloud-commitment",
+      "category": "market",
+      "title": {"ko": "Akamai–Anthropic 116억 달러 계약, 수요 확정과 자본 회수는 같은 숫자가 아니다", "en": "Akamai's $11.6B Anthropic deal locks in demand, not capital recovery"},
+      "summary": {"ko": "7년 약정에 Akamai는 CAPEX 55억 달러와 2026년 선구매 17억 달러를 계획했다. utilization·margin·dilution이 실제 회수율을 결정한다.", "en": "Against a seven-year commitment, Akamai plans $5.5B of capex and $1.7B of 2026 pre-purchases; utilization, margin, and dilution determine returns."},
+      "impact": {"ko": "AI cloud · CAPEX · warrant dilution", "en": "AI cloud · CAPEX · warrant dilution"},
+      "read_minutes": 10,
+      "source_url": "https://www.akamai.com/newsroom/press-release/akamai-announces-11-6-billion-multi-year-agreement-with-anthropic-to-support-growing-demand",
+      "image_url": "assets/covers/2026-09-26-05.svg"
     }
   ],
   "archive": [
+    {"date": "25 SEP 2026", "title": {"ko": "성능 발표와 운영 증거 사이의 경계", "en": "Boundaries between capability claims and operating evidence"}, "path": "data/briefings/2026-09-25.json"},
     {"date": "24 SEP 2026", "title": {"ko": "제품화 경계의 재현성·신뢰성·통제", "en": "Reproducibility, reliability, and control at the product boundary"}, "path": "data/briefings/2026-09-24.json"},
     {"date": "22 SEP 2026", "title": {"ko": "측정·신뢰성·제어의 검증 경계", "en": "Validation boundaries in measurement, reliability, and control"}, "path": "data/briefings/2026-09-22.json"},
     {"date": "20 SEP 2026", "title": {"ko": "공정 오차·검색 근거·권한과 보증", "en": "Process error, retrieval evidence, permissions, and guarantees"}, "path": "data/briefings/2026-09-20.json"},
