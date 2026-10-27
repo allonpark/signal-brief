@@ -112,6 +112,7 @@ function renderEditionHeader() {
 
 function renderCards() {
   const c = uiCopy[state.language];
+  const grid = document.querySelector('.feature-grid'); if (grid) grid.dataset.count = state.cards.length;
   cardElements.forEach((card, index) => {
     const story = state.cards[index]; if (!story) { card.hidden = true; return; }
     card.hidden = false; card.dataset.category = story.category;
