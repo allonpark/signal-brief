@@ -12,7 +12,7 @@ const uiCopy = {
   ko: {
     nav: ['오늘', '전체 리포트', '아카이브'], action: '전체 리포트 <span>↓</span>',
     hero: '기술에서<br><em>투자 신호까지.</em>', intro: '핵심 기술의 작동 원리를 읽고, 공급망·원가·매출과 투자 지표까지 연결합니다.',
-    introMeta: '5 stories · technology first · investment connected', briefing: '오늘의 기술·투자 신호 5개', reportTitle: '기술에서 투자까지, 오늘의 심층 리포트',
+    introMeta: 'Material signals · earnings · valuation', briefing: '오늘의 투자 판단 신호', reportTitle: '기술에서 투자까지, 오늘의 심층 리포트',
     reportIntro: '새 기술이 어떤 경제적 경로로 기업 실적에 전달되는지, 확인된 사실과 투자 가설을 분리해 읽습니다.',
     frameworkTitle: '기술 뉴스가 투자 신호가 되는 경로', frameworkCopy: '성능 발표에서 멈추지 않고 경제적 전달 경로와 반증 조건까지 확인합니다.',
     frameworkSteps: ['기술 변화', '경제적 메커니즘', '가치사슬', '투자 확인 지표'],
@@ -23,12 +23,12 @@ const uiCopy = {
     sections: {summary:'핵심 요약', mechanism:'기술 메커니즘', changed:'무엇이 달라졌나', valueChain:'가치사슬 전달 경로', investment:'투자 관점의 연결 해석', watch:'확인할 지표', impact:'실무 영향', risks:'반대 시나리오와 위험', evidence:'검증 근거', inference:'편집자 해석과 경계'},
     empty: '이 날짜의 상세 리포트는 아직 준비되지 않았습니다.', error: '리포트를 불러오지 못했습니다.',
     latest: '최신판', latestReport: '최신 리포트 보기', archiveEdition: '아카이브 판', newer: '더 새로운 글', older: '더 오래된 글', noNewer: '현재가 최신입니다', noOlder: '이전 기록 없음',
-    storyReport: '기사 심층 분석', allStories: '전체 5개 보기', previousStory: '이전 기사', nextStory: '다음 기사', firstStory: '첫 번째 기사입니다', lastStory: '마지막 기사입니다'
+    storyReport: '기사 심층 분석', allStories: '전체 기사 보기', previousStory: '이전 기사', nextStory: '다음 기사', firstStory: '첫 번째 기사입니다', lastStory: '마지막 기사입니다'
   },
   en: {
     nav: ['Today', 'Full report', 'Archive'], action: 'Full report <span>↓</span>',
     hero: 'From technology<br><em>to investment signal.</em>', intro: 'We connect how critical technologies work to supply chains, cost structures, revenue, and investable metrics.',
-    introMeta: '5 stories · technology first · investment connected', briefing: 'Five technology-to-investment signals', reportTitle: "Today's technology and investment report",
+    introMeta: 'Material signals · earnings · valuation', briefing: 'Investment signals', reportTitle: "Today's technology and investment report",
     reportIntro: 'Trace how a technical change reaches company economics while keeping verified facts separate from investment hypotheses.',
     frameworkTitle: 'How technology becomes an investment signal', frameworkCopy: 'We follow the transmission path and define what would disprove the thesis.',
     frameworkSteps: ['Technology change', 'Economic mechanism', 'Value chain', 'Investment checks'],
@@ -39,7 +39,7 @@ const uiCopy = {
     sections: {summary:'Signal summary', mechanism:'Technical mechanism', changed:'What changed', valueChain:'Value-chain transmission', investment:'Investment interpretation', watch:'Metrics to verify', impact:'Practical impact', risks:'Bear case and risks', evidence:'Validation evidence', inference:'Editorial inference and boundary'},
     empty: 'A detailed report is not available for this edition yet.', error: 'The report could not be loaded.',
     latest: 'LATEST', latestReport: 'Read latest report', archiveEdition: 'ARCHIVE EDITION', newer: 'Newer edition', older: 'Older edition', noNewer: 'This is the latest', noOlder: 'No older edition',
-    storyReport: 'Story deep dive', allStories: 'View all five', previousStory: 'Previous story', nextStory: 'Next story', firstStory: 'This is the first story', lastStory: 'This is the last story'
+    storyReport: 'Story deep dive', allStories: 'View all stories', previousStory: 'Previous story', nextStory: 'Next story', firstStory: 'This is the first story', lastStory: 'This is the last story'
   }
 };
 
@@ -69,7 +69,7 @@ function editionUrl(storyId = null, hash = 'report') {
 
 function editionEntries() {
   if (!state.index) return [];
-  const latest = {date:state.index.date, title:{ko:'오늘의 5개 신호', en:'Five signals today'}, latest:true};
+  const latest = {date:state.index.date, title:{ko:'최신 투자 판단 신호', en:'Latest investment signals'}, latest:true};
   const archived = (state.index.archive || []).map(entry => ({...entry, dateKey:entry.path?.match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1]})).filter(entry => entry.dateKey).map(entry => ({...entry, date:entry.dateKey}));
   const unique = new Map([latest, ...archived].map(entry => [entry.date, entry]));
   if (state.selectedDate && !unique.has(state.selectedDate)) unique.set(state.selectedDate, {date:state.selectedDate, title:{ko:'보관 리포트',en:'Archived report'}});
@@ -78,6 +78,11 @@ function editionEntries() {
 
 function renderChrome() {
   const c = uiCopy[state.language]; document.documentElement.lang = state.language;
+  const count = state.cards.length;
+  c.introMeta = `${count} signals · earnings · valuation · evidence`;
+  c.briefing = state.language === 'ko' ? `오늘의 투자 판단 신호 ${count}건` : `${count} investment signals today`;
+  c.allStories = state.language === 'ko' ? `전체 ${count}건 보기` : `View all ${count} stories`;
+  c.footerNote = state.language === 'ko' ? '중요한 변화 중심 · 실적과 가치평가 검증' : 'Material changes · earnings and valuation checks';
   const nav = document.querySelectorAll('nav a'); nav.forEach((el, i) => { if (c.nav[i]) el.textContent = c.nav[i]; el.classList.remove('active'); });
   if (nav[0]) nav[0].href = './'; if (nav[1]) nav[1].href = editionUrl(null); if (nav[2]) nav[2].href = '#archive';
   (isLatest() ? nav[0] : nav[2])?.classList.add('active');
@@ -151,6 +156,13 @@ function storyNav(stories, activeIndex, position = '') {
   const side = (story, cls, label, empty) => story ? `<a class="${cls}" href="${editionUrl(story.id)}"><small>${label}</small>${escapeHtml(local(story.title))}</a>` : `<span class="${cls} disabled"><small>${label}</small>${empty}</span>`;
   return `<nav class="story-nav ${position}" aria-label="${state.language === 'ko' ? '기사 이동' : 'Story navigation'}">${side(previous,'previous',c.previousStory,c.firstStory)}<a class="all-stories" href="${editionUrl(null)}">← ${c.allStories}</a>${side(next,'next',c.nextStory,c.lastStory)}</nav>`;
 }
+function renderEtfComparison() {
+  const rows = state.edition?.etf_comparison;
+  if (!rows?.length) return '';
+  const ko = state.language === 'ko';
+  const labels = ko ? ['ETF / 코드','실적 연결','연 총보수 / 자료 기준','집중도 / 환노출','현재 판단'] : ['ETF / code','Earnings link','Annual fee / data date','Concentration / currency','Current stance'];
+  return `<section class="etf-review"><h3>${ko ? '국내 상장 ETF 비교 · 검증 후보' : 'Korea-listed ETFs · research candidates'}</h3><p>${escapeHtml(local(state.edition.data_note))}</p><div class="etf-scroll" tabindex="0" role="region" aria-label="${ko ? 'ETF 비교표, 가로 스크롤 가능' : 'ETF comparison table, scrollable'}"><table><thead><tr>${labels.map(x => `<th scope="col">${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr><th scope="row"><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(local(r.name))} ↗</a><small>${escapeHtml(r.code)}</small></th><td>${escapeHtml(local(r.exposure))}</td><td>${escapeHtml(r.fee)}<small>${escapeHtml(r.basis)}</small></td><td>${escapeHtml(local(r.concentration))}<small>${escapeHtml(local(r.currency))}</small></td><td>${escapeHtml(local(r.condition))}</td></tr>`).join('')}</tbody></table></div></section>`;
+}
 function renderReport() {
   const container = document.querySelector('#report-content'); const c = uiCopy[state.language]; const stories = state.edition?.stories || [];
   if (!stories.length) { container.innerHTML = `${editionNav()}<div class="report-empty-wrap"><p class="report-empty">${escapeHtml(c.empty)}</p><a href="./">${c.latestReport} →</a></div>${editionNav('bottom')}`; return; }
@@ -164,7 +176,7 @@ function renderReport() {
     const investmentLead = story.investment_lens ? `<aside class="investment-lead"><div><span>${escapeHtml(c.investmentLens)}</span><strong>${escapeHtml(local(story.investment_lens))}</strong></div>${story.time_horizon ? `<p><b>${escapeHtml(c.horizon)}</b>${escapeHtml(local(story.time_horizon))}</p>` : ''}</aside>` : '';
     return `<article class="report-article" id="report-${escapeHtml(id)}"><div class="report-number"><span>${String(index + 1).padStart(2,'0')}</span><b>${escapeHtml(categoryNames[story.category]?.[state.language] || story.category)}</b></div><div class="report-body"><div class="report-article-head"><div><p class="report-date">${escapeHtml(story.source_date || state.edition.date)}</p><h3>${escapeHtml(local(story.title))}</h3></div>${image}</div>${investmentLead}<div class="analysis-grid">${detailBlock(c.sections.summary, story.summary)}${detailBlock(c.sections.mechanism, story.mechanism)}${detailBlock(c.sections.changed, story.what_changed)}${detailBlock(c.sections.valueChain, story.value_chain)}${detailBlock(c.sections.investment, story.investment_view)}${detailBlock(c.sections.watch, story.watch_metrics)}${detailBlock(c.sections.impact, story.practical_impact || story.impact)}${detailBlock(c.sections.risks, story.risk_factors)}${detailBlock(c.sections.evidence, story.evidence)}${detailBlock(c.sections.inference, story.inference)}</div>${story.equation ? `<div class="equation"><span>MODEL</span><code>${escapeHtml(story.equation)}</code></div>` : ''}<div class="report-sources">${sources}</div></div></article>`;
   }).join('');
-  container.innerHTML = selectedIndex >= 0 ? `${storyNav(stories, selectedIndex)}${articles}${storyNav(stories, selectedIndex, 'bottom')}` : `${editionNav()}${articles}${editionNav('bottom')}`;
+  container.innerHTML = selectedIndex >= 0 ? `${storyNav(stories, selectedIndex)}${articles}${storyNav(stories, selectedIndex, 'bottom')}` : `${editionNav()}${renderEtfComparison()}${articles}${editionNav('bottom')}`;
 }
 
 function renderArchive() {
