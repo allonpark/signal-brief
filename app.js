@@ -115,6 +115,8 @@ function renderCards() {
   cardElements.forEach((card, index) => {
     const story = state.cards[index]; if (!story) { card.hidden = true; return; }
     card.hidden = false; card.dataset.category = story.category;
+    setCardText(card, '.visual-tag', `${story.category.toUpperCase()} / ${String(index + 1).padStart(2, '0')}`);
+    const badge = card.querySelector('.category'); if (badge) badge.className = `category ${story.category}`;
     setCardText(card, 'h3', local(story.title)); setCardText(card, 'p', local(story.summary));
     let lens = card.querySelector('.investment-lens');
     if (story.investment_lens) {
