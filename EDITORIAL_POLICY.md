@@ -14,3 +14,9 @@ Applies only to this repository and Signal Brief. Effective 2026-10-27.
 - Public output contains public-source technology, company and ETF analysis and general conditional scenarios only. Never include private holdings, amounts, P/L, account information, screenshots or personal execution plans in source, commits, issues or logs.
 - Preserve card navigation, story detail links, language switching and archives. Append dated editions without rewriting historical editions. Validate JSON, sources, illustrations and links before release, then verify the exact commit's GitHub Pages deployment.
 - This update does not create or change an automated publishing schedule.
+
+## Edition presentation
+
+- Each story needs a distinct content-specific illustration that conveys its mechanism or decision boundary. Label conceptual diagrams and distinguish reported data from scheduled events.
+- The top summary states that edition's actual findings in one or two concise sentences, followed by explicit judgments. Avoid generic slogans.
+- Group all stories from one edition in an in-page reading deck with an overview, contents, previous/next controls, keyboard navigation and an optional expanded view. Preserve original deep links and language switching.

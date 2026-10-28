@@ -1,0 +1,57 @@
+{
+  "2026-10-27": {
+    "summary": {
+      "ko": "TSMC의 첨단공정 수요는 실적으로 확인됐다. 메모리·전력·냉각은 10월 28일 예정 실적에서 수익성과 현금흐름을 검증할 단계다.",
+      "en": "TSMC earnings validate leading-edge demand. Memory, power and cooling await the October 28 earnings tests of profitability and cash flow."
+    },
+    "judgments": [
+      {
+        "ko": "TSMC: 산업 가설 유지 · 가격 검증 대기",
+        "en": "TSMC: thesis intact; await valuation"
+      },
+      {
+        "ko": "메모리: 실적 발표 전 판단 대기",
+        "en": "Memory: await earnings"
+      },
+      {
+        "ko": "전력·냉각: 수주 전환·FCF 확인 대기",
+        "en": "Power/cooling: await conversion and FCF"
+      }
+    ],
+    "stories": {
+      "tsmc-earnings-value-capture": {
+        "image_url": "assets/covers/2026-10-27-tsmc-wafer.svg",
+        "deck_topic": {
+          "ko": "TSMC",
+          "en": "TSMC"
+        },
+        "figure_caption": {
+          "ko": "웨이퍼 수요가 실적으로 이어져도, 투자 매력은 현재 가격과 별도 검증해야 한다.",
+          "en": "Wafer demand can reach earnings while investment value still depends on price."
+        }
+      },
+      "memory-earnings-proof-gate": {
+        "image_url": "assets/covers/2026-10-27-memory-stack.svg",
+        "deck_topic": {
+          "ko": "메모리",
+          "en": "Memory"
+        },
+        "figure_caption": {
+          "ko": "HBM·DRAM·NAND의 이익 경로를 나누고 CAPEX 이후 현금 회수를 확인한다.",
+          "en": "Separate HBM, DRAM and NAND earnings paths, then test cash generation after capex."
+        }
+      },
+      "power-cooling-cash-conversion": {
+        "image_url": "assets/covers/2026-10-27-power-cooling.svg",
+        "deck_topic": {
+          "ko": "전력·냉각",
+          "en": "Power/cooling"
+        },
+        "figure_caption": {
+          "ko": "발전·배전·냉각의 설치 지연과 원가가 수주에서 현금으로의 전환을 좌우한다.",
+          "en": "Installation delays and costs govern the conversion of infrastructure orders into cash."
+        }
+      }
+    }
+  }
+}

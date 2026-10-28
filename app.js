@@ -5,14 +5,15 @@ const state = {
   selectedDate: null,
   selectedStory: null,
   cards: [],
-  activeFilter: 'all'
+  activeFilter: 'all',
+  readerMode: 'deck'
 };
 
 const uiCopy = {
   ko: {
-    nav: ['오늘', '전체 리포트', '아카이브'], action: '전체 리포트 <span>↓</span>',
+    nav: ['오늘', '전체 리포트', '아카이브'], action: '이번 호 덱 읽기 <span>↓</span>',
     hero: '기술에서<br><em>투자 신호까지.</em>', intro: '핵심 기술의 작동 원리를 읽고, 공급망·원가·매출과 투자 지표까지 연결합니다.',
-    introMeta: 'Material signals · earnings · valuation', briefing: '오늘의 투자 판단 신호', reportTitle: '기술에서 투자까지, 오늘의 심층 리포트',
+    introMeta: 'Material signals · earnings · valuation', briefing: '오늘의 투자 판단 신호', reportTitle: '이번 호 브리핑 덱',
     reportIntro: '새 기술이 어떤 경제적 경로로 기업 실적에 전달되는지, 확인된 사실과 투자 가설을 분리해 읽습니다.',
     frameworkTitle: '기술 뉴스가 투자 신호가 되는 경로', frameworkCopy: '성능 발표에서 멈추지 않고 경제적 전달 경로와 반증 조건까지 확인합니다.',
     frameworkSteps: ['기술 변화', '경제적 메커니즘', '가치사슬', '투자 확인 지표'],
@@ -26,9 +27,9 @@ const uiCopy = {
     storyReport: '기사 심층 분석', allStories: '전체 기사 보기', previousStory: '이전 기사', nextStory: '다음 기사', firstStory: '첫 번째 기사입니다', lastStory: '마지막 기사입니다'
   },
   en: {
-    nav: ['Today', 'Full report', 'Archive'], action: 'Full report <span>↓</span>',
+    nav: ['Today', 'Full report', 'Archive'], action: 'Read edition deck <span>↓</span>',
     hero: 'From technology<br><em>to investment signal.</em>', intro: 'We connect how critical technologies work to supply chains, cost structures, revenue, and investable metrics.',
-    introMeta: 'Material signals · earnings · valuation', briefing: 'Investment signals', reportTitle: "Today's technology and investment report",
+    introMeta: 'Material signals · earnings · valuation', briefing: 'Investment signals', reportTitle: "This edition’s reading deck",
     reportIntro: 'Trace how a technical change reaches company economics while keeping verified facts separate from investment hypotheses.',
     frameworkTitle: 'How technology becomes an investment signal', frameworkCopy: 'We follow the transmission path and define what would disprove the thesis.',
     frameworkSteps: ['Technology change', 'Economic mechanism', 'Value chain', 'Investment checks'],
@@ -61,7 +62,7 @@ function setCardText(card, selector, value) { const el = card.querySelector(sele
 function isLatest() { return !state.index || state.selectedDate === state.index.date; }
 function editionUrl(storyId = null, hash = 'report') {
   const params = new URLSearchParams();
-  if (!isLatest()) params.set('date', state.selectedDate);
+  if (state.selectedDate) params.set('date', state.selectedDate);
   if (storyId) params.set('story', storyId);
   const query = params.toString();
   return `${query ? `?${query}` : './'}${hash ? `#${hash}` : ''}`;
@@ -91,7 +92,7 @@ function renderChrome() {
   setHtml('h1', isLatest() ? c.hero : (state.language === 'ko' ? '지나간<br><em>신호 다시 읽기.</em>' : 'Revisit a<br><em>past signal.</em>'));
   setText('.intro p', c.intro); setText('.intro span', c.introMeta);
   setText('.briefing-head h2', isLatest() ? c.briefing : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '브리핑' : 'briefing'}`);
-  setText('.report-title', state.selectedStory ? c.storyReport : isLatest() ? c.reportTitle : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '심층 리포트' : 'deep report'}`); setText('.report-intro', c.reportIntro);
+  setText('.report-title', state.selectedStory ? (state.language === 'ko' ? '이번 호 연속 읽기' : 'Read this edition') : isLatest() ? c.reportTitle : `${dateLabel(state.selectedDate)} ${state.language === 'ko' ? '심층 리포트' : 'deep report'}`); setText('.report-intro', state.language === 'ko' ? '요약부터 각 기사의 근거·판단까지, 한 덱에서 이어 읽습니다. 목차와 이전·다음 버튼으로 이동하세요.' : 'Read the summary, evidence and judgments in one deck. Move with the contents or Previous and Next.');
   setText('.thesis-row h2', c.frameworkTitle); setText('.thesis-copy', c.frameworkCopy);
   document.querySelectorAll('.thesis-step strong').forEach((el, i) => { el.textContent = c.frameworkSteps[i] || ''; });
   setText('.method-row h2', c.methodTitle); setText('.method-copy p', c.methodCopy); setText('.archive-row h2', c.archiveTitle);
@@ -102,7 +103,14 @@ function renderChrome() {
 function renderEditionHeader() {
   if (!state.edition) return; const c = uiCopy[state.language];
   setHtml('.eyebrow', `<span class="live-dot"></span> Daily intelligence · ${escapeHtml(dateLabel(state.edition.date))} · KST`);
-  setText('.signal-strip strong', isLatest() ? local(state.edition.editorial_note || state.index?.signal) : local(state.edition.editorial_note) || (state.language === 'ko' ? '과거 시점의 신호를 당시 공개된 근거와 함께 다시 읽습니다.' : 'Revisit the signal using the evidence available at that point in time.'));
+  setText('.strip-label', state.language === 'ko' ? '이번 호 핵심 · 판단' : 'EDITION SUMMARY · STANCE');
+  setText('.signal-strip strong', local(state.edition.summary || state.edition.editorial_note));
+  let judgments = document.querySelector('.edition-judgments');
+  if (!judgments) { judgments = document.createElement('div'); judgments.className = 'edition-judgments'; document.querySelector('.signal-strip strong').after(judgments); }
+  judgments.innerHTML = (state.edition.judgments || []).map(x => `<span>${escapeHtml(local(x))}</span>`).join('');
+  let start = document.querySelector('.start-edition-deck');
+  if (!start) { start = document.createElement('button'); start.className = 'start-edition-deck'; start.type = 'button'; start.addEventListener('click', () => openDeckSlide(0)); judgments.after(start); }
+  start.textContent = state.language === 'ko' ? '이번 호를 덱으로 이어 읽기 →' : 'Read this edition as a deck →';
   const meta = document.querySelectorAll('.strip-meta > span:not(.weather-dot)');
   if (meta[0]) meta[0].textContent = `${c.updated} ${state.edition.updated || state.index?.updated || ''}`;
   if (meta[1]) meta[1].textContent = `${state.cards.reduce((n,s) => n + (s.read_minutes || 0), 0)} ${c.read}`;
@@ -131,7 +139,7 @@ function renderCards() {
     card.dataset.storyId = id; card.dataset.detailUrl = detailUrl; card.tabIndex = 0; card.setAttribute('role', 'link');
     card.setAttribute('aria-label', `${local(story.title)} — ${c.readReport.replace(' ↓', '')}`);
     card.classList.toggle('selected', state.selectedStory === id);
-    link.href = detailUrl; link.textContent = c.readReport;
+    link.href = detailUrl; link.textContent = state.language === 'ko' ? '덱에서 읽기 →' : 'Read in deck →';
     const visual = card.querySelector('.visual'); let image = visual.querySelector('.story-image');
     if (story.image_url) {
       if (!image) { image = document.createElement('img'); image.className = 'story-image'; visual.appendChild(image); }
@@ -171,15 +179,22 @@ function renderReport() {
   if (!stories.length) { container.innerHTML = `${editionNav()}<div class="report-empty-wrap"><p class="report-empty">${escapeHtml(c.empty)}</p><a href="./">${c.latestReport} →</a></div>${editionNav('bottom')}`; return; }
   const selectedIndex = state.selectedStory ? stories.findIndex(story => story.id === state.selectedStory) : -1;
   if (state.selectedStory && selectedIndex < 0) state.selectedStory = null;
-  const visibleStories = selectedIndex >= 0 ? [{story: stories[selectedIndex], index:selectedIndex}] : stories.map((story, index) => ({story, index}));
+  const visibleStories = state.readerMode === 'all' ? stories.map((story, index) => ({story, index})) : selectedIndex >= 0 ? [{story: stories[selectedIndex], index:selectedIndex}] : [];
   const articles = visibleStories.map(({story, index}) => {
     const id = story.id || `story-${index + 1}`;
     const sources = (story.sources?.length ? story.sources : story.source_url ? [{name:c.source,url:story.source_url}] : []).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)} ↗</a>`).join('');
-    const image = story.image_url ? `<img src="${escapeHtml(story.image_url)}" alt="" loading="lazy">` : '';
+    const image = story.image_url ? `<figure class="article-figure"><img src="${escapeHtml(story.image_url)}" alt="${escapeHtml(local(story.figure_caption || story.title))}" loading="eager">${story.figure_caption ? `<figcaption>${escapeHtml(local(story.figure_caption))}</figcaption>` : ''}</figure>` : '';
     const investmentLead = story.investment_lens ? `<aside class="investment-lead"><div><span>${escapeHtml(c.investmentLens)}</span><strong>${escapeHtml(local(story.investment_lens))}</strong></div>${story.time_horizon ? `<p><b>${escapeHtml(c.horizon)}</b>${escapeHtml(local(story.time_horizon))}</p>` : ''}</aside>` : '';
     return `<article class="report-article" id="report-${escapeHtml(id)}"><div class="report-number"><span>${String(index + 1).padStart(2,'0')}</span><b>${escapeHtml(categoryNames[story.category]?.[state.language] || story.category)}</b></div><div class="report-body"><div class="report-article-head"><div><p class="report-date">${escapeHtml(story.source_date || state.edition.date)}</p><h3>${escapeHtml(local(story.title))}</h3></div>${image}</div>${investmentLead}<div class="analysis-grid">${detailBlock(c.sections.summary, story.summary)}${detailBlock(c.sections.mechanism, story.mechanism)}${detailBlock(c.sections.changed, story.what_changed)}${detailBlock(c.sections.valueChain, story.value_chain)}${detailBlock(c.sections.investment, story.investment_view)}${detailBlock(c.sections.watch, story.watch_metrics)}${detailBlock(c.sections.impact, story.practical_impact || story.impact)}${detailBlock(c.sections.risks, story.risk_factors)}${detailBlock(c.sections.evidence, story.evidence)}${detailBlock(c.sections.inference, story.inference)}</div>${story.equation ? `<div class="equation"><span>MODEL</span><code>${escapeHtml(story.equation)}</code></div>` : ''}<div class="report-sources">${sources}</div></div></article>`;
   }).join('');
-  container.innerHTML = selectedIndex >= 0 ? `${storyNav(stories, selectedIndex)}${articles}${storyNav(stories, selectedIndex, 'bottom')}` : `${editionNav()}${renderEtfComparison()}${articles}${editionNav('bottom')}`;
+  const slide = selectedIndex + 1;
+  const ko = state.language === 'ko';
+  const overview = `<section class="deck-overview"><p class="deck-kicker">${escapeHtml(dateLabel(state.selectedDate))} · ${stories.length} ${ko ? '개 기사로 읽는 한 호' : 'stories, one edition'}</p><h3>${ko ? '이번 호의 결론부터' : 'Start with the conclusion'}</h3><p class="deck-summary">${escapeHtml(local(state.edition.summary || state.edition.editorial_note))}</p><ul>${(state.edition.judgments || stories.map(x => x.investment_lens || x.summary)).map(x => `<li>${escapeHtml(local(x))}</li>`).join('')}</ul><p class="deck-guide">${ko ? '다음 버튼으로 같은 호의 기사를 이어 읽으세요. 키보드 ← →도 지원합니다.' : 'Continue through this edition with Next, or use the ← → keys.'}</p>${state.edition.etf_comparison ? `<details class="deck-etfs"><summary>${ko ? 'ETF 비교표와 자료 기준 보기' : 'ETF comparison and data dates'}</summary>${renderEtfComparison()}</details>` : ''}</section>`;
+  const topic = i => i === 0 ? (ko ? '이번 호 요약' : 'Edition summary') : local(stories[i-1].deck_topic || stories[i-1].title);
+  const controls = position => `<div class="deck-controls ${position}"><button type="button" data-deck-step="-1" ${slide === 0 ? 'disabled' : ''}>← ${ko ? '이전' : 'Previous'}</button><span class="deck-position" aria-live="polite">${slide + 1} / ${stories.length + 1}</span><button type="button" data-deck-step="1" ${slide === stories.length ? 'disabled' : ''}>${ko ? '다음' : 'Next'} →</button></div>`;
+  const tabs = `<div class="deck-tabs" role="group" aria-label="${ko ? '덱 목차' : 'Deck contents'}">${[0,...stories.map((_,i)=>i+1)].map(i=>`<button type="button" data-deck-slide="${i}" aria-current="${slide===i ? 'step' : 'false'}">${i === 0 ? '◉' : String(i).padStart(2,'0')} <span>${escapeHtml(topic(i))}</span></button>`).join('')}</div>`;
+  const toolbar = `<header class="deck-toolbar" id="deck-top"><div class="deck-title"><span>EDITION DECK</span><strong>${escapeHtml(dateLabel(state.selectedDate))}</strong><button type="button" data-reader-mode="${state.readerMode === 'all' ? 'deck' : 'all'}">${state.readerMode === 'all' ? (ko ? '덱으로 읽기' : 'Read as deck') : (ko ? '전체 펼쳐 보기' : 'Expand all')}</button></div>${state.readerMode === 'deck' ? tabs + controls('top') : ''}</header>`;
+  container.innerHTML = `${editionNav()}<section class="edition-deck" aria-label="${ko ? '이번 호 읽기 덱' : 'Edition reading deck'}" tabindex="0">${toolbar}<div class="deck-slide" data-slide="${slide}">${state.readerMode === 'all' ? overview + articles : slide === 0 ? overview : articles}</div>${state.readerMode === 'deck' ? controls('bottom') : ''}</section>${editionNav('bottom')}`;
 }
 
 function renderArchive() {
@@ -200,6 +215,12 @@ async function loadSite() {
     state.index = await fetchJson('data/index.json'); const params = new URLSearchParams(location.search); const requested = params.get('date'); state.selectedDate = requested || state.index.date; state.selectedStory = params.get('story');
     try { state.edition = await fetchJson(`data/briefings/${state.selectedDate}.json`); }
     catch (editionError) { console.warn(editionError); state.edition = {date:state.selectedDate, stories:[]}; }
+    if (state.index.presentation_url) {
+      try {
+        const presentations = await fetchJson(state.index.presentation_url); const presentation = presentations[state.selectedDate];
+        if (presentation) { state.edition = {...state.edition, summary:presentation.summary, judgments:presentation.judgments, stories:(state.edition.stories || []).map(story => ({...story, ...presentation.stories?.[story.id]}))}; }
+      } catch (error) { console.warn('Edition presentation unavailable', error); }
+    }
     state.cards = state.edition.stories?.length ? state.edition.stories : state.selectedDate === state.index.date ? state.index.stories : [];
     renderAll();
   } catch (error) { console.warn(error); state.selectedDate = new URLSearchParams(location.search).get('date'); document.querySelector('#report-content').innerHTML = `<div class="report-empty-wrap"><p class="report-empty">${escapeHtml(uiCopy[state.language].error)}</p><a href="./">${uiCopy[state.language].latestReport} →</a></div>`; }
@@ -207,8 +228,38 @@ async function loadSite() {
 
 filters.forEach(button => button.addEventListener('click', () => { state.activeFilter = button.dataset.filter; filters.forEach(item => item.classList.toggle('active', item === button)); applyFilter(); }));
 languageButtons.forEach(button => button.addEventListener('click', () => { state.language = button.dataset.language; localStorage.setItem('signal-brief-language', state.language); renderAll(); }));
+function openDeckSlide(slide, updateHistory = true, scroll = true) {
+  const stories = state.edition?.stories || [];
+  if (!stories.length) return;
+  slide = Math.max(0, Math.min(stories.length, slide));
+  state.selectedStory = slide ? stories[slide - 1].id : null;
+  state.readerMode = 'deck';
+  renderAll();
+  if (updateHistory) history.pushState({}, '', editionUrl(state.selectedStory));
+  if (scroll) document.querySelector('#deck-top')?.scrollIntoView({behavior:'instant', block:'start'});
+  document.querySelector('.edition-deck')?.focus({preventScroll:true});
+}
 cardElements.forEach(card => {
-  card.addEventListener('click', event => { if (!event.target.closest('a,button') && card.dataset.detailUrl) location.assign(card.dataset.detailUrl); });
-  card.addEventListener('keydown', event => { if ((event.key === 'Enter' || event.key === ' ') && card.dataset.detailUrl) { event.preventDefault(); location.assign(card.dataset.detailUrl); } });
+  card.addEventListener('click', event => {
+    if (event.target.closest('button') || (event.target.closest('a') && !event.target.closest('.story-foot a')) || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const index = state.cards.findIndex(x => x.id === card.dataset.storyId);
+    if (index >= 0) { event.preventDefault(); openDeckSlide(index + 1); }
+  });
+  card.addEventListener('keydown', event => { if ((event.key === 'Enter' || event.key === ' ') && event.target === card) { event.preventDefault(); openDeckSlide(state.cards.findIndex(x => x.id === card.dataset.storyId) + 1); } });
+});
+document.querySelector('#report-content').addEventListener('click', event => {
+  const button = event.target.closest('button'); if (!button) return;
+  if (button.dataset.deckSlide !== undefined) openDeckSlide(Number(button.dataset.deckSlide));
+  else if (button.dataset.deckStep) openDeckSlide((state.selectedStory ? state.cards.findIndex(x=>x.id===state.selectedStory)+1 : 0) + Number(button.dataset.deckStep));
+  else if (button.dataset.readerMode) { state.readerMode = button.dataset.readerMode; renderReport(); document.querySelector('#deck-top')?.scrollIntoView({block:'start'}); }
+});
+document.querySelector('#report-content').addEventListener('keydown', event => {
+  if (state.readerMode !== 'deck' || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || !['ArrowLeft','ArrowRight'].includes(event.key) || event.target.closest('input,textarea,select,.etf-scroll') || window.getSelection()?.toString()) return;
+  event.preventDefault(); openDeckSlide((state.selectedStory ? state.cards.findIndex(x=>x.id===state.selectedStory)+1 : 0) + (event.key === 'ArrowRight' ? 1 : -1));
+});
+window.addEventListener('popstate', () => {
+  const params = new URLSearchParams(location.search);
+  if ((params.get('date') || state.index?.date) !== state.selectedDate) { loadSite(); return; }
+  state.selectedStory = params.get('story'); state.readerMode = 'deck'; renderAll();
 });
 renderChrome(); loadSite();
