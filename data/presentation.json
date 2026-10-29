@@ -53,5 +53,60 @@
         }
       }
     }
+  },
+  "2026-10-29": {
+    "summary": {
+      "ko": "메모리·전력·냉각 수요가 실적과 현금으로 이어졌다는 근거가 강화됐다. 판단은 ‘발표 대기’에서 ‘사업 가설 강화’로 바꾸되, 일회성 환원·인수 부담·현재 가격은 분리해 검증한다.",
+      "en": "Earnings and cash flow strengthen the memory, power and cooling case. Move from awaiting results to stronger operating theses, while separately testing special returns, acquisition risk and entry valuation."
+    },
+    "judgments": [
+      {
+        "ko": "메모리: 실적 근거 강화 · 특별배당과 정상 이익 분리",
+        "en": "Memory: stronger earnings; separate special returns"
+      },
+      {
+        "ko": "냉각: 현금 전환 확인 · 조정지표와 가격 재검증",
+        "en": "Cooling: cash conversion confirmed; check adjustments and price"
+      },
+      {
+        "ko": "전력망: 수요 근거 강화 · 인수 후 자본수익률 검증",
+        "en": "Grid: stronger demand; test post-deal capital returns"
+      }
+    ],
+    "stories": {
+      "skhynix-q3-operating-profit-versus-special-return": {
+        "image_url": "assets/covers/2026-10-29-memory-earnings.svg",
+        "deck_topic": {
+          "ko": "메모리 실적",
+          "en": "Memory earnings"
+        },
+        "figure_caption": {
+          "ko": "HBM·서버 DRAM·eSSD의 본업 이익과 투자자산 처분에 따른 특별환원은 다른 경로다.",
+          "en": "HBM, server DRAM and eSSD operating earnings follow a different path from special investment-related distributions."
+        }
+      },
+      "vertiv-q3-cooling-orders-to-cash": {
+        "image_url": "assets/covers/2026-10-29-vertiv-cash.svg",
+        "deck_topic": {
+          "ko": "냉각·현금흐름",
+          "en": "Cooling and cash"
+        },
+        "figure_caption": {
+          "ko": "서버의 열을 제거하는 공급 역량이 늘어도, 매출 증가가 실제 현금흐름으로 이어지는지 따로 확인해야 한다.",
+          "en": "Cooling capacity can expand while revenue growth still requires a separate cash-conversion test."
+        }
+      },
+      "gevernova-grid-orders-trench-capital-allocation": {
+        "image_url": "assets/covers/2026-10-29-grid-trench.svg",
+        "deck_topic": {
+          "ko": "전력망·인수",
+          "en": "Grid and acquisition"
+        },
+        "figure_caption": {
+          "ko": "터빈·전력망 수요와 고전압 절연 부품의 인수는 연결되지만, 계약 규모와 투자수익률은 같은 지표가 아니다.",
+          "en": "Power demand and high-voltage component acquisition connect strategically, but contract scale and investment return are different metrics."
+        }
+      }
+    }
   }
 }
