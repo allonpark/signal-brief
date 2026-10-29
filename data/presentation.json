@@ -108,5 +108,45 @@
         }
       }
     }
+  },
+  "2026-10-30": {
+    "summary": {
+      "ko": "메모리 공급자의 이익은 커졌지만 구매자의 원가와 투자 후 현금 부담도 커졌다. 삼성전자·AWS의 사업 근거는 강화됐으나, 현재 가격 검증 전에는 ETF 추가 매수 판단을 대기한다.",
+      "en": "Memory supplier earnings improve while buyer costs and post-investment cash burdens rise. Samsung and AWS strengthen the operating case, but ETF entry awaits current valuation."
+    },
+    "judgments": [
+      {
+        "ko": "삼성전자: 실적 근거 강화 · 정상 이익·가격 검증 대기",
+        "en": "Samsung: stronger evidence; await normalized earnings and price"
+      },
+      {
+        "ko": "AWS: 수요 확인 · 연결 현금 회수 검증 대기",
+        "en": "AWS: demand validated; await group cash recovery"
+      }
+    ],
+    "stories": {
+      "samsung-q3-memory-profit-customer-cost": {
+        "image_url": "assets/covers/2026-10-30-memory-cost.svg",
+        "deck_topic": {
+          "ko": "메모리·원가",
+          "en": "Memory and costs"
+        },
+        "figure_caption": {
+          "ko": "개념도·비축척. 적층 메모리 공급자와 완제품 구매자의 손익 경로를 분리했다. 화살표는 분석 경로이며 계약·공급관계나 이익 크기를 뜻하지 않는다.",
+          "en": "Conceptual, not to scale. Separate supplier earnings from device-buyer costs. Arrows denote analysis, not verified supply contracts or profit magnitude."
+        }
+      },
+      "amazon-q3-aws-growth-versus-cash-gap": {
+        "image_url": "assets/covers/2026-10-30-aws-cash.svg",
+        "deck_topic": {
+          "ko": "AWS·현금 격차",
+          "en": "AWS and cash gap"
+        },
+        "figure_caption": {
+          "ko": "현금흐름 도식·비축척. AWS는 분기 사업부 지표, CFO와 FCF는 연결 최근 12개월 지표다. 차감액은 공시 반올림 수치로 계산했으며 AWS 단독 투자액이 아니다.",
+          "en": "Cash bridge, not to scale. AWS figures are quarterly segment metrics; CFO and FCF are consolidated TTM. The derived deduction uses rounded disclosures and is not AWS-only capex."
+        }
+      }
+    }
   }
 }
