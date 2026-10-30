@@ -236,7 +236,7 @@ function openDeckSlide(slide, updateHistory = true, scroll = true) {
   state.readerMode = 'deck';
   renderAll();
   if (updateHistory) history.pushState({}, '', editionUrl(state.selectedStory));
-  if (scroll) document.querySelector('#deck-top')?.scrollIntoView({behavior:'instant', block:'start'});
+  if (scroll) document.querySelector('.edition-deck')?.scrollIntoView({behavior:'instant', block:'start'});
   document.querySelector('.edition-deck')?.focus({preventScroll:true});
 }
 cardElements.forEach(card => {
@@ -251,7 +251,7 @@ document.querySelector('#report-content').addEventListener('click', event => {
   const button = event.target.closest('button'); if (!button) return;
   if (button.dataset.deckSlide !== undefined) openDeckSlide(Number(button.dataset.deckSlide));
   else if (button.dataset.deckStep) openDeckSlide((state.selectedStory ? state.cards.findIndex(x=>x.id===state.selectedStory)+1 : 0) + Number(button.dataset.deckStep));
-  else if (button.dataset.readerMode) { state.readerMode = button.dataset.readerMode; renderReport(); document.querySelector('#deck-top')?.scrollIntoView({block:'start'}); }
+  else if (button.dataset.readerMode) { state.readerMode = button.dataset.readerMode; renderReport(); document.querySelector('.edition-deck')?.scrollIntoView({block:'start'}); }
 });
 document.querySelector('#report-content').addEventListener('keydown', event => {
   if (state.readerMode !== 'deck' || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || !['ArrowLeft','ArrowRight'].includes(event.key) || event.target.closest('input,textarea,select,.etf-scroll') || window.getSelection()?.toString()) return;
