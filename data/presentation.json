@@ -148,5 +148,45 @@
         }
       }
     }
+  },
+  "2026-10-31": {
+    "summary": {
+      "ko": "Microsoft는 현금 설비투자 후 FCF가 양수이고, Alphabet은 분기 적자·TTM 양수가 공존한다. AI 투자 판단은 CAPEX의 리스 범위, Cloud 매출 구성, 현금흐름 기간을 맞춘 뒤 가격을 검증해야 한다.",
+      "en": "Microsoft retains positive cash FCF while Alphabet has negative quarterly but positive TTM FCF. AI investment judgment requires aligned capex/lease scope, Cloud revenue mix and cash-flow periods before valuation."
+    },
+    "judgments": [
+      {
+        "ko": "Microsoft: 현금 전환 근거 강화 · 리스 포함 부담·가격 검증 대기",
+        "en": "Microsoft: stronger cash evidence; await lease burden and valuation"
+      },
+      {
+        "ko": "Alphabet: 채택 근거 강화 · TPU 판매 구성·최근 현금 격차 점검",
+        "en": "Alphabet: stronger adoption evidence; test TPU mix and recent cash gap"
+      }
+    ],
+    "stories": {
+      "microsoft-q1-cash-capex-versus-lease": {
+        "image_url": "assets/covers/2026-10-31-msft-cash-lease.svg",
+        "deck_topic": {
+          "ko": "Microsoft·현금·리스",
+          "en": "Microsoft cash and leases"
+        },
+        "figure_caption": {
+          "ko": "보고 수치와 분석자 계산을 구분한 현금흐름 도식·비축척. 현금 CAPEX와 리스 포함 CAPEX는 인식 시점과 범위가 달라 단순 합산하지 않는다.",
+          "en": "Not-to-scale cash bridge distinguishing disclosures from calculation. Cash capex and lease-inclusive capex differ in timing and scope; do not simply add them."
+        }
+      },
+      "alphabet-cloud-tpu-quarter-versus-ttm": {
+        "image_url": "assets/covers/2026-10-31-alphabet-mix-period.svg",
+        "deck_topic": {
+          "ko": "Alphabet·구성·기간",
+          "en": "Alphabet mix and periods"
+        },
+        "figure_caption": {
+          "ko": "개념도·비축척. Cloud 서비스와 TPU 제품 판매의 두 경로를 표시했다. 각각의 매출 비중은 미공개로 그림 면적에 의미가 없다. FCF는 연결 분기·TTM을 구분했다.",
+          "en": "Conceptual and not to scale. Cloud services and TPU product sales follow separate paths; their revenue proportions are not established. Group quarterly and TTM FCF are distinguished."
+        }
+      }
+    }
   }
 }
