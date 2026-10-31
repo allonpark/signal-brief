@@ -188,5 +188,45 @@
         }
       }
     }
+  },
+  "2026-11-01": {
+    "summary": {
+      "ko": "Sandisk는 데이터센터 매출 증가와 조정 FCF 개선을 확인했지만 일반 FCF는 감소했다. Allegro의 800V 전력·48V 냉각 제품은 9월 종료 분기 이후 발표돼, 기존 실적과 신규 제품의 매출 기여를 분리해 검증해야 한다.",
+      "en": "Sandisk's datacenter sales and adjusted FCF rose while headline FCF fell. Allegro's 800V power and 48V cooling announcement followed its September quarter; existing earnings do not establish revenue from the new products."
+    },
+    "judgments": [
+      {
+        "ko": "Sandisk: 수요·현금 근거 강화 · 정상화 현금과 가격 검증 전 대기",
+        "en": "Sandisk: stronger demand/cash evidence; await normalized cash and valuation"
+      },
+      {
+        "ko": "Allegro: 기술·채택 관찰 · 신규 제품 출하·매출 확인 전 투자 후보 격상 보류",
+        "en": "Allegro: monitor technology/adoption; require new-product shipments and revenue"
+      }
+    ],
+    "stories": {
+      "sandisk-datacenter-adjusted-cash": {
+        "image_url": "assets/covers/2026-11-01-sandisk-cash.svg",
+        "deck_topic": {
+          "ko": "NAND·선수금·현금",
+          "en": "NAND, prepayments and cash"
+        },
+        "figure_caption": {
+          "ko": "실제 공시값의 막대그래프(십억달러). 일반·조정 FCF 모두 비GAAP 지표이며 동일 회사의 두 분기를 비교했다. 조정 항목의 변화가 방향 차이를 만든다. 주가 추세나 미래 전망 그래프가 아니다.",
+          "en": "Reported cash measures, $B, comparing two quarters of the same company. Both FCF definitions are non-GAAP. Reconciliation changes explain the divergence; bars are neither stock prices nor forecasts."
+        }
+      },
+      "allegro-800v-48v-revenue-boundary": {
+        "image_url": "assets/covers/2026-11-01-allegro-power-cooling.svg",
+        "deck_topic": {
+          "ko": "800V 전력·48V 냉각",
+          "en": "800V power and 48V cooling"
+        },
+        "figure_caption": {
+          "ko": "개념도·비축척. 전력 분배와 냉각 제어의 기능적 위치를 설명하며 특정 고객의 실제 배선도는 아니다. 회로 구현·전력 비중·효율 수치를 가정하지 않았다. 아래 단계는 분석자가 요구하는 매출 검증 경로다.",
+          "en": "Conceptual, not to scale or an actual customer schematic. Functional power/cooling positions imply no circuit implementation, power shares or efficiency measurements. Lower gates are the analyst's revenue-validation framework."
+        }
+      }
+    }
   }
 }
